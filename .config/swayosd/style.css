@@ -9,7 +9,7 @@ window {
 }
 
 image, label {
-    color: #F52727;
+    color: #22aaaa;
 }
 
 progressbar:disabled,
@@ -27,11 +27,11 @@ trough {
     min-height: inherit;
     border-radius: inherit;
     border: none;
-    background: alpha(#F52727, 0.5);
+    background: alpha(#22aaaa, 0.5);
 }
 progress {
     min-height: inherit;
     border-radius: inherit;
     border: none;
-    background: #F52727;
+    background: #22aaaa;
 }
