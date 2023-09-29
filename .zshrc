@@ -18,7 +18,7 @@ export OPENCV_LOG_LEVEL=ERROR
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
 
-export PATH=$PATH:/home/david/.local/bin
+export PATH=$PATH:/home/david/.local/bin:$(go env GOPATH)/bin
 export QT_QPA_PLATFORMTHEME=qt5ct
 export ZSH_COLORIZE_STYLE="vim"
 export GTK_THEME=Catppuccin-Mocha-Standard-Blue-dark
@@ -32,7 +32,7 @@ eval "$(starship init zsh)"
 
 alias bunx="bun x"
 alias ls="ls --color"
-alias cat="ccat"
+
 alias icat="kitten icat"
 alias diff="kitten diff"
 alias ssh="kitten ssh"
