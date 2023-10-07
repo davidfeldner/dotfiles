@@ -21,7 +21,7 @@ bindkey "\e[1;5D" backward-word
 export PATH=$PATH:/home/david/.local/bin:$(go env GOPATH)/bin
 export QT_QPA_PLATFORMTHEME=qt5ct
 export ZSH_COLORIZE_STYLE="vim"
-export GTK_THEME=Catppuccin-Mocha-Standard-Blue-dark
+export GTK_THEME=Catppuccin-Mocha-Standard-Blue-Dark
 export QT_STYLE_OVERRIDE=Catppuccin-Mocha-Standard-Blue-dark
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 source ~/.config/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -30,10 +30,10 @@ source ~/.config/zsh-plugins/LS_COLORS.sh
 source ~/.config/zsh-plugins/colorize.plugin.zsh
 eval "$(starship init zsh)"
 
-alias bunx="bun x"
 alias ls="ls --color"
 
 alias icat="kitten icat"
 alias diff="kitten diff"
 alias ssh="kitten ssh"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias protoc='protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative'
