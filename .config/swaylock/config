@@ -1,0 +1,75 @@
+############## COLORS ###########
+
+#Main color, of segments when typing
+key-hl-color=22AAAA
+
+# backspace highligt color aka segement color when using backspace
+bs-hl-color=22AAAA44
+
+# Caps-lock highlight color, aka segment color when using capslock
+#caps-lock-key-hl-color=ffd204FF
+#caps-lock-bs-hl-color=ee2e24FF
+text-caps-lock-color=00000000
+
+# Color of separator between highlight segments
+separator-color=00000000
+
+# Inside of circle with text for date and time
+inside-color=00000099
+inside-clear-color=00000099
+inside-caps-lock-color=00000099
+inside-ver-color=00000099
+inside-wrong-color=00000099
+
+# Ring around inside, where segments show ontop of
+ring-color=231f20D9
+ring-clear-color=231f20D9
+ring-caps-lock-color=231f20D9
+ring-ver-color=231f20D9
+ring-wrong-color=231f20D9
+
+# Line between circle and ring that shows when typing
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=ee2e2400
+
+# Text in circle, with date and time
+text-color=22AAAA
+text-clear-color=22AAAA
+text-ver-color=22AAAA
+text-wrong-color=22AAAA
+
+################## Settings ##################
+
+# layout
+layout-bg-color=00000000
+layout-text-color=aaaaaa66
+
+# size
+indicator-radius=200
+indicator-thickness=20
+
+# Flags
+indicator
+indicator-caps-lock
+daemonize
+ignore-empty-password
+#show-failed-attempts
+show-keyboard-layout
+indicator-idle-visible
+grace=3
+grace-no-mouse
+grace-no-touch
+#datestr="%d.%m"
+fade-in="0.1"
+screenshot
+font="Inter"
+effect-blur=7x5
+disable-caps-lock-text
+
+clock
+timestr=%R
+datestr=%a%e of %B
+
