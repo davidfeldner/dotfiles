@@ -59,7 +59,7 @@ ignore-empty-password
 #show-failed-attempts
 show-keyboard-layout
 indicator-idle-visible
-grace=3
+grace=0
 grace-no-mouse
 grace-no-touch
 #datestr="%d.%m"
