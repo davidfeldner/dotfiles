@@ -71,5 +71,5 @@ disable-caps-lock-text
 
 clock
 timestr=%R
-datestr=%a%e of %B
+datestr=%a %e of %B
 
