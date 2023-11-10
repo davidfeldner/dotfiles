@@ -37,3 +37,8 @@ alias diff="kitten diff"
 alias ssh="kitten ssh"
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias protoc='protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative'
+alias hx="helix"
+alias nvim="helix"
+alias vim="helix"
+alias headphones="rfkill unblock all;bluetoothctl connect 70:5A:6F:60:71:E7"
+alias gcc32='gcc -no-pie -m32 -fno-stack-protector -z execstack'
