@@ -1,0 +1,24 @@
+[[language]]
+name = "markdown"
+formatter = { command = "dprint", args = ["fmt", "--stdin", "md"]}
+auto-format = true
+
+#[[language]]
+#name = "python"
+#language-servers = [{ command = "pyright-langserver", args = ["--stdio"] }]
+#formatter = { command = "black", args = ["--line-length", "160", "--quiet", "-"] }
+#auto-format = false
+
+
+#[[language]]
+#name = "python"
+
+#[language.config.pylsp.plugins]
+#flake8 = {enabled = false}
+#autopep8 = {enabled = false}
+#mccabe = {enabled = false}
+#pycodestyle = {enabled = false}
+#pyflakes = {enabled = false}
+#pylint = {enabled = false}
+#yapf = {enabled = false}
+#ruff = { enabled = true, ignore = ["F401"], lineLength = 120 }
