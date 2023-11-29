@@ -40,5 +40,5 @@ alias protoc='protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. -
 alias hx="helix"
 alias nvim="helix"
 alias vim="helix"
-alias headphones="rfkill unblock all;bluetoothctl connect 70:5A:6F:60:71:E7"
+alias headphones="rfkill unblock all;sleep 3;bluetoothctl connect 70:5A:6F:60:71:E7"
 alias gcc32='gcc -no-pie -m32 -fno-stack-protector -z execstack'
