@@ -8,6 +8,8 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/david/.zshrc'
 
+setopt autocd
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
@@ -42,3 +44,12 @@ alias nvim="helix"
 alias vim="helix"
 alias headphones="rfkill unblock all;sleep 3;bluetoothctl connect 70:5A:6F:60:71:E7"
 alias gcc32='gcc -no-pie -m32 -fno-stack-protector -z execstack'
+alias intellij="intellij-idea-ultimate-edition"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+
+eval "$(zoxide init --cmd cd zsh)"
