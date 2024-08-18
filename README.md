@@ -1,2 +1,2 @@
-# dotfiles
-My hyprland Arch dotfiles
+# Nixos config
+My Nixos hyprland config
