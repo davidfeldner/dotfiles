@@ -1,2 +1,0 @@
-set term=kitty
-
