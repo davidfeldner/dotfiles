@@ -37,4 +37,29 @@
       ];
     };
   };
+  nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        # NUR setup and overlay
+        nur.nixosModules.nur
+        { nixpkgs.overlays = [ nur.overlay ]; }
+        
+        ./hosts/desktop/hardware-configuration.nix 
+        {
+            networking.hostName = "desktop";
+        }
+
+        # Main Config
+        ./configuration.nix
+        ./hacking.nix
+        # Home Manager
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.david = import ./home.nix;
+        }
+      ];
+    };
+  };
 }
