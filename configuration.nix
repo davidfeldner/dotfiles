@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
+  imports = [ ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -41,7 +39,7 @@
   #    networkConfig.Bridge = "microvm";
   #  };
   #}; 
- networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
   networking.firewall.enable = false;
   #networking.firewall.allowedUDPPorts = [ 67 ];
@@ -56,9 +54,6 @@
   #   externalInterface = "wlp2s0";
   #   internalInterfaces = [ "microvm" ];
   # };
-
-  
-
 
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
@@ -86,14 +81,13 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-
   users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.david = {
     isNormalUser = true;
     description = "david";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "KVM" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "KVM" "docker" ];
     #packages = with pkgs; [];
   };
 
@@ -131,16 +125,22 @@
     pavucontrol
     p7zip
     xdg-utils
-    dunst
     sway-audio-idle-inhibit
     protonvpn-gui
     gcc
+    nextcloud-client
+    nodejs
+    cargo
+    rustc
+    nixfmt-rfc-style
   ];
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
-  #nixpkgs.config.packageOverrides = with pkgs; {
-  #  freetube = pkgs.callPackage ./overrides/freetube.nix { };
-  #};
+  nixpkgs.config.packageOverrides = with pkgs; {
+    freetube = pkgs.callPackage ./overrides/freetube.nix { };
+  };
 
+  # Mounts /bin with binaries if calling process has it in $PATH, to fx shell scripts work
+  services.envfs.enable = true;
 
   virtualisation.docker.enable = true;
 
@@ -151,12 +151,10 @@
 
   programs.nix-ld.enable = true;
 
-  programs.nix-ld.libraries = with pkgs; [
-    glibc
-  ];
+  programs.nix-ld.libraries = with pkgs; [ glibc ];
 
   services.hypridle.enable = true;
-  
+
   programs.starship.enable = true;
   programs.zsh = {
     enable = true;
@@ -169,7 +167,7 @@
   programs.virt-manager.enable = true;
 
   security.rtkit.enable = true;
-  
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -184,7 +182,7 @@
     noto-fonts-emoji
     (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
   ];
-  
-  system.stateVersion = "24.05"; 
+
+  system.stateVersion = "24.05";
 
 }

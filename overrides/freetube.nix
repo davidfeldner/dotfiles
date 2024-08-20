@@ -1,21 +1,29 @@
 {
   stdenv,
   lib,
-  fetchurl,
   appimageTools,
   makeWrapper,
   electron,
   nixosTests,
+  breakpointHook,
 }:
+let
+  fs = lib.fileset;
+  sourceFiles = ./FreeTube-0.21.3.AppImage;
+in
+
+fs.trace sourceFiles
 
 stdenv.mkDerivation rec {
   pname = "freetube";
   version = "0.21.3";
 
-  src = fetchurl {
-    url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${version}-beta/freetube_${version}_amd64.AppImage";
-    hash = "sha256-sg/ycFo4roOJ2sW4naRCE6dwGXVQFzF8uwAZQkS2EY4=";
-  };
+  # src = fetchurl {
+  #   url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${version}-beta/freetube_${version}_amd64.AppImage";
+  #   hash = "sha256-sg/ycFo4roOJ2sW4naRCE6dwGXVQFzF8uwAZQkS2EY4=";
+  # };
+  
+  src = ./FreeTube-0.21.3.AppImage;
 
   passthru.tests = nixosTests.freetube;
 

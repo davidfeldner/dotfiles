@@ -3,10 +3,24 @@
 {
   enable = true;
   settings = {
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+	"GBM_BACKEND,nvidia-drm"
+	"__GLX_VEDOR_LIBRARY_NAME,nvidia"
+	"NVD_BACKEND,direct"
+	"GDK_BACKEND,wayland,x11"
+	"SDL_VIDEODRIVER,wayland"
+       ];
+       cursor.no_hardware_cursors = true;
+
       # █▀▄▀█ █▀█ █▄░█ █ ▀█▀ █▀█ █▀█
       # █░▀░█ █▄█ █░▀█ █ ░█░ █▄█ █▀▄
       monitor = [
-        "eDP-1,3072x1920@120,0x0,2"
+#        "eDP-1,3072x1920@120,0x0,2"
+	"DP-2,    2560x1440@144, 1920x0, 1"
+	"DVI-D-1, 1440x900,      4480x0, 1"
+	"HDMI-A-2, disable"
         ",preferred,auto,1"
       ];
 
@@ -278,9 +292,9 @@
         force_zero_scaling = true;
       };
       # toolkit-specific scale
-      env = [
-        "GDK_SCALE,2"
-        "XCURSOR_SIZE,24"
-      ];
+      #env = [
+      #  "GDK_SCALE,2"
+      #  "XCURSOR_SIZE,24"
+      #];
   };
 }
