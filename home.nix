@@ -5,6 +5,7 @@
     ./home/dunst.nix
     ./home/test.nix
     ./home/hypr/hyprland.nix
+    ./home/waybar.nix
   ];
 
   programs.neovim = {
@@ -24,8 +25,6 @@
   };
 
   programs.firefox = import ./home/firefox.nix { inherit pkgs; };
-
-  programs.waybar = import ./home/waybar.nix { };
 
   programs.git = {
     enable = true;
