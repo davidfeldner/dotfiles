@@ -1,11 +1,11 @@
 { ... }:
 
 {
-  enable = true;
-  settings =
-    {
-      input-field =
-        {
+  config = {
+    programs.hyprlock = {
+      enable = true;
+      settings = {
+        input-field = {
           size = "200, 50";
           outline_thickness = 0;
           dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
@@ -35,17 +35,18 @@
           valign = "center";
         };
 
-      background =
-        {
+        background = {
           # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
           blur_passes = 0; # 0 disables blurring
           blur_size = 7;
-          noise = 0.0117;
+          noise = 1.17e-2;
           contrast = 0.8916;
           brightness = 0.8172;
           vibrancy = 0.1696;
           vibrancy_darkness = 0.0;
         };
 
+      };
     };
+  };
 }

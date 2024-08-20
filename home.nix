@@ -4,6 +4,7 @@
   imports = [
     ./home/dunst.nix
     ./home/test.nix
+    ./home/hypr/hyprland.nix
   ];
 
   programs.neovim = {
@@ -32,14 +33,7 @@
     userEmail = "davidfeldner12@gmail.com";
   };
 
-  wayland.windowManager.hyprland = import ./home/hypr/hyprland.nix { };
-  programs.hyprlock = import ./home/hypr/hyprlock.nix { };
-  home.file.".config/hypr/battery.sh" = {
-    enable = true;
-    text = builtins.readFile ./home/hypr/battery.sh;
-  };
-  services.hypridle = import ./home/hypr/hypridle.nix { };
-
+  hyprland.enable = true;
   programs.zsh = import ./home/zsh.nix { inherit pkgs; };
 
   #  home.packages = with pkgs; [
