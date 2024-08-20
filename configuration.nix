@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [ ];
@@ -39,7 +39,10 @@
   #    networkConfig.Bridge = "microvm";
   #  };
   #}; 
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
 
   networking.firewall.enable = false;
   #networking.firewall.allowedUDPPorts = [ 67 ];
@@ -79,7 +82,10 @@
     variant = "";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   users.defaultUserShell = pkgs.zsh;
 
@@ -87,7 +93,13 @@
   users.users.david = {
     isNormalUser = true;
     description = "david";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "KVM" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "KVM"
+      "docker"
+    ];
     #packages = with pkgs; [];
   };
 
@@ -135,7 +147,7 @@
     nixfmt-rfc-style
   ];
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
-  nixpkgs.config.packageOverrides = with pkgs; {
+  nixpkgs.config.packageOverrides = {
     freetube = pkgs.callPackage ./overrides/freetube.nix { };
   };
 

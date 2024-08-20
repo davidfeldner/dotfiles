@@ -5,7 +5,6 @@
   makeWrapper,
   electron,
   nixosTests,
-  breakpointHook,
 }:
 let
   fs = lib.fileset;
@@ -14,57 +13,58 @@ in
 
 fs.trace sourceFiles
 
-stdenv.mkDerivation rec {
-  pname = "freetube";
-  version = "0.21.3";
+  stdenv.mkDerivation
+  rec {
+    pname = "freetube";
+    version = "0.21.3";
 
-  # src = fetchurl {
-  #   url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${version}-beta/freetube_${version}_amd64.AppImage";
-  #   hash = "sha256-sg/ycFo4roOJ2sW4naRCE6dwGXVQFzF8uwAZQkS2EY4=";
-  # };
-  
-  src = ./FreeTube-0.21.3.AppImage;
+    # src = fetchurl {
+    #   url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${version}-beta/freetube_${version}_amd64.AppImage";
+    #   hash = "sha256-sg/ycFo4roOJ2sW4naRCE6dwGXVQFzF8uwAZQkS2EY4=";
+    # };
 
-  passthru.tests = nixosTests.freetube;
+    src = ./FreeTube-0.21.3.AppImage;
 
-  appimageContents = appimageTools.extractType2 { inherit pname version src; };
+    passthru.tests = nixosTests.freetube;
 
-  dontUnpack = true;
-  dontConfigure = true;
-  dontBuild = true;
+    appimageContents = appimageTools.extractType2 { inherit pname version src; };
 
-  nativeBuildInputs = [ makeWrapper ];
+    dontUnpack = true;
+    dontConfigure = true;
+    dontBuild = true;
 
-  installPhase = ''
-    runHook preInstall
+    nativeBuildInputs = [ makeWrapper ];
 
-    mkdir -p $out/bin $out/share/${pname} $out/share/applications $out/share/icons/hicolor/scalable/apps
+    installPhase = ''
+      runHook preInstall
 
-    cp -a ${appimageContents}/{locales,resources} $out/share/${pname}
-    cp -a ${appimageContents}/freetube.desktop $out/share/applications/${pname}.desktop
-    cp -a ${appimageContents}/usr/share/icons/hicolor/scalable/freetube.svg $out/share/icons/hicolor/scalable/apps
+      mkdir -p $out/bin $out/share/${pname} $out/share/applications $out/share/icons/hicolor/scalable/apps
 
-    substituteInPlace $out/share/applications/${pname}.desktop \
-      --replace 'Exec=AppRun' 'Exec=${pname}'
+      cp -a ${appimageContents}/{locales,resources} $out/share/${pname}
+      cp -a ${appimageContents}/freetube.desktop $out/share/applications/${pname}.desktop
+      cp -a ${appimageContents}/usr/share/icons/hicolor/scalable/freetube.svg $out/share/icons/hicolor/scalable/apps
 
-    runHook postInstall
-  '';
+      substituteInPlace $out/share/applications/${pname}.desktop \
+        --replace 'Exec=AppRun' 'Exec=${pname}'
 
-  postFixup = ''
-    makeWrapper ${electron}/bin/electron $out/bin/${pname} \
-      --add-flags $out/share/${pname}/resources/app.asar \
-      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--enable-features=UseOzonePlatform --ozone-platform=wayland}}"
-  '';
+      runHook postInstall
+    '';
 
-  meta = {
-    description = "Open Source YouTube app for privacy";
-    homepage = "https://freetubeapp.io/";
-    license = lib.licenses.agpl3Only;
-    maintainers = with lib.maintainers; [
-      ryneeverett
-      alyaeanyx
-    ];
-    inherit (electron.meta) platforms;
-    mainProgram = "freetube";
-  };
-}
+    postFixup = ''
+      makeWrapper ${electron}/bin/electron $out/bin/${pname} \
+        --add-flags $out/share/${pname}/resources/app.asar \
+        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--enable-features=UseOzonePlatform --ozone-platform=wayland}}"
+    '';
+
+    meta = {
+      description = "Open Source YouTube app for privacy";
+      homepage = "https://freetubeapp.io/";
+      license = lib.licenses.agpl3Only;
+      maintainers = with lib.maintainers; [
+        ryneeverett
+        alyaeanyx
+      ];
+      inherit (electron.meta) platforms;
+      mainProgram = "freetube";
+    };
+  }

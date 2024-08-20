@@ -1,10 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
 
- nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
- environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     burpsuite
     exiftool
     nmap
@@ -23,8 +23,7 @@
     python312Packages.pwntools
   ];
 
-  networking.extraHosts =
-  ''
+  networking.extraHosts = ''
     10.129.42.110  greenhorn.htb
   '';
 

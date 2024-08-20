@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 {
   #imports = [
   #  inputs.nixos-hardware.nixosModueles.common-gpu-nvidia
@@ -21,5 +21,3 @@
   #};
 
 }
-
-
