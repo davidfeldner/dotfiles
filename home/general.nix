@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./home/dunst.nix
-    ./home/test.nix
-    ./home/hypr/hyprland.nix
-    ./home/waybar.nix
+    ./dunst.nix
+    ./test.nix
+    ./hypr/hyprland.nix
+    ./waybar.nix
   ];
 
   programs.neovim = {
@@ -24,7 +24,7 @@
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
   };
 
-  programs.firefox = import ./home/firefox.nix { inherit pkgs; };
+  programs.firefox = import ./firefox.nix { inherit pkgs; };
 
   programs.git = {
     enable = true;
@@ -33,7 +33,7 @@
   };
 
   hyprland.enable = true;
-  programs.zsh = import ./home/zsh.nix { inherit pkgs; };
+  programs.zsh = import ./zsh.nix { inherit pkgs; };
 
   #  home.packages = with pkgs; [
   #

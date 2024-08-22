@@ -22,12 +22,12 @@
       nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          { networking.hostName = "laptop"; }
           # NUR setup and overlay
           nur.nixosModules.nur
           { nixpkgs.overlays = [ nur.overlay ]; }
 
           ./hosts/laptop/hardware-configuration.nix
-          { networking.hostName = "laptop"; }
 
           # Main Config
           ./configuration.nix
@@ -37,7 +37,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.david = import ./home.nix;
+            home-manager.users.david = import ./hosts/laptop/home.nix;
           }
         ];
       };
@@ -45,16 +45,13 @@
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          { networking.hostName = "desktop"; }
           # NUR setup and overlay
           nur.nixosModules.nur
           { nixpkgs.overlays = [ nur.overlay ]; }
 
           ./hosts/desktop/hardware-configuration.nix
           ./nvidia.nix
-          {
-            networking.hostName = "desktop";
-
-          }
 
           # Main Config
           ./configuration.nix
@@ -64,7 +61,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.david = import ./home.nix;
+            home-manager.users.david = import ./hosts/desktop/home.nix;
           }
         ];
       };

@@ -11,6 +11,11 @@ in
 
   options = {
     hyprland.enable = lib.mkEnableOption "Enable Hyprland";
+    hyprland.extraMonitorSettings = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "Aditional monitor arguments for hyprland";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -41,7 +46,7 @@ in
           "DVI-D-1, 1440x900,      4480x0, 1"
           "HDMI-A-2, disable"
           ",preferred,auto,1"
-        ];
+        ] ++ cfg.extraMonitorSettings;
 
         # █▀▀ ▀▄▀ █▀▀ █▀▀
         # ██▄ █░█ ██▄ █▄▄
