@@ -39,10 +39,9 @@
   #    networkConfig.Bridge = "microvm";
   #  };
   #}; 
-  networking.nameservers = [
-    "1.1.1.1"
-    "8.8.8.8"
-  ];
+ #networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+ networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8"];
+ services.resolved.enable = true;
 
   networking.firewall.enable = false;
   #networking.firewall.allowedUDPPorts = [ 67 ];
@@ -145,7 +144,9 @@
     cargo
     rustc
     nixfmt-rfc-style
+    mpv
   ];
+
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
   nixpkgs.config.packageOverrides = {
     freetube = pkgs.callPackage ./overrides/freetube.nix { };
