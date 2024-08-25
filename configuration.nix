@@ -11,9 +11,12 @@
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
-  networking.networkmanager.enable = true;
-  #systemd.network.enable = true;
-  #systemd.network.wait-online.enable = false;
+  networking.networkmanager = {
+    enable = true;
+    wifi.powersave = false;
+  };
+  systemd.network.enable = true;
+  systemd.network.wait-online.enable = false;
   #systemd.network = {
   #  netdevs."10-microvm".netdevConfig = {
   #    Kind = "bridge";
@@ -40,14 +43,14 @@
   #  };
   #}; 
  #networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
- networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8"];
- services.resolved.enable = true;
+ # networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8"];
+ # services.resolved.enable = true;
 
   networking.firewall.enable = false;
   #networking.firewall.allowedUDPPorts = [ 67 ];
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  #hardware.bluetooth.enable = true;
+  #hardware.bluetooth.powerOnBoot = true;
 
   # networking.nat = {
   #   enable = true;
