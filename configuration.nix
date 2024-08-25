@@ -148,7 +148,10 @@
     rustc
     nixfmt-rfc-style
     mpv
+    rofi-wayland-unwrapped
   ];
+
+  programs.kdeconnect.enable = true;
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
   nixpkgs.config.packageOverrides = {

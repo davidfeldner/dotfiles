@@ -5,7 +5,8 @@ echo "Building new image"
 nix build .#empty
 
 echo "Copying image"
-cp ./result/nixos.qcow2 .
+mkdir -p ~/vms
+cp ./result/nixos.qcow2 ~/vms
 
 echo "Fixing permissions"
 chmod 666 nixos.qcow2
