@@ -2,12 +2,20 @@
 
 {
   imports = [
+    ./cachix.nix
     ./dunst.nix
     ./test.nix
     ./hypr/hyprland.nix
-    ./waybar.nix
+    # ./waybar.nix
+    ./ags.nix
+    ./anyrun.nix
+    ./fuzzel.nix
+    ./ssh.nix
+    ./theme.nix
+    ./tmux.nix
+    ./dotnet.nix
+    #./nvim.nix
   ];
-
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -18,6 +26,7 @@
       onedark-nvim
     ];
   };
+  programs.wofi.enable = true;
 
   gtk = {
     enable = true;

@@ -8,9 +8,9 @@
 
   shellAliases = {
     ll = "ls -l";
-    nxupdate = "sudo nixos-rebuild switch";
-    nxconfig = "sudo vim /etc/nixos/configuration.nix";
-    nxtest = "sudo nixos-rebuild test";
+    nxupdate = "sudo nixos-rebuild switch --flake ~/nixos/";
+    nxtest = "sudo nixos-rebuild test --flake ~/nixos/";
+    icat = "kitten icat";
   };
   #history = {
   #  size = 10000;

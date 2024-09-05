@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.hyprland;
@@ -25,8 +30,11 @@ in
       text = builtins.readFile ./battery.sh;
     };
 
+    home.packages = with pkgs; [ hyprpicker ];
+
     wayland.windowManager.hyprland = {
       enable = true;
+      plugins = [ pkgs.hyprlandPlugins.hyprexpo ];
       settings = (
         lib.mkMerge [
           (lib.mkIf cfg.nvidia {
@@ -49,18 +57,20 @@ in
             # █▀▀ ▀▄▀ █▀▀ █▀▀
             # ██▄ █░█ ██▄ █▄▄
             exec-once = [
-              "waybar"
+              # "waybar"
               # "hyprpaper"
+              "swww-daemon"
               "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
               "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
               "/usr/lib/polkit-kde-authentication-agent-1"
               #"hypridle"
               "libinput-gestures-setup start"
-              "dunst"
+              # "dunst"
               "/home/david/.config/hypr/battery.sh"
               "sway-audio-idle-inhibit"
               "wl-paste --watch cliphist --max-items 25 store"
               "swayosd-server"
+              "ags"
             ];
 
             # █ █▄░█ █▀█ █░█ ▀█▀
@@ -83,16 +93,22 @@ in
             general = {
               # See https://wiki.hyprland.org/Configuring/Variables/ for more
               gaps_in = 4;
-              gaps_out = 6;
-              border_size = 2;
-              "col.active_border" = "rgba(22aaaaaa)";
-              "col.inactive_border" = "0xff382D2E";
+              gaps_out = 5;
+              border_size = 1;
+              gaps_workspaces = 50;
+              # "col.active_border" = "rgba(22aaaaaa)";
+              # "col.inactive_border" = "0xff382D2E";
               layout = "dwindle";
+              "col.active_border" = "rgba(F7DCDE39)";
+              "col.inactive_border" = "rgba(A58A8D30)";
             };
 
             # █▀▄▀█ █ █▀ █▀▀
             # █░▀░█ █ ▄█ █▄▄
             misc = {
+              background_color = "rgba(1D1011FF)";
+              new_window_takes_over_fullscreen = 2;
+
               disable_hyprland_logo = true;
               mouse_move_enables_dpms = true;
               vfr = true;
@@ -102,22 +118,89 @@ in
             # █▀▄ █▀▀ █▀▀ █▀█ █▀█ ▄▀█ ▀█▀ █ █▀█ █▄░█
             # █▄▀ ██▄ █▄▄ █▄█ █▀▄ █▀█ ░█░ █ █▄█ █░▀█
             decoration = {
-              rounding = 10;
+              rounding = 20;
+
+              blur = {
+                enabled = true;
+                xray = true;
+                special = false;
+                new_optimizations = true;
+                size = 14;
+                passes = 4;
+                brightness = 1;
+                noise = 1.0e-2;
+                contrast = 1;
+                popups = true;
+                popups_ignorealpha = 0.6;
+              };
+              # Shadow
               drop_shadow = true;
-              shadow_range = 4;
+              shadow_ignore_window = true;
+              shadow_range = 20;
+              shadow_offset = "0 2";
+              shadow_render_power = 4;
+              "col.shadow" = "rgba(0000002A)";
+              # Shader
+              # screen_shader = ~/.config/hypr/shaders/nothing.frag
+              # screen_shader = ~/.config/hypr/shaders/vibrance.frag
+
+              # Dim
+              dim_inactive = false;
+              dim_strength = 0.1;
+              dim_special = 0;
             };
 
             animations = {
               enabled = true;
-              bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-              animation = [
-                "windows, 1, 7, myBezier"
-                "windowsOut, 1, 7, default, popin 80%"
-                "border, 1, 10, default"
-                "borderangle, 1, 8, default"
-                "fade, 1, 7, default"
-                "workspaces, 1, 6, default"
+              # Animation curves
+
+              bezier = [
+                "linear, 0, 0, 1, 1"
+                "md3_standard, 0.2, 0, 0, 1"
+                "md3_decel, 0.05, 0.7, 0.1, 1"
+                "md3_accel, 0.3, 0, 0.8, 0.15"
+                "overshot, 0.05, 0.9, 0.1, 1.1"
+                "crazyshot, 0.1, 1.5, 0.76, 0.92 "
+                "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
+                "menu_decel, 0.1, 1, 0, 1"
+                "menu_accel, 0.38, 0.04, 1, 0.07"
+                "easeInOutCirc, 0.85, 0, 0.15, 1"
+                "easeOutCirc, 0, 0.55, 0.45, 1"
+                "easeOutExpo, 0.16, 1, 0.3, 1"
+                "softAcDecel, 0.26, 0.26, 0.15, 1"
+                "md2, 0.4, 0, 0.2, 1" # use with .2s duration
               ];
+              # Animation configs
+              animation = [
+                "windows, 1, 3, md3_decel, popin 60%"
+                "windowsIn, 1, 3, md3_decel, popin 60%"
+                "windowsOut, 1, 3, md3_accel, popin 60%"
+                "border, 1, 10, default"
+                "fade, 1, 3, md3_decel"
+                "layers, 1, 2, md3_decel, slide"
+                "layersIn, 1, 3, menu_decel, slide"
+                "layersOut, 1, 1.6, menu_accel"
+                "fadeLayersIn, 1, 2, menu_decel"
+                "fadeLayersOut, 1, 4.5, menu_accel"
+                "workspaces, 1, 7, menu_decel, slide"
+                # workspaces, 1, 2.5, softAcDecel, slide";
+                #workspaces, 1, 7, menu_decel, slidefade 15%";
+                #specialWorkspace, 1, 3, md3_decel, slidefadevert 15%";
+                "specialWorkspace, 1, 3, md3_decel, slidevert"
+              ];
+            };
+            # Overview
+            plugin = {
+              hyprexpo = {
+                columns = 3;
+                gap_size = 5;
+                bg_col = "rgb(000000)";
+                workspace_method = "first 1"; # [center/first] [workspace] e.g. first 1 or center m+1
+
+                enable_gesture = false; # laptop touchpad, 4 fingers
+                gesture_distance = 300; # how far is the "max"
+                gesture_positive = false;
+              };
             };
 
             dwindle = {
@@ -165,6 +248,22 @@ in
               "size 800 600, title:^(Volume Control)$"
               "move 75 44%, title:^(Volume Control)$"
               "opacity 0.92, Dolphin"
+              # Center dialogs
+              "center, title:^(Open File)(.*)$"
+              "center, title:^(Select a File)(.*)$"
+              "center, title:^(Choose wallpaper)(.*)$"
+              "center, title:^(Open Folder)(.*)$"
+              "center, title:^(Save As)(.*)$"
+              "center, title:^(Library)(.*)$"
+              "center, title:^(File Upload)(.*)$"
+              "float,title:^(Open File)(.*)$"
+              "float,title:^(Select a File)(.*)$"
+              "float,title:^(Choose wallpaper)(.*)$"
+              "float,title:^(Open Folder)(.*)$"
+              "float,title:^(Save As)(.*)$"
+              "float,title:^(Library)(.*)$"
+              "float,title:^(File Upload)(.*)$"
+
             ];
 
             windowrulev2 = [
@@ -174,6 +273,52 @@ in
               "workspace 4, class:^GitHub Desktop"
               "workspace 5, class:^VencordDesktop"
               "workspace 6, class:^virt-manager"
+
+              "noshadow,floating:0"
+
+            ];
+
+            layerrule = [
+              "xray 1, .*"
+              "noanim, walker"
+              "noanim, selection"
+              "noanim, overview"
+              "noanim, anyrun"
+              "noanim, indicator.*"
+              "noanim, osk"
+              "noanim, hyprpicker"
+              "blur, shell:*"
+              "ignorealpha 0.6, shell:*"
+              "noanim, noanim"
+              "blur, gtk-layer-shell"
+              "ignorezero, gtk-layer-shell"
+              "blur, launcher"
+              "ignorealpha 0.5, launcher"
+              "blur, notifications"
+              "ignorealpha 0.69, notifications"
+              "animation slide top, sideleft.*"
+              "animation slide top, sideright.*"
+              "blur, session"
+              "blur, bar"
+              "ignorealpha 0.6, bar"
+              "blur, corner.*"
+              "ignorealpha 0.6, corner.*"
+              "blur, dock"
+              "ignorealpha 0.6, dock"
+              "blur, indicator.*"
+              "ignorealpha 0.6, indicator.*"
+              "blur, overview"
+              "ignorealpha 0.6, overview"
+              "blur, cheatsheet"
+              "ignorealpha 0.6, cheatsheet"
+              "blur, sideright"
+              "ignorealpha 0.6, sideright"
+              "blur, sideleft"
+              "ignorealpha 0.6, sideleft"
+              "blur, indicator*"
+              "ignorealpha 0.6, indicator*"
+              "blur, osk"
+              "ignorealpha 0.6, osk"
             ];
 
             # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -197,7 +342,7 @@ in
               "$mainMod, P, pin"
               "$mainMod, F, fullscreen "
               #"$mainMod SHIFT, F, fakefullscreen"
-              "$mainMod, R, exec, rofi -show drun -run-shell-command '{terminal} -e zsh -ic \"{cmd} && read\"'"
+              "$mainMod, R, exec, fuzzel"
               "$mainMod, period, exec, rofi -show emoji"
               "$mainMod, S, pseudo, # dwindle"
               "$mainMod, J, togglesplit, # dwindle"
@@ -291,28 +436,25 @@ in
             ];
 
             # Function keys
-            #bind =, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+
-            #bind =, XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-
-            #bind =, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-            bindl = [ ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle" ];
-            bindle = [
-              ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
-              ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
-
-              ", XF86MonBrightnessDown,   exec, brightnessctl set 10%-"
-              ", XF86MonBrightnessUp,     exec, brightnessctl set 10%+"
+            bindl = [
+              ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle;ags run-js 'indicator.popup(1)'"
             ];
-            #bind = , XF86MonBrightnessDown,   exec, swayosd-client --brightness raise
-            #bind = , XF86MonBrightnessUp,     exec, swayosd-client --brightness lower
+            bindle = [
+              ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+;ags run-js 'indicator.popup(1)'"
+              ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-;ags run-js 'indicator.popup(1)'"
+
+              ", XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;indicator.popup(1);'"
+              ", XF86MonBrightnessUp,   exec, ags run-js 'brightness.screen_value += 0.05;indicator.popup(1);'"
+            ];
 
             xwayland = {
               force_zero_scaling = true;
             };
             # toolkit-specific scale
-            #env = [
-            #  "GDK_SCALE,2"
-            #  "XCURSOR_SIZE,24"
-            #];
+            env = [
+              "GDK_SCALE,2"
+              "XCURSOR_SIZE,24"
+            ];
           }
         ]
       );

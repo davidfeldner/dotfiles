@@ -19,6 +19,7 @@
     gdb
     gef
     ghidra
+    wireshark
     pwntools
     python312Packages.pwntools
   ];

@@ -7,6 +7,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.loader.grub.configurationLimit = 10;
   #networking.hostName = "nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -42,11 +43,11 @@
   #    networkConfig.Bridge = "microvm";
   #  };
   #}; 
- #networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
- # networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8"];
- # services.resolved.enable = true;
+  #networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  # networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8"];
+  # services.resolved.enable = true;
 
-  networking.firewall.enable = false;
+  # networking.firewall.enable = false;
   #networking.firewall.allowedUDPPorts = [ 67 ];
 
   #hardware.bluetooth.enable = true;
@@ -101,6 +102,7 @@
       "libvirtd"
       "KVM"
       "docker"
+      "input"
     ];
     #packages = with pkgs; [];
   };
@@ -148,8 +150,17 @@
     rustc
     nixfmt-rfc-style
     mpv
-    rofi-wayland-unwrapped
+    ungoogled-chromium
+    ripgrep
+    jetbrains.rider
+
+    go
   ];
+  # networking.networkmanager.wifi.scanRandMacAddress = false;
+  # networking.networkmanager.wifi.backend = "iwd";
+  # networking.wireless.iwd.enable = true;
+
+  services.upower.enable = true; # for end 4 ags bar
 
   programs.kdeconnect.enable = true;
 
@@ -193,6 +204,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    wireplumber.enable = true;
   };
 
   fonts.packages = with pkgs; [
