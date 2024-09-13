@@ -30,7 +30,11 @@
           inherit inputs;
         };
         modules = [
-          { networking.hostName = "laptop"; }
+          {
+            networking.hostName = "laptop";
+            hardware.bluetooth.enable = true;
+            hardware.bluetooth.powerOnBoot = true;
+          }
           # NUR setup and overlay
           nur.nixosModules.nur
           { nixpkgs.overlays = [ nur.overlay ]; }
@@ -38,6 +42,7 @@
 
           # Main Config
           ./configuration.nix
+          ./wifi.nix
           ./hacking.nix
           # Home Manager
           home-manager.nixosModules.home-manager
