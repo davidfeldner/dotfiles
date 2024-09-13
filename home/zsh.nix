@@ -12,6 +12,9 @@
     nxtest = "sudo nixos-rebuild test --flake ~/nixos/";
     icat = "kitten icat";
   };
+  sessionVariables = {
+    PATH = "$PATH:/home/david/fsharp";
+  };
   #history = {
   #  size = 10000;
   #  path = "${config.xdg.dataHome}/zsh/history";
