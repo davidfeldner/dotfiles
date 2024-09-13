@@ -25,7 +25,7 @@
   ];
 
   networking.extraHosts = ''
-    10.129.42.110  greenhorn.htb
+    10.129.87.171 sightless.htb
   '';
 
   nixpkgs.config.rocmSupport = true;
