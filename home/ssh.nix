@@ -4,10 +4,10 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
-      "osc" = {
+      "cos" = {
         hostname = "cos.itu.dk";
         user = "dafe";
-        identityFile = "/home/david/Nextcloud/School/OSC/OSC";
+        identityFile = "/home/david/Nextcloud/School/OSC/OSC.pub";
       };
       "pi" = {
         hostname = "192.168.1.44";
