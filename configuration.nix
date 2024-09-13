@@ -8,58 +8,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.loader.grub.configurationLimit = 10;
-  #networking.hostName = "nixos"; # Define your hostname.
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Enable networking
-  networking.networkmanager = {
-    enable = true;
-    wifi.powersave = false;
-  };
-  systemd.network.enable = true;
-  systemd.network.wait-online.enable = false;
-  #systemd.network = {
-  #  netdevs."10-microvm".netdevConfig = {
-  #    Kind = "bridge";
-  #    Name = "microvm";
-  #  };
-  #  networks."10-microvm" = {
-  #    matchConfig.Name = "microvm";
-  #    networkConfig = {
-  #      DHCPServer = true;
-  #      IPv6SendRA = true;
-  #    };
-  #    addresses = [ {
-  #      Address = "10.0.0.1/24";
-  #    } {
-  #      Address = "fd12:3456:789a::1/64";
-  #    } ];
-  #    ipv6Prefixes = [ {
-  #      Prefix = "fd12:3456:789a::/64";
-  #    } ];
-  #  };
-  #  networks.microvm-eth0 = {
-  #    matchConfig.Name = "vm-*";
-  #    networkConfig.Bridge = "microvm";
-  #  };
-  #}; 
-  #networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
-  # networking.networkmanager.insertNameservers = [ "1.1.1.1" "8.8.8.8"];
-  # services.resolved.enable = true;
+  networking.networkmanager.enable = true;
 
-  # networking.firewall.enable = false;
-  #networking.firewall.allowedUDPPorts = [ 67 ];
-
-  #hardware.bluetooth.enable = true;
-  #hardware.bluetooth.powerOnBoot = true;
-
-  # networking.nat = {
-  #   enable = true;
-  #   enableIPv6 = true;
-  #   # Change this to the interface with upstream Internet access
-  #   externalInterface = "wlp2s0";
-  #   internalInterfaces = [ "microvm" ];
-  # };
+  services.tailscale.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
@@ -153,21 +105,34 @@
     ungoogled-chromium
     ripgrep
     jetbrains.rider
-
+    mosh
     go
+    scrcpy
   ];
+
+  programs.adb.enable = true;
+
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "mydatabase" ];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+    '';
+  };
+
   # networking.networkmanager.wifi.scanRandMacAddress = false;
   # networking.networkmanager.wifi.backend = "iwd";
-  # networking.wireless.iwd.enable = true;
+  #networking.wireless.iwd.enable = true;
 
   services.upower.enable = true; # for end 4 ags bar
 
   programs.kdeconnect.enable = true;
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
-  nixpkgs.config.packageOverrides = {
-    freetube = pkgs.callPackage ./overrides/freetube.nix { };
-  };
+  # nixpkgs.config.packageOverrides = {
+  #   freetube = pkgs.callPackage ./overrides/freetube.nix { };
+  # };
 
   # Mounts /bin with binaries if calling process has it in $PATH, to fx shell scripts work
   services.envfs.enable = true;
