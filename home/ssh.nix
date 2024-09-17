@@ -7,7 +7,7 @@
       "cos" = {
         hostname = "cos.itu.dk";
         user = "dafe";
-        identityFile = "/home/david/Nextcloud/School/OSC/OSC.pub";
+        identityFile = "/home/david/Nextcloud/School/OSC/OSC";
       };
       "pi" = {
         hostname = "192.168.1.44";
