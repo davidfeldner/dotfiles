@@ -22,7 +22,7 @@
   ];
 
   programs.ags = {
-    enable = true;
+    enable = false;
     configDir = null; # if ags dir is managed by home-manager, it'll end up being read-only. not too cool.
     # configDir = ./.config/ags;
 

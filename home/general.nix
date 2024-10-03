@@ -1,12 +1,14 @@
-{ pkgs, ... }:
-
+{
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./cachix.nix
     ./dunst.nix
     ./test.nix
     ./hypr/hyprland.nix
-    # ./waybar.nix
+    ./waybar.nix
     ./ags.nix
     ./anyrun.nix
     ./fuzzel.nix
