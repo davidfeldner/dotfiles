@@ -22,6 +22,12 @@ in
       description = "Aditional monitor arguments for hyprland";
     };
     hyprland.nvidia = lib.mkEnableOption "Enable NVIDIA settings";
+    hyprland.extraWorkspaceSettings = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "Aditional workspace arguments for hyprland";
+    };
+
   };
 
   config = lib.mkIf cfg.enable {
@@ -49,6 +55,7 @@ in
             ];
             cursor.no_hardware_cursors = true;
           })
+          { workspace = [ ] ++ cfg.extraWorkspaceSettings; }
           {
             # █▀▄▀█ █▀█ █▄░█ █ ▀█▀ █▀█ █▀█
             # █░▀░█ █▄█ █░▀█ █ ░█░ █▄█ █▀▄

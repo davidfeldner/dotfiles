@@ -8,4 +8,9 @@
     "HDMI-A-2, disable"
   ];
   hyprland.nvidia = true;
+  hyprland.extraWorkspaceSettings = [
+    "1,monitor:DP-2"
+    "8,monitor:DVI-D-1"
+    "9,monitor:DVI-D-1"
+  ];
 }
