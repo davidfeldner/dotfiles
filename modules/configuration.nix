@@ -131,9 +131,9 @@
   programs.kdeconnect.enable = true;
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
-  # nixpkgs.config.packageOverrides = {
-  #   freetube = pkgs.callPackage ./overrides/freetube.nix { };
-  # };
+  nixpkgs.config.packageOverrides = {
+    freetube = pkgs.callPackage ../overrides/freetube.nix { };
+  };
 
   # Mounts /bin with binaries if calling process has it in $PATH, to fx shell scripts work
   services.envfs.enable = true;
