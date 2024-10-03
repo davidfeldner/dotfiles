@@ -41,9 +41,9 @@
           ./hosts/laptop/hardware-configuration.nix
 
           # Main Config
-          ./configuration.nix
-          ./wifi.nix
-          ./hacking.nix
+          ./modules/configuration.nix
+          ./modules/wifi.nix
+          ./modules/hacking.nix
           # Home Manager
           home-manager.nixosModules.home-manager
           {
@@ -66,11 +66,11 @@
           { nixpkgs.overlays = [ nur.overlay ]; }
 
           ./hosts/desktop/hardware-configuration.nix
-          ./nvidia.nix
+          ./modules/nvidia.nix
 
           # Main Config
-          ./configuration.nix
-          ./hacking.nix
+          ./modules/configuration.nix
+          ./modules/hacking.nix
           # Home Manager
           home-manager.nixosModules.home-manager
           {
