@@ -27,6 +27,4 @@
   networking.extraHosts = ''
     10.129.87.171 sightless.htb
   '';
-
-  nixpkgs.config.rocmSupport = true;
 }

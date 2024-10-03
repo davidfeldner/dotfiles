@@ -39,7 +39,7 @@
           nur.nixosModules.nur
           { nixpkgs.overlays = [ nur.overlay ]; }
           ./hosts/laptop/hardware-configuration.nix
-
+          ./hosts/laptop/configuation.nix
           # Main Config
           ./modules/configuration.nix
           ./modules/wifi.nix
