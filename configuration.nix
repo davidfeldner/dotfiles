@@ -108,6 +108,7 @@
     mosh
     go
     scrcpy
+    gnumake
   ];
 
   programs.adb.enable = true;
