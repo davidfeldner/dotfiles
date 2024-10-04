@@ -349,7 +349,7 @@ in
               "$mainMod, P, pin"
               "$mainMod, F, fullscreen "
               #"$mainMod SHIFT, F, fakefullscreen"
-              "$mainMod, R, exec, fuzzel"
+              "$mainMod, R, exec, anyrun"
               "$mainMod, period, exec, rofi -show emoji"
               "$mainMod, S, pseudo, # dwindle"
               "$mainMod, J, togglesplit, # dwindle"
