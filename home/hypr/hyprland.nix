@@ -36,7 +36,16 @@ in
       text = builtins.readFile ./battery.sh;
     };
 
-    home.packages = with pkgs; [ hyprpicker ];
+    home.packages = with pkgs; [
+      hyprpicker
+      xdg-utils
+      sway-audio-idle-inhibit
+      grimblast
+      wl-clipboard-rs
+      brightnessctl
+      kitty
+      swayosd
+    ];
 
     wayland.windowManager.hyprland = {
       enable = true;

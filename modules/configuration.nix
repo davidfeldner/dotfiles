@@ -67,49 +67,12 @@
     wget
     git
     firefox
-    kitty
     neofetch
-    freetube
-    nextcloud-client
-    vesktop
-    swayosd
-    bat
-    brightnessctl
-    wl-clipboard-rs
     killall
     htop
-    vscode-fhs
-    grimblast
-    nixpkgs-fmt
-    waypipe
-    nixos-generators
     tmux
-    obsidian
+
     python3
-    poetry
-    unzip
-    zip
-    file
-    pavucontrol
-    p7zip
-    xdg-utils
-    sway-audio-idle-inhibit
-    protonvpn-gui
-    gcc
-    nextcloud-client
-    nodejs
-    cargo
-    rustc
-    nixfmt-rfc-style
-    mpv
-    ungoogled-chromium
-    ripgrep
-    jetbrains.rider
-    mosh
-    go
-    scrcpy
-    gnumake
-    (pkgs.callPackage ../overrides/fslexyacc.nix { })
   ];
 
   programs.adb.enable = true;

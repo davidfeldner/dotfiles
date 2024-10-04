@@ -15,7 +15,9 @@
     ./ssh.nix
     ./theme.nix
     ./tmux.nix
-    ./dotnet.nix
+    ./dev/dotnet.nix
+    ./dev/basic.nix
+    ./gui-tools.nix
     #./nvim.nix
   ];
   programs.neovim = {
