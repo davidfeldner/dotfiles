@@ -12,6 +12,7 @@ in
   imports = [
     ./hypridle.nix
     ./hyprlock.nix
+    ./hyprpaper.nix
   ];
 
   options = {
@@ -79,7 +80,7 @@ in
             exec-once = [
               "waybar"
               # "hyprpaper"
-              "swww-daemon"
+              # "swww-daemon"
               "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
               "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
               "/usr/lib/polkit-kde-authentication-agent-1"
