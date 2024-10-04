@@ -10,13 +10,14 @@
     ./hypr/hyprland.nix
     ./waybar.nix
     ./ags.nix
-    ./anyrun.nix
-    ./fuzzel.nix
+    #./anyrun.nix
+    #./fuzzel.nix
     ./ssh.nix
     ./theme.nix
     ./tmux.nix
     ./dev/dotnet.nix
     ./dev/basic.nix
+    ./dev/cli-tools.nix
     ./gui-tools.nix
     #./nvim.nix
   ];

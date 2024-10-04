@@ -41,12 +41,14 @@ in
       xdg-utils
       sway-audio-idle-inhibit
       grimblast
-      wl-clipboard-rs
+      wl-clipboard
       brightnessctl
       kitty
       swayosd
       moreutils
       cliphist
+      walker
+      libqalculate
     ];
 
     wayland.windowManager.hyprland = {
@@ -358,14 +360,14 @@ in
               "$mainMod, P, pin"
               "$mainMod, F, fullscreen "
               #"$mainMod SHIFT, F, fakefullscreen"
-              "$mainMod, R, exec, anyrun"
-              #"$mainMod, period, exec, rofi -show emoji"
+              "$mainMod, R, exec, walker"
+              "$mainMod, period, exec, walker -m emojis"
               "$mainMod, S, pseudo, # dwindle"
               "$mainMod, J, togglesplit, # dwindle"
               "$mainMod, L, exec, hyprlock"
-              "$mainMod, H, exec, cliphist list | fuzzel -d | cliphist decode | ifne wl-copy"
-              "$mainMod SHIFT, H, exec, cliphist list | fuzzel -d | cliphist delete"
-              "$mainMod SHIFT CTRL, H, exec, cliphist wipe "
+              "$mainMod, H, exec, cliphist list | walker -d -k | cliphist decode | ifne wl-copy"
+              "$mainMod SHIFT, H, exec, cliphist list | walker -d -k | cliphist delete"
+              "$mainMod SHIFT CTRL, H, exec, cliphist wipe"
               #"$mainMod SHIFT, P, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
               # Move focus with mainMod + arrow keys
