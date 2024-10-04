@@ -109,6 +109,7 @@
     go
     scrcpy
     gnumake
+    (pkgs.callPackage ../overrides/fslexyacc.nix { })
   ];
 
   programs.adb.enable = true;

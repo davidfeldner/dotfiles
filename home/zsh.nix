@@ -13,7 +13,7 @@
     icat = "kitten icat";
   };
   sessionVariables = {
-    PATH = "$PATH:/home/david/fsharp:/home/david/.dotnet/tools";
+    PATH = "$PATH:/home/david/.dotnet/tools";
   };
   #history = {
   #  size = 10000;
