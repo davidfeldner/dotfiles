@@ -45,6 +45,8 @@ in
       brightnessctl
       kitty
       swayosd
+      moreutils
+      cliphist
     ];
 
     wayland.windowManager.hyprland = {
@@ -246,8 +248,6 @@ in
               "float, title:Open File"
               "float, title:branchdialog"
               "float, Lxappearance"
-              "float, Rofi"
-              "animation none,Rofi"
               "float, viewnior"
               "float, Viewnior"
               "float, feh"
@@ -359,14 +359,14 @@ in
               "$mainMod, F, fullscreen "
               #"$mainMod SHIFT, F, fakefullscreen"
               "$mainMod, R, exec, anyrun"
-              "$mainMod, period, exec, rofi -show emoji"
+              #"$mainMod, period, exec, rofi -show emoji"
               "$mainMod, S, pseudo, # dwindle"
               "$mainMod, J, togglesplit, # dwindle"
               "$mainMod, L, exec, hyprlock"
-              "$mainMod, H, exec, cliphist list | rofi -dmenu | cliphist decode | ifne wl-copy"
-              "$mainMod SHIFT, H, exec, cliphist list | rofi -dmenu | cliphist delete"
+              "$mainMod, H, exec, cliphist list | fuzzel -d | cliphist decode | ifne wl-copy"
+              "$mainMod SHIFT, H, exec, cliphist list | fuzzel -d | cliphist delete"
               "$mainMod SHIFT CTRL, H, exec, cliphist wipe "
-              "$mainMod SHIFT, P, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
+              #"$mainMod SHIFT, P, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
               # Move focus with mainMod + arrow keys
               "$mainMod, left, movefocus, l"
