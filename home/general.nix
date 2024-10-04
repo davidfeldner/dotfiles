@@ -9,7 +9,7 @@
     ./test.nix
     ./hypr/hyprland.nix
     ./waybar.nix
-    ./ags.nix
+    #./ags.nix
     #./anyrun.nix
     #./fuzzel.nix
     ./ssh.nix
