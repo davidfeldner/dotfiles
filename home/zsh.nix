@@ -11,6 +11,7 @@
     nxupdate = "sudo nixos-rebuild switch --flake ~/nixos/";
     nxtest = "sudo nixos-rebuild test --flake ~/nixos/";
     icat = "kitten icat";
+    lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
   };
   sessionVariables = {
     PATH = "$PATH:/home/david/.dotnet/tools";
