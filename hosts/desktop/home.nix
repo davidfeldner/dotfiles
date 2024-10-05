@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [ ../../home/general.nix ];
@@ -12,5 +12,8 @@
     "1,monitor:DP-2"
     "8,monitor:DVI-D-1"
     "9,monitor:DVI-D-1"
+  ];
+  home.packages = with pkgs; [
+    grub2
   ];
 }

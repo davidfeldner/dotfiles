@@ -39,7 +39,7 @@
           nur.nixosModules.nur
           { nixpkgs.overlays = [ nur.overlay ]; }
           ./hosts/laptop/hardware-configuration.nix
-          ./hosts/laptop/configuation.nix
+          ./hosts/laptop/configuration.nix
           # Main Config
           ./modules/configuration.nix
           ./modules/wifi.nix
@@ -70,6 +70,7 @@
 
           # Main Config
           ./modules/configuration.nix
+          ./hosts/desktop/configuration.nix
           ./modules/hacking.nix
           # Home Manager
           home-manager.nixosModules.home-manager
