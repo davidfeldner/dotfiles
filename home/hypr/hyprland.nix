@@ -28,6 +28,7 @@ in
       default = [ ];
       description = "Aditional workspace arguments for hyprland";
     };
+    hyprland.hidpi = lib.mkEnableOption "Enable high dpi 2x scaling";
 
   };
 
@@ -467,7 +468,8 @@ in
               ", XF86MonBrightnessDown,   exec, brightnessctl set 5%-"
               ", XF86MonBrightnessUp,     exec, brightnessctl set 5%+"
             ];
-
+          }
+          (lib.mkIf cfg.hidpi {
             xwayland = {
               force_zero_scaling = true;
             };
@@ -476,7 +478,8 @@ in
               "GDK_SCALE,2"
               "XCURSOR_SIZE,24"
             ];
-          }
+
+          })
         ]
       );
     };
