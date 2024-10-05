@@ -23,7 +23,7 @@ in
         lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
       };
 
-      shellAliases.windows = lib.mkIf cfg.dualboot "grub-reboot 0";
+      shellAliases.windows = lib.mkIf cfg.dualboot "sudo grub-reboot 0 && reboot";
 
       sessionVariables = {
         PATH = "$PATH:/home/david/.dotnet/tools";
