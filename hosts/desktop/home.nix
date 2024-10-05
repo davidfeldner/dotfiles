@@ -16,4 +16,5 @@
   home.packages = with pkgs; [
     grub2
   ];
+  zsh.dualboot = true;
 }
