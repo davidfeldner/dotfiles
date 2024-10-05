@@ -20,6 +20,7 @@
     ./dev/cli-tools.nix
     ./gui-tools.nix
     #./nvim.nix
+    ./zsh.nix
   ];
   programs.neovim = {
     enable = true;
@@ -47,7 +48,6 @@
   };
 
   hyprland.enable = true;
-  programs.zsh = import ./zsh.nix { inherit pkgs; };
 
   #  home.packages = with pkgs; [
   #
