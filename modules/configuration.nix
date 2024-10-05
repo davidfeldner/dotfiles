@@ -11,7 +11,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
 
-  boot.loader.grub.configurationLimit = 10;
+  boot.loader.grub.configurationLimit = 20;
 
   networking.networkmanager.enable = true;
 
