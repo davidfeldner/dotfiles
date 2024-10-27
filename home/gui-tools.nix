@@ -10,5 +10,6 @@
     scrcpy
     ungoogled-chromium
     mpv
+    prusa-slicer
   ];
 }
