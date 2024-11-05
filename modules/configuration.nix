@@ -59,6 +59,7 @@
       "KVM"
       "docker"
       "input"
+      "wireshark"
     ];
     #packages = with pkgs; [];
   };

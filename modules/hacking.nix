@@ -19,12 +19,14 @@
     gdb
     gef
     ghidra
-    wireshark
     pwntools
     python312Packages.pwntools
   ];
+  programs.wireshark.enable = true;
+  programs.wireshark.package = pkgs.wireshark;
 
   networking.extraHosts = ''
     10.129.87.171 sightless.htb
+    10.10.11.23   permx.htb lms.permx.htb www.permx.htb
   '';
 }
