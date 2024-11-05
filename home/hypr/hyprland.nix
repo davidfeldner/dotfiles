@@ -383,7 +383,7 @@ in
               "$mainMod, V, togglefloating,"
               "$mainMod, P, pin"
               "$mainMod, F, fullscreen "
-              #"$mainMod SHIFT, F, fakefullscreen"
+              "$mainMod SHIFT, F, fullscreenstate, -1, 2"
               "$mainMod, R, exec, walker"
               "$mainMod, period, exec, walker -m emojis"
               "$mainMod, S, pseudo, # dwindle"
