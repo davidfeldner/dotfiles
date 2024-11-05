@@ -17,7 +17,10 @@
       rerere.enabled = true;
       branch.sort = "-comitterdate";
       column.ui = "auto";
-      gpg.format = "ssh";
+      gpg = {
+        sign = true;
+        format = "ssh";
+      };
       user.signingkey = "~/.ssh/id_ed25519.pub";
     };
   };
