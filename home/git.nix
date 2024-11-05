@@ -14,6 +14,7 @@
       pull = {
         rebase = true;
       };
+      commit.gpgsign = true;
       rerere.enabled = true;
       branch.sort = "-comitterdate";
       column.ui = "auto";
