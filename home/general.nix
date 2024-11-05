@@ -21,6 +21,7 @@
     ./gui-tools.nix
     #./nvim.nix
     ./zsh.nix
+    ./git.nix
   ];
   programs.neovim = {
     enable = true;
