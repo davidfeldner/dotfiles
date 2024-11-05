@@ -13,7 +13,7 @@
     #./anyrun.nix
     #./fuzzel.nix
     ./ssh.nix
-    ./theme.nix
+    # ./theme.nix
     ./tmux.nix
     ./dev/dotnet.nix
     ./dev/basic.nix
