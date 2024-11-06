@@ -5,10 +5,13 @@
     aliases = {
       bigblame = "blame -w -C -C -C";
       staash = "stash --all";
-      undo = "reset HEAD~1";
+      undo = "reset --soft HEAD~1";
       amend = "commit --amend";
       safeForce = "push --force-with-lease";
       graph = "log --all --decorate --oneline --graph";
+      st = "status";
+      aa = "!git add -A && git status";
+      cm = "commit -m";
     };
     extraConfig = {
       pull = {
