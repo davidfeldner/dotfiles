@@ -4,7 +4,7 @@
 }:
 {
   imports = [
-    ./cachix.nix
+    #./cachix.nix
     ./dunst.nix
     ./test.nix
     ./hypr/hyprland.nix
