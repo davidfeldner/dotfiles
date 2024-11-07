@@ -143,14 +143,14 @@ in
               # "col.active_border" = "rgba(22aaaaaa)";
               # "col.inactive_border" = "0xff382D2E";
               layout = "dwindle";
-              "col.active_border" = "rgba(F7DCDE39)";
-              "col.inactive_border" = "rgba(A58A8D30)";
+              "col.active_border" = lib.mkDefault "rgba(F7DCDE39)";
+              "col.inactive_border" = lib.mkDefault "rgba(A58A8D30)";
             };
 
             # █▀▄▀█ █ █▀ █▀▀
             # █░▀░█ █ ▄█ █▄▄
             misc = {
-              background_color = "rgba(1D1011FF)";
+              background_color = lib.mkDefault "rgba(1D1011FF)";
               new_window_takes_over_fullscreen = 2;
 
               disable_hyprland_logo = true;
@@ -183,7 +183,7 @@ in
               shadow_range = 20;
               shadow_offset = "0 2";
               shadow_render_power = 4;
-              "col.shadow" = "rgba(0000002A)";
+              "col.shadow" = lib.mkDefault "rgba(0000002A)";
               # Shader
               # screen_shader = ~/.config/hypr/shaders/nothing.frag
               # screen_shader = ~/.config/hypr/shaders/vibrance.frag
