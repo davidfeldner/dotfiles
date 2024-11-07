@@ -15,6 +15,8 @@
     ags.url = "github:Aylur/ags";
 
     stylix.url = "github:danth/stylix?rev=04afcfc0684d9bbb24bb1dc77afda7c1843ec93b";
+
+    nixvim.url = "github:nix-community/nixvim";
   };
 
   outputs =
@@ -23,6 +25,7 @@
       home-manager,
       nur,
       stylix,
+      nixvim,
       ...
     }@inputs:
     let
@@ -48,6 +51,8 @@
               { nixpkgs.overlays = [ nur.overlay ]; }
 
               stylix.nixosModules.stylix
+
+              nixvim.nixosModules.nixvim
 
               ./hosts/${system.name}/hardware-configuration.nix
               ./hosts/${system.name}/configuration.nix

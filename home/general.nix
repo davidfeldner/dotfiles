@@ -24,17 +24,17 @@
     ./git.nix
     ./stylix.nix
   ];
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    defaultEditor = true;
-    plugins = with pkgs.vimPlugins; [
-      LazyVim
-      onedark-nvim
-    ];
-  };
+  # programs.neovim = {
+  #   enable = true;
+  #   viAlias = true;
+  #   vimAlias = true;
+  #   vimdiffAlias = true;
+  #   defaultEditor = true;
+  #   plugins = with pkgs.vimPlugins; [
+  #     LazyVim
+  #     onedark-nvim
+  #   ];
+  # };
   programs.wofi.enable = true;
 
   gtk = {
