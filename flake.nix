@@ -23,64 +23,44 @@
       nur,
       ...
     }@inputs:
+    let
+      systems = [
+        {
+          name = "desktop";
+          arch = "x86_64-linux";
+        }
+        {
+          name = "laptop";
+          arch = "x86_64-linux";
+        }
+      ];
+    in
     {
-      nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          {
-            networking.hostName = "laptop";
-            hardware.bluetooth.enable = true;
-            hardware.bluetooth.powerOnBoot = true;
-          }
-          # NUR setup and overlay
-          nur.nixosModules.nur
-          { nixpkgs.overlays = [ nur.overlay ]; }
-          ./hosts/laptop/hardware-configuration.nix
-          ./hosts/laptop/configuration.nix
-          # Main Config
-          ./modules/configuration.nix
-          ./modules/wifi.nix
-          ./modules/hacking.nix
-          # Home Manager
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-            };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.david = import ./hosts/laptop/home.nix;
-          }
-        ];
-      };
+      nixosConfigurations = builtins.listToAttrs (
+        map (system: {
+          name = system.name;
+          value = nixpkgs.lib.nixosSystem {
+            system = system.arch;
+            modules = [
+              nur.nixosModules.nur
+              { nixpkgs.overlays = [ nur.overlay ]; }
+              ./hosts/${system.name}/hardware-configuration.nix
+              ./hosts/${system.name}/configuration.nix
+              ./modules/configuration.nix
 
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          { networking.hostName = "desktop"; }
-          # NUR setup and overlay
-          nur.nixosModules.nur
-          { nixpkgs.overlays = [ nur.overlay ]; }
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                };
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.david = import ./hosts/${system.name}/home.nix;
+              }
+            ];
+          };
 
-          ./hosts/desktop/hardware-configuration.nix
-          ./modules/nvidia.nix
-
-          # Main Config
-          ./modules/configuration.nix
-          ./hosts/desktop/configuration.nix
-          ./modules/hacking.nix
-          # Home Manager
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.david = import ./hosts/desktop/home.nix;
-          }
-        ];
-      };
+        }) systems
+      );
     };
-
 }
