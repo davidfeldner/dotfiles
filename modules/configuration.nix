@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [ ];
@@ -94,6 +94,10 @@
   # networking.networkmanager.wifi.scanRandMacAddress = false;
   # networking.networkmanager.wifi.backend = "iwd";
   #networking.wireless.iwd.enable = true;
+
+  stylix.enable = lib.mkDefault false;
+  stylix.image = lib.mkDefault ../home/wall.jpg;
+  stylix.polarity = "dark";
 
   services.upower.enable = true; # for end 4 ags bar
 

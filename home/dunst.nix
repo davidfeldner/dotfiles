@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   services.dunst.enable = true;
@@ -18,12 +18,12 @@
       text_icon_padding = 0;
       frame_width = 2;
 
-      frame_color = "#22aaaa";
-      separator_color = "frame";
+      frame_color = lib.mkDefault "#22aaaa";
+      separator_color = lib.mkDefault "frame";
 
       sort = "yes";
       idle_threshold = 120;
-      font = "monospace 10";
+      # font = "monospace 10";
       line_height = 0;
       markup = "full";
       alignment = "left";
@@ -51,19 +51,19 @@
 
     };
     urgency_low = {
-      background = "#1D2021";
-      foreground = "#22aaaa";
+      background = lib.mkDefault "#1D2021";
+      foreground = lib.mkDefault "#22aaaa";
     };
 
     urgency_normal = {
-      background = "#1D2021";
-      foreground = "#E8E3E3";
+      background = lib.mkDefault "#1D2021";
+      foreground = lib.mkDefault "#E8E3E3";
     };
 
     urgency_critical = {
-      background = "#1D2021";
-      foreground = "#AD685A";
-      frame_color = "#DD8F6E";
+      background = lib.mkDefault "#1D2021";
+      foreground = lib.mkDefault "#AD685A";
+      frame_color = lib.mkDefault "#DD8F6E";
     };
   };
 }

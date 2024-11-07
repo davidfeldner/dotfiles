@@ -22,6 +22,7 @@
     #./nvim.nix
     ./zsh.nix
     ./git.nix
+    ./stylix.nix
   ];
   programs.neovim = {
     enable = true;
