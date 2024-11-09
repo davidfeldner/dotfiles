@@ -15,6 +15,10 @@
 
   networking.networkmanager.enable = true;
 
+  # Dont error waiting for NetworkManager online 
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
+
   services.tailscale.enable = true;
 
   # Set your time zone.
