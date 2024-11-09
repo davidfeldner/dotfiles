@@ -43,6 +43,7 @@
         bitwarden
         darkreader
         vimium
+        simple-tab-groups
       ];
     };
   };
