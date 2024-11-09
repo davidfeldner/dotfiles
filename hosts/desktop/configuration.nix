@@ -7,8 +7,9 @@
   ];
   networking.hostName = "desktop";
   boot.loader.grub.useOSProber = true;
-  #environment.variables = {
-#	GSK_RENDERER = "gl";
- # };
-  vfio.enable = false; # Isolates GPU for VFIO
+  environment.variables = {
+    # MESA_VK_DEVICE_SELECT = "10de:1b80";
+    GSK_RENDERER = "ngl";
+  };
+  #   vfio.enable = false; # Isolates GPU for VFIO
 }
