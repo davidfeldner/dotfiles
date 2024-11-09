@@ -394,6 +394,8 @@ in
               "$mainMod SHIFT CTRL, H, exec, cliphist wipe"
               #"$mainMod SHIFT, P, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
+              "$mainMod SHIFT, Z, exec, systemctl suspend"
+
               # Move focus with mainMod + arrow keys
               "$mainMod, left, movefocus, l"
               "$mainMod, right, movefocus, r"
