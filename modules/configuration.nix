@@ -49,6 +49,11 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings = {
+    substituters = [
+      "https://cachix.org"
+    ];
+  };
 
   users.defaultUserShell = pkgs.zsh;
 
