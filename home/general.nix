@@ -34,7 +34,7 @@
     vimdiffAlias = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
-      LazyVim
+      # LazyVim
       onedark-nvim
     ];
   };
