@@ -5,6 +5,7 @@
     gnumake
     cargo
     rustc
+    rustfmt
     nodejs
     nixfmt-rfc-style
     poetry
