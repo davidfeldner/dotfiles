@@ -23,7 +23,10 @@
     ./zsh.nix
     ./git.nix
     ./stylix.nix
+    ./ituvpn.nix
   ];
+  programs.kitty.enable = true;
+
   programs.neovim = {
     enable = true;
     viAlias = true;
