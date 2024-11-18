@@ -15,6 +15,8 @@
     ags.url = "github:Aylur/ags";
 
     stylix.url = "github:danth/stylix?rev=04afcfc0684d9bbb24bb1dc77afda7c1843ec93b";
+
+    walker.url = "github:abenz1267/walker";
   };
 
   outputs =

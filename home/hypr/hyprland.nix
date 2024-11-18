@@ -13,6 +13,7 @@ in
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ../walker.nix
   ];
 
   options = {
@@ -37,7 +38,6 @@ in
       enable = true;
       text = builtins.readFile ./battery.sh;
     };
-
     home.packages = with pkgs; [
       hyprpicker
       xdg-utils
@@ -48,7 +48,7 @@ in
       kitty
       swayosd
       moreutils
-      walker
+      # walker
       libqalculate
     ];
     services.cliphist.enable = true;
