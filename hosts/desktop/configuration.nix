@@ -4,6 +4,7 @@
     ../../modules/hacking.nix
     ../../modules/nvidia.nix
     ../../modules/vfio.nix
+    ../../modules/steam.nix
   ];
   networking.hostName = "desktop";
   boot.loader.grub.useOSProber = true;
