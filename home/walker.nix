@@ -14,9 +14,9 @@
       };
       websearch.prefix = "?";
       switcher.prefix = "/";
-      theme = {
-        style = '''';
-      };
+      # theme = {
+      #   style = '''';
+      # };
     };
 
     # If this is not set the default styling is used.
