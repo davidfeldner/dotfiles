@@ -11,5 +11,6 @@
     ungoogled-chromium
     mpv
     prusa-slicer
+    protonvpn-gui
   ];
 }
