@@ -155,16 +155,6 @@ in
                 popups = true;
                 popups_ignorealpha = 0.6;
               };
-              # Shadow
-              drop_shadow = true;
-              shadow_ignore_window = true;
-              shadow_range = 20;
-              shadow_offset = "0 2";
-              shadow_render_power = 4;
-              "col.shadow" = lib.mkDefault "rgba(0000002A)";
-              # Shader
-              # screen_shader = ~/.config/hypr/shaders/nothing.frag
-              # screen_shader = ~/.config/hypr/shaders/vibrance.frag
 
               # Dim
               dim_inactive = false;
@@ -210,19 +200,6 @@ in
                 #specialWorkspace, 1, 3, md3_decel, slidefadevert 15%";
                 "specialWorkspace, 1, 3, md3_decel, slidevert"
               ];
-            };
-            # Overview
-            plugin = {
-              hyprexpo = {
-                columns = 3;
-                gap_size = 5;
-                bg_col = "rgb(000000)";
-                workspace_method = "first 1"; # [center/first] [workspace] e.g. first 1 or center m+1
-
-                enable_gesture = false; # laptop touchpad, 4 fingers
-                gesture_distance = 300; # how far is the "max"
-                gesture_positive = false;
-              };
             };
 
             dwindle = {

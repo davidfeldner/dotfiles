@@ -9,4 +9,5 @@
   # stylix.targets.waybar.enableRightBackColors = false;
   stylix.targets.neovim.enable = false;
   stylix.targets.kitty.enable = false;
+  stylix.targets.hyprland.enable = false;
 }
