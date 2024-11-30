@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [ ];
@@ -143,6 +148,11 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  nixpkgs.overlays = [
+    (final: prev: {
+      qemu = inputs.pin.legacyPackages.x86_64-linux.qemu;
+    })
+  ];
 
   security.rtkit.enable = true;
 
