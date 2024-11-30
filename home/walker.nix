@@ -26,15 +26,4 @@
     #   }
     # '';
   };
-  nix.settings = {
-    substituters = [
-      "https://walker-git.cachix.org"
-      "https://walker.cachix.org"
-    ];
-    trusted-public-keys = [
-      "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
-      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
-    ];
-  };
-
 }
