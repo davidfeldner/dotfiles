@@ -21,7 +21,7 @@
   networking.networkmanager.enable = true;
 
   # Dont error waiting for NetworkManager online 
-  systemd.network.wait-online.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   boot.initrd.systemd.network.wait-online.enable = false;
 
   services.tailscale.enable = true;
