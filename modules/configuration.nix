@@ -144,6 +144,8 @@
 
   services.hypridle.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
   programs.starship.enable = true;
   programs.zsh = {
     enable = true;

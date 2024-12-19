@@ -261,6 +261,7 @@ in
               "float,title:^(Library)(.*)$"
               "float,title:^(File Upload)(.*)$"
 
+              "float, title:^Nextcloud$"
             ];
 
             windowrulev2 = [
