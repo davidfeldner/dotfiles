@@ -13,6 +13,7 @@
     go
     gcc
     vscode-fhs
+    jdk
     (pkgs.callPackage ../../overrides/fslexyacc.nix { })
   ];
 }
