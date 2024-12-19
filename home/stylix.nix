@@ -10,4 +10,5 @@
   stylix.targets.neovim.enable = false;
   stylix.targets.kitty.enable = false;
   stylix.targets.hyprland.enable = false;
+  stylix.targets.vscode.enable = false;
 }
