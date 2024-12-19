@@ -55,7 +55,6 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
-      plugins = [ pkgs.hyprlandPlugins.hyprexpo ];
       settings = (
         lib.mkMerge [
           (lib.mkIf cfg.nvidia {

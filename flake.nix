@@ -50,8 +50,8 @@
               inherit inputs;
             };
             modules = [
-              nur.nixosModules.nur
-              { nixpkgs.overlays = [ nur.overlay ]; }
+              nur.modules.nixos.default
+              { nixpkgs.overlays = [ nur.overlays.default ]; }
 
               stylix.nixosModules.stylix
 
