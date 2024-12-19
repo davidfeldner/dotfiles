@@ -19,6 +19,7 @@ in
         ll = "ls -l";
         nxupdate = "sudo nixos-rebuild switch --flake ~/nixos/";
         nxtest = "sudo nixos-rebuild test --flake ~/nixos/";
+        homelog = "journalctl -xe --unit home-manager-david";
         icat = "kitten icat";
         lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
         tvOff = " hyprctl keyword monitor $(hyprctl monitors all | grep 'HDMI'| awk '{print $2}' | head -n 1), disable";
@@ -29,6 +30,7 @@ in
 
       sessionVariables = {
         PATH = "$PATH:/home/david/.dotnet/tools";
+        DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       };
       #history = {
       #  size = 10000;
