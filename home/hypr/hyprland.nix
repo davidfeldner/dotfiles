@@ -91,7 +91,7 @@ in
               "sway-audio-idle-inhibit"
               "wl-paste --watch cliphist --max-items 25 store"
               "swayosd-server"
-              "ags"
+              # "ags"
             ];
 
             # █ █▄░█ █▀█ █░█ ▀█▀
