@@ -48,7 +48,7 @@ in
       hardware.graphics.enable = true;
       environment.systemPackages = with pkgs; [
         virtiofsd
-        looking-glass-client
+        #looking-glass-client
       ];
 
     };

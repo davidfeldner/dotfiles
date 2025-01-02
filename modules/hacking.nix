@@ -15,7 +15,7 @@
     sqlmap
     hashcat
     dig
-    cewl
+    #cewl
     gdb
     gef
     ghidra
