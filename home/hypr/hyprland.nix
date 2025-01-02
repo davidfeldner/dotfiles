@@ -266,7 +266,7 @@ in
             windowrulev2 = [
               "noinitialfocus,class:^jetbrains-(?!toolbox),floating:1"
               # Window workpace position
-              "workspace 1, class:^firefox"
+              "workspace 1, class:^firefox, floating: 0"
               "workspace 4, class:^GitHub Desktop"
               "workspace 5, class:^VencordDesktop"
               "workspace 6, class:^virt-manager"
