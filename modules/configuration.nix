@@ -56,7 +56,7 @@
   ];
   nix.settings = {
     substituters = [
-      "https://cache.nixos.org/"
+      "https://cache.nixos.org"
       "https://walker-git.cachix.org"
       "https://walker.cachix.org"
     ];
