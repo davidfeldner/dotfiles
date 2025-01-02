@@ -24,6 +24,18 @@
   ];
   programs.wireshark.enable = true;
   programs.wireshark.package = pkgs.wireshark;
+  programs.proxychains = {
+    enable = true;
+    package = pkgs.proxychains-ng;
+    proxies = {
+      myproxy = {
+        enable = true;
+        type = "socks5";
+        host = "127.0.0.1";
+        port = 1080;
+      };
+    };
+  };
 
   networking.extraHosts = ''
     10.129.87.171 sightless.htb
