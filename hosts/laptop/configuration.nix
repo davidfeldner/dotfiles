@@ -3,6 +3,7 @@
   imports = [
     ../../modules/hacking.nix
     ../../modules/wifi.nix
+    ../../modules/steam.nix
   ];
   networking.hostName = "laptop";
   hardware.bluetooth.enable = true;
