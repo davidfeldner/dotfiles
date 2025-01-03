@@ -9,7 +9,7 @@
     nodejs
     nixfmt-rfc-style
     poetry
-    jetbrains.rider
+    # jetbrains.rider
     go
     gcc
     jdk
