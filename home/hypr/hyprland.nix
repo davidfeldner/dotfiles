@@ -330,7 +330,7 @@ in
               "$mainMod, E, exec, dolphin"
               "$mainMod ALT, E, exec,[float;size 50%] dolphin"
               "$mainMod, B, exec, firefox"
-              "$mainMod, C, exec, code"
+              "$mainMod, C, exec, codium"
               "$mainMod, Y, exec, freetube"
               "$mainMod, D, exec, vesktop --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
               "$mainMod, A, exec, /home/david/.config/hypr/runVM.sh archlinux"
