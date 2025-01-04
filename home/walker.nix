@@ -14,6 +14,7 @@
       };
       websearch.prefix = "?";
       switcher.prefix = "/";
+      terminal = "kitty";
       # theme = {
       #   style = '''';
       # };
