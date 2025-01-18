@@ -5,6 +5,7 @@
     ../../modules/nvidia.nix
     ../../modules/vfio.nix
     ../../modules/steam.nix
+    ../../modules/bluetooth.nix
   ];
   networking.hostName = "desktop";
   boot.loader.grub.useOSProber = false;
