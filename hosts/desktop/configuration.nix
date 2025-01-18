@@ -23,4 +23,5 @@
     GSK_RENDERER = "ngl";
   };
   #   vfio.enable = false; # Isolates GPU for VFIO
+  virtualisation.waydroid.enable = true;
 }
