@@ -50,6 +50,7 @@ in
       moreutils
       # walker
       libqalculate
+      libnotify
     ];
     services.cliphist.enable = true;
 
