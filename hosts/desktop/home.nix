@@ -10,6 +10,7 @@
     "DP-3,    2560x1440@144, 1920x0, 1"
     "HDMI-A-2, disable"
     "HDMI-A-5, disable"
+    "Unknown-1, disable"
   ];
   hyprland.nvidia = true;
   hyprland.extraWorkspaceSettings = [
