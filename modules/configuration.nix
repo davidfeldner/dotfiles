@@ -20,7 +20,7 @@
 
   networking.networkmanager.enable = true;
 
-  # Dont error waiting for NetworkManager online 
+  # Dont error waiting for NetworkManager online
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   boot.initrd.systemd.network.wait-online.enable = false;
 
@@ -58,11 +58,9 @@
     substituters = [
       "https://cache.nixos.org"
       "https://walker-git.cachix.org"
-      "https://walker.cachix.org"
     ];
     trusted-public-keys = [
       "walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM="
-      "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
     ];
   };
 
@@ -158,7 +156,8 @@
   programs.virt-manager.enable = true;
   nixpkgs.overlays = [
     (final: prev: {
-      qemu = inputs.pin.legacyPackages.x86_64-linux.qemu;
+      # qemu = inputs.pin.legacyPackages.x86_64-linux.qemu;
+      ghidra = inputs.pin.legacyPackages.x86_64-linux.ghidra;
     })
   ];
 
