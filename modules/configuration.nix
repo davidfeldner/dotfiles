@@ -20,6 +20,8 @@
 
   networking.networkmanager.enable = true;
 
+  networking.firewall.enable = false;
+
   # Dont error waiting for NetworkManager online
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   boot.initrd.systemd.network.wait-online.enable = false;

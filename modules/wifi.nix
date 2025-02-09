@@ -7,8 +7,6 @@
     wifi.powersave = false;
   };
 
-  networking.firewall.enable = false;
-
   # https://kisonecat.com/blog/eduroam-openssl-wpa-supplicant/
   nixpkgs.config.packageOverrides = pkgs: {
     wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {

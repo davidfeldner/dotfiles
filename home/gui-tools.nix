@@ -12,5 +12,6 @@
     mpv
     prusa-slicer
     protonvpn-gui
+    rquickshare
   ];
 }
