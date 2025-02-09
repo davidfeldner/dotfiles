@@ -28,6 +28,8 @@
       ms-dotnettools.csdevkit
       ms-dotnettools.vscode-dotnet-runtime
       ionide.ionide-fsharp
+      ms-python.python
+      ms-python.debugpy
     ];
   };
 }
