@@ -5,6 +5,7 @@
     ../../modules/wifi.nix
     ../../modules/steam.nix
     ../../modules/bluetooth.nix
+    ../../modules/vagrant.nix
   ];
   networking.hostName = "laptop";
 
