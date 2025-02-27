@@ -14,9 +14,7 @@
       cm = "commit -m";
     };
     extraConfig = {
-      pull = {
-        rebase = true;
-      };
+      pull.rebase = true;
       commit.gpgsign = true;
       rerere.enabled = true;
       branch.sort = "-comitterdate";
@@ -26,6 +24,13 @@
         format = "ssh";
       };
       user.signingkey = "~/.ssh/id_ed25519.pub";
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        mnemonicPrefix = true;
+        renames = true;
+      };
+      commit.verbose = true;
     };
   };
 }
