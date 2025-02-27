@@ -37,8 +37,7 @@
     };
   };
 
-  networking.extraHosts = ''
-    10.129.87.171 sightless.htb
-    10.10.11.23   permx.htb lms.permx.htb www.permx.htb
-  '';
+  environment.etc.hosts.mode = "0644"; # Make hosts file writable
+
+  # networking.extraHosts = '''';
 }
