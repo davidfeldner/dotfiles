@@ -57,7 +57,7 @@
           };
           "network" = {
             #// "interface": "wlp2*", // (Optional) To force the use of this interface
-            "format-wifi" = "  {essid}";
+            "format-wifi" = "   {essid}";
             "format-ethernet" = "{ipaddr}/{cidr} ";
             "tooltip-format" = "{ifname} via {gwaddr} ";
             "format-linked" = "{ifname} (No IP) ";
@@ -120,13 +120,13 @@
             "spacing" = 10;
           };
           "clock" = {
-            "format" = " {:%R   %d/%m}";
+            "format" = "  {:%R    %d/%m}";
             "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           };
           "pulseaudio" = {
-            "format" = "{icon} {volume}%";
+            "format" = "{icon}  {volume}%";
             "tooltip" = false;
-            "format-muted" = " Muted";
+            "format-muted" = "  Muted";
             "format-icons" = {
               "headphone" = "";
               "hands-free" = "";

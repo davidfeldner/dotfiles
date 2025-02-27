@@ -140,7 +140,7 @@ in
             # █▀▄ █▀▀ █▀▀ █▀█ █▀█ ▄▀█ ▀█▀ █ █▀█ █▄░█
             # █▄▀ ██▄ █▄▄ █▄█ █▀▄ █▀█ ░█░ █ █▄█ █░▀█
             decoration = {
-              rounding = 20;
+              rounding = 10;
 
               blur = {
                 enabled = true;
@@ -363,7 +363,7 @@ in
               "$mainMod SHIFT, d, exec, hyprctl keyword monitor ,prefered,auto,1,mirror,eDP-1"
 
               # ÆØÅ
-              #bind = $mainMod, code:47, exec, echo "Æ" | 
+              #bind = $mainMod, code:47, exec, echo "Æ" |
 
               #screen rotate
               "$mainMod SHIFT, R, exec, hyprctl keyword monitor eDP-1,3072x1920@120,auto,2,transform,0"
