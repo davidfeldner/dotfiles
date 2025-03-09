@@ -37,6 +37,7 @@ in
     home.file.".config/hypr/battery.sh" = {
       enable = true;
       text = builtins.readFile ./battery.sh;
+      executable = true;
     };
     home.packages = with pkgs; [
       hyprpicker
@@ -88,7 +89,7 @@ in
               #"hypridle"
               "libinput-gestures-setup start"
               # "dunst"
-              #"/home/david/.config/hypr/battery.sh"
+              "/home/david/.config/hypr/battery.sh"
               "sway-audio-idle-inhibit"
               "wl-paste --watch cliphist --max-items 25 store"
               "swayosd-server"

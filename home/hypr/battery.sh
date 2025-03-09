@@ -24,8 +24,8 @@ while true; do
     fi
 
     # If low and discharging
-    if [ "$last" != "LOW" ] && [ "$status" = "Discharging" ] && \
-       [ $capacity -le $low ]; then
+    if [ "$last" != "LOW" ] && [ "$status" = "Discharging" ] &&
+      [ $capacity -le $low ]; then
       notify-send " Battery low: $capacity%. Plug in the adapter!"
       last=LOW
     fi
