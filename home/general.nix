@@ -25,6 +25,7 @@
     ./git.nix
     ./stylix.nix
     ./ituvpn.nix
+    ./firefox.nix
   ];
   programs.kitty.enable = true;
 
@@ -44,8 +45,6 @@
     enable = true;
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
   };
-
-  programs.firefox = import ./firefox.nix { inherit pkgs; };
 
   hyprland.enable = true;
   zsh.enable = true;
