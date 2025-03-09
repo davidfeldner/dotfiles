@@ -7,6 +7,9 @@
     ../../modules/steam.nix
     ../../modules/bluetooth.nix
   ];
+
+  boot.kernelPackages = pkgs.linuxPackages_6_6;
+
   networking.hostName = "desktop";
   boot.loader.grub.useOSProber = false;
   # Manually add entry since osprober finds extra os, and I can't figure out how to add GRUB_OS_PROBER_SKIP_LIST to grub
