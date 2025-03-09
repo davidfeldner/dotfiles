@@ -17,8 +17,8 @@ tooltip {
     padding: 5px; 
     padding-right: 8px;
     margin-right: 5px;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    /*margin-top: 2px;*/
+    /*margin-bottom: 2px;*/
 }
 
 #workspaces button.active {
@@ -51,7 +51,7 @@ tooltip {
 #workspaces,
 #tray,
 #backlight {
-    margin: 3px 0px;
+    margin: 1px 0px;
 }
 
 #tray {
@@ -85,4 +85,21 @@ tooltip {
 
 #language {
     margin-left: 0px;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
