@@ -39,7 +39,6 @@
       onedark-nvim
     ];
   };
-  programs.wofi.enable = true;
 
   gtk = {
     enable = true;
