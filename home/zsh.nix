@@ -27,6 +27,30 @@ in
         code = "codium";
       };
 
+      initExtra = ''
+        function shellpy() {
+          nix develop --impure --expr "let
+            pkgs = import <nixpkgs> {};
+            in pkgs.mkShell {
+              packages = [
+                (pkgs.python3.withPackages (ps: with ps; [
+                  $*
+                ]))
+              ];
+            }" -c $SHELL
+        }
+
+        function pkgs() {
+          nix develop --impure --expr "let
+            pkgs = import <nixpkgs> {};
+            in pkgs.mkShell {
+              packages = with pkgs; [
+                  $*
+              ];
+            }" -c $SHELL
+        }
+      '';
+
       shellAliases.windows = lib.mkIf cfg.dualboot "sudo grub-reboot 1 && reboot";
 
       sessionVariables = {
