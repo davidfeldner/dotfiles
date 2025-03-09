@@ -61,15 +61,20 @@ in
         lib.mkMerge [
           (lib.mkIf cfg.nvidia {
             env = [
+              # Nvidia
               "LIBVA_DRIVER_NAME,nvidia"
-              "XDG_SESSION_TYPE,wayland"
               "GBM_BACKEND,nvidia-drm"
-              "__GLX_VEDOR_LIBRARY_NAME,nvidia"
+              "__GLX_VENDOR_LIBRARY_NAME,nvidia"
               "NVD_BACKEND,direct"
+              # Wayland
               "GDK_BACKEND,wayland,x11"
+              "QT_QPA_PLATFORM,wayland;xcb"
               "SDL_VIDEODRIVER,wayland"
+              "XDG_SESSION_TYPE,wayland"
+              "XDG_CURRENT_DESKTOP,Hyprland"
+              "XDG_SESSION_DESKTOP,Hyprland"
             ];
-            cursor.no_hardware_cursors = true;
+            cursor.no_hardware_cursors = false;
           })
           { workspace = [ ] ++ cfg.extraWorkspaceSettings; }
           {
