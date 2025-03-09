@@ -2,6 +2,8 @@
 {
   programs.git = {
     enable = true;
+    userName= "davidfeldner";
+    userEmail = "davidfeldner12@gmail.com";
     aliases = {
       bigblame = "blame -w -C -C -C";
       staash = "stash --all";

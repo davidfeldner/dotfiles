@@ -48,12 +48,6 @@
 
   programs.firefox = import ./firefox.nix { inherit pkgs; };
 
-  programs.git = {
-    enable = true;
-    userName = "davidfeldner";
-    userEmail = "davidfeldner12@gmail.com";
-  };
-
   hyprland.enable = true;
   zsh.enable = true;
   #  home.packages = with pkgs; [
