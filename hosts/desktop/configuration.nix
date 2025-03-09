@@ -6,6 +6,7 @@
     ../../modules/vfio.nix
     ../../modules/steam.nix
     ../../modules/bluetooth.nix
+    ../../modules/waydroid.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;
@@ -26,5 +27,4 @@
     GSK_RENDERER = "ngl";
   };
   #   vfio.enable = false; # Isolates GPU for VFIO
-  virtualisation.waydroid.enable = true;
 }
