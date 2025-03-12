@@ -28,6 +28,7 @@
           yoavbls.pretty-ts-errors
           redhat.java
           ms-azuretools.vscode-docker
+          jnoortheen.nix-ide
         ]);
     };
   };
