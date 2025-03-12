@@ -53,7 +53,13 @@ in
       libqalculate
       libnotify
     ];
+    programs.kitty.enable = true;
     services.cliphist.enable = true;
+
+    gtk = {
+      enable = true;
+      gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    };
 
     wayland.windowManager.hyprland = {
       enable = true;

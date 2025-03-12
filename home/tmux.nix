@@ -10,10 +10,11 @@
     ];
 
     extraConfig = ''
-            set-option -g status-position top 
+      set-option -g status-position top 
 
-            set -g @rose_pine_variant 'main'
-            set -g @rose_pine_host 'on' # Enables hostname in the status bar
+      set -g @rose_pine_variant 'main'
+      set -g @rose_pine_host 'on' # Enables hostname in the status bar
+      
       set -g @rose_pine_user 'on' # Turn on the username component in the statusbar
       set -g @rose_pine_directory 'on' # Turn on the current folder component in the status bar
       set -g @rose_pine_bar_bg_disable 'on' # Disables background color, for transparent terminal emulators
@@ -51,22 +52,22 @@
       set -g @rose_pine_window_count '5' # Specify a number of windows, if there are more than the number, do the same as width_to_hide
 
 
-            set -g @yank_action 'copy-pipe'
-            set -g @yank_with_mouse off
-            unbind -T copy-mode-vi MouseDragEnd1Pane
-            unbind -T copy-mode MouseDragEnd1Pane
+      set -g @yank_action 'copy-pipe'
+      set -g @yank_with_mouse off
+      unbind -T copy-mode-vi MouseDragEnd1Pane
+      unbind -T copy-mode MouseDragEnd1Pane
 
-            # New window path
-            bind  c  new-window      -c "#{pane_current_path}"
-            bind  %  split-window -h -c "#{pane_current_path}"
-            bind '"' split-window -v -c "#{pane_current_path}"
+      # New window path
+      bind  c  new-window      -c "#{pane_current_path}"
+      bind  %  split-window -h -c "#{pane_current_path}"
+      bind '"' split-window -v -c "#{pane_current_path}"
 
-            # Fix vim tmux escape time
-            set -s escape-time 0
+      # Fix vim tmux escape time
+      set -s escape-time 0
 
-            # Start windows and panes at 1, not 0
-            set -g base-index 1
-            setw -g pane-base-index 1
+      # Start windows and panes at 1, not 0
+      set -g base-index 1
+      setw -g pane-base-index 1
     '';
   };
 }

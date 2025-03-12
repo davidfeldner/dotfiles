@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "A cool flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -10,10 +10,6 @@
     nur.url = "github:nix-community/NUR";
 
     pin.url = "github:nixos/nixpkgs?ref=940d545355d5e79859502334f2fe269c3996046b";
-    # anyrun.url = "github:anyrun-org/anyrun";
-    # anyrun.inputs.nixpkgs.follows = "nixpkgs";
-    #
-    # ags.url = "github:Aylur/ags";
 
     stylix.url = "github:danth/stylix?rev=04afcfc0684d9bbb24bb1dc77afda7c1843ec93b";
 
