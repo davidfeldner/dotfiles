@@ -11,6 +11,7 @@
     # jetbrains.rider
     go
     gcc
+    clang-tools
     jdk
     (pkgs.callPackage ../../overrides/fslexyacc.nix { })
   ];

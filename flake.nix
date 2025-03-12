@@ -24,6 +24,7 @@
       flake = false;
     };
 
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs =
@@ -32,6 +33,7 @@
       home-manager,
       nur,
       stylix,
+      nix-vscode-extensions,
       ...
     }@inputs:
     let
@@ -57,7 +59,12 @@
             };
             modules = [
               nur.modules.nixos.default
-              { nixpkgs.overlays = [ nur.overlays.default ]; }
+              {
+                nixpkgs.overlays = [
+                  nur.overlays.default
+                  nix-vscode-extensions.overlays.default
+                ];
+              }
 
               stylix.nixosModules.stylix
 
