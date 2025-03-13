@@ -7,6 +7,7 @@
     ../../modules/steam.nix
     ../../modules/bluetooth.nix
     ../../modules/waydroid.nix
+    ../../modules/safe-eyes.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;

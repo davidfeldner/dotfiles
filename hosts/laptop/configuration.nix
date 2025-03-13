@@ -6,6 +6,7 @@
     ../../modules/steam.nix
     ../../modules/bluetooth.nix
     ../../modules/vagrant.nix
+    ../../modules/safe-eyes.nix
   ];
   networking.hostName = "laptop";
 
