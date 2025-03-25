@@ -25,6 +25,7 @@ in
         tvOff = " hyprctl keyword monitor $(hyprctl monitors all | grep 'HDMI'| awk '{print $2}' | head -n 1), disable";
         tvOn = " hyprctl keyword monitor $(hyprctl monitors all | grep 'HDMI'| awk '{print $2}' | head -n 1), 3840x2160@60, 0x0, 2";
         code = "codium";
+        dc = "docker compose";
       };
 
       initExtra = ''
