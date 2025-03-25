@@ -29,6 +29,10 @@ in
       };
 
       initExtra = ''
+        function nxrun() {
+          nix run "nixpkgs#$1"
+        }
+
         function shellpy() {
           nix develop --impure --expr "let
             pkgs = import <nixpkgs> {};
