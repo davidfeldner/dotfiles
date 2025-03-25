@@ -17,6 +17,7 @@
           ionide.ionide-fsharp
           ms-python.python
           ms-python.debugpy
+          svelte.svelte-vscode
         ])
         ++ (with pkgs.open-vsx; [
           llvm-vs-code-extensions.vscode-clangd
