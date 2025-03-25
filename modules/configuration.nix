@@ -137,6 +137,7 @@
   services.envfs.enable = true;
 
   virtualisation.docker.enable = true;
+  virtualisation.docker.logDriver = "json-file";
 
   programs = {
     hyprland.enable = true;
