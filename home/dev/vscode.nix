@@ -11,8 +11,8 @@
       extensions =
         (with pkgs.vscode-marketplace; [
           yzhang.markdown-all-in-one
-          ms-dotnettools.csharp
-          ms-dotnettools.csdevkit
+          # ms-dotnettools.csharp
+          # ms-dotnettools.csdevkit
           # ms-dotnettools.vscode-dotnet-runtime
           ionide.ionide-fsharp
           ms-python.python
