@@ -84,6 +84,11 @@
     #packages = with pkgs; [];
   };
 
+  nix.settings.trusted-users = [
+    "root"
+    "david"
+  ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
