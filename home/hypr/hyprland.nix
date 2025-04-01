@@ -231,54 +231,8 @@ in
             # █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█   █▀█ █░█ █░░ █▀▀ █▀
             # ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀   █▀▄ █▄█ █▄▄ ██▄ ▄█
             windowrule = [
-              "float, file_progress"
-              "float, confirm"
-              "float, dialog"
-              "float, download"
-              "float, notification"
-              "float, error"
-              "float, splash"
-              "float, confirmreset"
-              "float, title:Open File"
-              "float, title:branchdialog"
-              "float, Lxappearance"
-              "float, viewnior"
-              "float, Viewnior"
-              "float, feh"
-              "float, file-roller"
-              "float, title:DevTools"
-              "fullscreen, wlogout"
-              "float, title:wlogout"
-              "fullscreen, title:wlogout"
-              "idleinhibit focus, mpv"
-              "idleinhibit fullscreen, brave"
-              "float, title:^(Media viewer)$"
-              "float, title:^(Volume Control)$"
-              "float, title:^(Picture-in-Picture)$"
-              "size 800 600, title:^(Volume Control)$"
-              "move 75 44%, title:^(Volume Control)$"
-              "opacity 0.92, Dolphin"
-              # Center dialogs
-              "center, title:^(Open File)(.*)$"
-              "center, title:^(Select a File)(.*)$"
-              "center, title:^(Choose wallpaper)(.*)$"
-              "center, title:^(Open Folder)(.*)$"
-              "center, title:^(Save As)(.*)$"
-              "center, title:^(Library)(.*)$"
-              "center, title:^(File Upload)(.*)$"
-              "float,title:^(Open File)(.*)$"
-              "float,title:^(Select a File)(.*)$"
-              "float,title:^(Choose wallpaper)(.*)$"
-              "float,title:^(Open Folder)(.*)$"
-              "float,title:^(Save As)(.*)$"
-              "float,title:^(Library)(.*)$"
-              "float,title:^(File Upload)(.*)$"
-
-              "float, title:^Nextcloud$"
-            ];
-
-            windowrulev2 = [
-              "noinitialfocus,class:^jetbrains-(?!toolbox),floating:1"
+              #"noinitialfocus,class:^jetbrains-(?!toolbox),floating:1"
+              
               # Window workpace position
               "workspace 1, class:^firefox, floating: 0"
               "workspace 4, class:^GitHub Desktop"
@@ -287,6 +241,7 @@ in
 
               "noshadow,floating:0"
 
+              "float, title:^Nextcloud$"
             ];
 
             layerrule = [
