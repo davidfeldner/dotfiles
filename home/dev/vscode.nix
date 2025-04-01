@@ -22,7 +22,7 @@
         ++ (with pkgs.open-vsx; [
           llvm-vs-code-extensions.vscode-clangd
           rust-lang.rust-analyzer
-          octref.vetur
+          vue.volar
           golang.go
           editorconfig.editorconfig
           dbaeumer.vscode-eslint
