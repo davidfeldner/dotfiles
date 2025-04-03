@@ -30,7 +30,7 @@ in
 
       initExtra = ''
         function nxrun() {
-          nix run "nixpkgs#$1"
+          nix run "nixpkgs#$@"
         }
 
         function shellpy() {
