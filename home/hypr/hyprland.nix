@@ -232,7 +232,7 @@ in
             # ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀   █▀▄ █▄█ █▄▄ ██▄ ▄█
             windowrule = [
               #"noinitialfocus,class:^jetbrains-(?!toolbox),floating:1"
-              
+
               # Window workpace position
               "workspace 1, class:^firefox, floating: 0"
               "workspace 4, class:^GitHub Desktop"
@@ -253,38 +253,6 @@ in
               "noanim, indicator.*"
               "noanim, osk"
               "noanim, hyprpicker"
-              "blur, shell:*"
-              "ignorealpha 0.6, shell:*"
-              "noanim, noanim"
-              "blur, gtk-layer-shell"
-              "ignorezero, gtk-layer-shell"
-              "blur, launcher"
-              "ignorealpha 0.5, launcher"
-              "blur, notifications"
-              "ignorealpha 0.69, notifications"
-              "animation slide top, sideleft.*"
-              "animation slide top, sideright.*"
-              "blur, session"
-              "blur, bar"
-              "ignorealpha 0.6, bar"
-              "blur, corner.*"
-              "ignorealpha 0.6, corner.*"
-              "blur, dock"
-              "ignorealpha 0.6, dock"
-              "blur, indicator.*"
-              "ignorealpha 0.6, indicator.*"
-              "blur, overview"
-              "ignorealpha 0.6, overview"
-              "blur, cheatsheet"
-              "ignorealpha 0.6, cheatsheet"
-              "blur, sideright"
-              "ignorealpha 0.6, sideright"
-              "blur, sideleft"
-              "ignorealpha 0.6, sideleft"
-              "blur, indicator*"
-              "ignorealpha 0.6, indicator*"
-              "blur, osk"
-              "ignorealpha 0.6, osk"
             ];
 
             # See https://wiki.hyprland.org/Configuring/Keywords/ for more
