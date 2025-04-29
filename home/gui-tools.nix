@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     obsidian
     freetube
+    youtube-music
     nextcloud-client
     vesktop
     protonvpn-gui
