@@ -89,6 +89,10 @@
     "david"
   ];
 
+  # services.resolved = {
+  #   enable = true;
+  # };
+  #
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
