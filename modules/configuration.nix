@@ -66,6 +66,11 @@
     ];
   };
 
+  nix.registry = {
+    nixpkgs.flake = inputs.nixpkgs;
+    nur.flake = inputs.nur;
+  };
+
   users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

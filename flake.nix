@@ -25,7 +25,6 @@
     {
       nixpkgs,
       home-manager,
-      nur,
       stylix,
       nix-vscode-extensions,
       ...
@@ -52,10 +51,10 @@
               inherit inputs;
             };
             modules = [
-              nur.modules.nixos.default
+              inputs.nur.modules.nixos.default
               {
                 nixpkgs.overlays = [
-                  nur.overlays.default
+                  inputs.nur.overlays.default
                   nix-vscode-extensions.overlays.default
                 ];
               }
