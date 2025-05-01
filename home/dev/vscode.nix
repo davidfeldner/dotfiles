@@ -30,6 +30,7 @@
           redhat.java
           ms-azuretools.vscode-docker
           jnoortheen.nix-ide
+          streetsidesoftware.code-spell-checker
         ]);
     };
   };
