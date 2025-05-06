@@ -31,6 +31,7 @@
           ms-azuretools.vscode-docker
           jnoortheen.nix-ide
           streetsidesoftware.code-spell-checker
+          jnoortheen.nix-ide
         ]);
     };
   };
