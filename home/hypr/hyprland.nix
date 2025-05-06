@@ -52,6 +52,7 @@ in
       # walker
       libqalculate
       libnotify
+      wofi
     ];
     programs.kitty.enable = true;
     services.cliphist.enable = true;
@@ -281,8 +282,8 @@ in
               "$mainMod, S, pseudo, # dwindle"
               "$mainMod, J, togglesplit, # dwindle"
               "$mainMod, L, exec, hyprlock"
-              "$mainMod, H, exec, cliphist list | walker -d -k | cliphist decode | ifne wl-copy"
-              "$mainMod SHIFT, H, exec, cliphist list | walker -d -k | cliphist delete"
+              "$mainMod, H, exec, cliphist list | wofi -d | cliphist decode | ifne wl-copy"
+              "$mainMod SHIFT, H, exec, cliphist list | wofi -d | cliphist delete"
               "$mainMod SHIFT CTRL, H, exec, cliphist wipe"
               #"$mainMod SHIFT, P, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
