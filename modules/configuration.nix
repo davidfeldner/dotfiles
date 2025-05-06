@@ -85,9 +85,16 @@
       "docker"
       "input"
       "wireshark"
+      "usbusers"
     ];
     #packages = with pkgs; [];
   };
+
+  users.groups.usbusers = { };
+  # Define a custom udev rule
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="0660", GROUP="usbusers"
+  '';
 
   nix.settings.trusted-users = [
     "root"
