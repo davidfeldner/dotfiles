@@ -22,4 +22,5 @@
   stylix.targets.kitty.enable = true;
   stylix.targets.hyprland.enable = false;
   stylix.targets.vscode.enable = true;
+  stylix.targets.mako.enable = false;
 }
