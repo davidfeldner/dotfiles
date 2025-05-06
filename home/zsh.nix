@@ -28,7 +28,7 @@ in
         dc = "docker compose";
       };
 
-      initExtra = ''
+      initContent = ''
         function nxrun() {
           nix run "nixpkgs#$@"
         }
