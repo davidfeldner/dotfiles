@@ -55,7 +55,16 @@ in
       wofi
     ];
     programs.kitty.enable = true;
-    services.cliphist.enable = true;
+    services.cliphist = {
+      enable = true;
+      allowImages = true;
+      extraOptions = [
+        "-max-dedupe-search"
+        "10"
+        "-max-items"
+        "500"
+      ];
+    };
 
     gtk = {
       enable = true;
@@ -103,7 +112,7 @@ in
               # "dunst"
               "/home/david/.config/hypr/battery.sh"
               "sway-audio-idle-inhibit"
-              "wl-paste --watch cliphist --max-items 25 store"
+              # "wl-paste --watch cliphist --max-items 25 store"
               "swayosd-server"
               # "ags"
               "safeeyes"
@@ -270,7 +279,7 @@ in
               "$mainMod, B, exec, firefox"
               "$mainMod, C, exec, codium"
               "$mainMod, Y, exec, freetube"
-              "$mainMod, D, exec, vesktop --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
+              "$mainMod, D, exec, vesktop"
               "$mainMod, A, exec, /home/david/.config/hypr/runVM.sh archlinux"
               "$mainMod, K, exec, /home/david/.config/hypr/runVM.sh Kali"
               "$mainMod, V, togglefloating,"
