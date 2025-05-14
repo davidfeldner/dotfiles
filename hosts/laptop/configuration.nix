@@ -7,6 +7,7 @@
     ../../modules/bluetooth.nix
     ../../modules/vagrant.nix
     ../../modules/safe-eyes.nix
+    ../../modules/kanata.nix
   ];
   networking.hostName = "laptop";
 

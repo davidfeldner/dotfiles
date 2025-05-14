@@ -86,6 +86,7 @@
       "input"
       "wireshark"
       "usbusers"
+      "uinput"
     ];
     #packages = with pkgs; [];
   };
