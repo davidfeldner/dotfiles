@@ -8,6 +8,7 @@
     ../../modules/vagrant.nix
     ../../modules/safe-eyes.nix
     ../../modules/kanata.nix
+    ../../modules/grub.nix
   ];
   networking.hostName = "laptop";
 

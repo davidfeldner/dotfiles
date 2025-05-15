@@ -8,6 +8,8 @@
     ../../modules/bluetooth.nix
     ../../modules/waydroid.nix
     ../../modules/safe-eyes.nix
+    ../../modules/kanata.nix
+    ../../modules/grub.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;
