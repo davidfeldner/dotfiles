@@ -22,8 +22,10 @@ in
         homelog = "journalctl -xe --unit home-manager-david";
         icat = "kitten icat";
         lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
-        tvOff = " hyprctl keyword monitor $(hyprctl monitors all | grep 'HDMI'| awk '{print $2}' | head -n 1), disable";
-        tvOn = " hyprctl keyword monitor $(hyprctl monitors all | grep 'HDMI'| awk '{print $2}' | head -n 1), 3840x2160@60, 0x0, 2";
+        tvOff = "hyprctl keyword monitor $(hyprctl monitors all | grep 'HDMI'| awk '{print $2}' | head -n 1), disable";
+        tvOn = "hyprctl keyword monitor $(hyprctl monitors all | grep 'HDMI'| awk '{print $2}' | head -n 1), 3840x2160@60, 0x0, 2";
+        tvOnly = "tvOn && hyprctl monitors all | grep -i monitor | grep -Evi 'HDMI|Unknown' | awk '{print $2}' | while read -r mon; do hyprctl keyword monitor \"$mon,disable\"; done";
+        tvReset = "tvOff && hyprctl keyword monitor DP-2,2560x1440@144,1920x0,1,vrr,1 && hyprctl keyword monitor DVI-D-1,1440x900,4480x0,1";
         code = "codium";
         dc = "docker compose";
       };
