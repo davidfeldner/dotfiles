@@ -14,5 +14,6 @@
     clang-tools
     jdk
     (pkgs.callPackage ../../overrides/fslexyacc.nix { })
+    pnpm
   ];
 }
