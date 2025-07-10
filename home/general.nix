@@ -6,6 +6,7 @@
     ./waybar.nix
     ./ssh.nix
     ./tmux.nix
+    ./zellij.nix
     ./dev/dotnet.nix
     ./dev/basic.nix
     ./dev/vscode.nix
