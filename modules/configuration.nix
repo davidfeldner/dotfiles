@@ -118,32 +118,17 @@
     wget
     git
     firefox
-    neofetch
     killall
     htop
     tmux
-
     python3
   ];
-
-  programs.adb.enable = true;
-
-  # networking.networkmanager.wifi.scanRandMacAddress = false;
-  # networking.networkmanager.wifi.backend = "iwd";
-  #networking.wireless.iwd.enable = true;
 
   stylix.enable = lib.mkDefault false;
   stylix.image = lib.mkDefault ../home/wall.jpg;
   stylix.polarity = "dark";
 
-  services.upower.enable = true; # for end 4 ags bar
-
   programs.kdeconnect.enable = true;
-
-  environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
-  # nixpkgs.config.packageOverrides = {
-  #   freetube = pkgs.callPackage ../overrides/freetube.nix { };
-  # };
 
   # Mounts /bin with binaries if calling process has it in $PATH, to fx shell scripts work
   services.envfs.enable = true;
@@ -174,12 +159,6 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-  nixpkgs.overlays = [
-    (final: prev: {
-      # qemu = inputs.pin.legacyPackages.x86_64-linux.qemu;
-      ghidra = inputs.pin.legacyPackages.x86_64-linux.ghidra;
-    })
-  ];
 
   security.rtkit.enable = true;
 

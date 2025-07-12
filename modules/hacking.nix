@@ -39,5 +39,6 @@
 
   environment.etc.hosts.mode = "0644"; # Make hosts file writable
 
+  environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
   # networking.extraHosts = '''';
 }
