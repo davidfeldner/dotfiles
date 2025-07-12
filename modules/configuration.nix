@@ -132,15 +132,6 @@
     openFirewall = true;
   };
 
-  services.postgresql = {
-    enable = true;
-    ensureDatabases = [ ];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
-    '';
-  };
-
   # networking.networkmanager.wifi.scanRandMacAddress = false;
   # networking.networkmanager.wifi.backend = "iwd";
   #networking.wireless.iwd.enable = true;
