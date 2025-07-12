@@ -34,6 +34,7 @@
           { "jbyuki/instant.nvim", lazy = false },
           { "mason-org/mason.nvim", version = "^1.0.0" },
           { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+          {   "echasnovski/mini.base16",   version = "*" }
         },
         defaults = {
           -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

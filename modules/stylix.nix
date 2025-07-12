@@ -15,12 +15,6 @@
   };
 
   home-manager.users.david.stylix.targets = {
-    neovim.enable = false;
-    kitty.enable = true;
-    hyprland.enable = false;
-    hyprlock.enable = false;
-    vscode.enable = true;
-    mako.enable = false;
     firefox.profileNames = [ "default" ];
   };
 }
