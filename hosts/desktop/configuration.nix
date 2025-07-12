@@ -11,6 +11,7 @@
     ../../modules/kanata.nix
     ../../modules/grub.nix
     ../../modules/stylix.nix
+    ../../modules/virtualization.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;

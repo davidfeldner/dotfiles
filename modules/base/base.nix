@@ -9,6 +9,8 @@
   imports = [
     ./greetd.nix
     ./printing.nix
+    ./audio.nix
+    ./fish.nix
   ];
 
   # Bootloader.
@@ -33,21 +35,6 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_DK.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "da_DK.UTF-8";
-    LC_IDENTIFICATION = "da_DK.UTF-8";
-    LC_MEASUREMENT = "da_DK.UTF-8";
-    LC_MONETARY = "da_DK.UTF-8";
-    LC_NAME = "da_DK.UTF-8";
-    LC_NUMERIC = "da_DK.UTF-8";
-    LC_PAPER = "da_DK.UTF-8";
-    LC_TELEPHONE = "da_DK.UTF-8";
-    LC_TIME = "da_DK.UTF-8";
-  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -74,9 +61,6 @@
     nur.flake = inputs.nur;
   };
 
-  users.defaultUserShell = pkgs.fish;
-  programs.fish.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.david = {
     isNormalUser = true;
@@ -95,7 +79,6 @@
     #packages = with pkgs; [];
   };
 
-  users.groups.usbusers = { };
   # Define a custom udev rule
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="0660", GROUP="usbusers"
@@ -148,28 +131,6 @@
   services.hypridle.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
-
-  programs.starship.enable = true;
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-  };
-
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-
-  security.rtkit.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-  };
 
   fonts.packages = with pkgs; [
     noto-fonts
