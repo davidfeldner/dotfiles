@@ -6,7 +6,7 @@
 }:
 
 {
-  imports = [ ];
+  imports = [ ./greetd.nix ];
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
@@ -74,16 +74,6 @@
   users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
 
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.hyprland}/bin/Hyprland";
-        user = "david";
-      };
-      default_session = initial_session;
-    };
-  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.david = {
     isNormalUser = true;
