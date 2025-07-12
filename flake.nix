@@ -64,9 +64,9 @@
 
               stylix.nixosModules.stylix
 
+              ./modules/base/base.nix
               ./hosts/${system.name}/hardware-configuration.nix
               ./hosts/${system.name}/configuration.nix
-              ./modules/configuration.nix
 
               home-manager.nixosModules.home-manager
               {
