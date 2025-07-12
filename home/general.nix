@@ -14,6 +14,7 @@
     ./gui-tools.nix
     ./nvim.nix
     ./zsh.nix
+    ./fish.nix
     ./git.nix
     ./stylix.nix
     ./ituvpn.nix
