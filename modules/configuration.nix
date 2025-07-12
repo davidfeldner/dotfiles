@@ -6,7 +6,10 @@
 }:
 
 {
-  imports = [ ./greetd.nix ];
+  imports = [
+    ./greetd.nix
+    ./printing.nix
+  ];
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
@@ -124,13 +127,6 @@
   ];
 
   programs.adb.enable = true;
-
-  services.printing.enable = true;
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
 
   # networking.networkmanager.wifi.scanRandMacAddress = false;
   # networking.networkmanager.wifi.backend = "iwd";
