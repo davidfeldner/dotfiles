@@ -11,12 +11,15 @@
 
     pin.url = "github:nixos/nixpkgs?ref=940d545355d5e79859502334f2fe269c3996046b";
 
-    stylix.url = "github:danth/stylix?rev=04afcfc0684d9bbb24bb1dc77afda7c1843ec93b";
-
-    base16-rosepine = {
-      url = "github:edunfelt/base16-rose-pine-scheme";
-      flake = false;
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # base16-rosepine = {
+    #   url = "github:edunfelt/base16-rose-pine-scheme";
+    #   flake = false;
+    # };
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };

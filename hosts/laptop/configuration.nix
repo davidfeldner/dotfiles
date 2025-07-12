@@ -9,6 +9,7 @@
     ../../modules/safe-eyes.nix
     ../../modules/kanata.nix
     ../../modules/grub.nix
+    ../../modules/stylix.nix
   ];
   networking.hostName = "laptop";
 

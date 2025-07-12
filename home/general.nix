@@ -16,7 +16,6 @@
     ./zsh.nix
     ./fish.nix
     ./git.nix
-    ./stylix.nix
     ./ituvpn.nix
     ./firefox.nix
   ];

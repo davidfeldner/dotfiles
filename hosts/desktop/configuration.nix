@@ -10,6 +10,7 @@
     ../../modules/safe-eyes.nix
     ../../modules/kanata.nix
     ../../modules/grub.nix
+    ../../modules/stylix.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;
