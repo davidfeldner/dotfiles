@@ -3,10 +3,14 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    # userSettings = {
-    #   "dotnetAcquisitionExtension.allowInvalidPaths" = true;
-    #   "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/etc/profiles/per-user/david/bin/dotnet";
-    # };
+    userSettings = {
+      "[csharp]" = {
+        "editor.defaultFormatter" = "csharpier.csharpier-vscode";
+      };
+      "[xml]" = {
+        "editor.defaultFormatter" = "csharpier.csharpier-vscode";
+      };
+    };
     profiles.default = {
       extensions =
         (with pkgs.vscode-marketplace; [
@@ -30,6 +34,8 @@
           dbaeumer.vscode-eslint
           yoavbls.pretty-ts-errors
           redhat.java
+          redhat.vscode-xml
+          csharpier.csharpier-vscode
           ms-azuretools.vscode-docker
           jnoortheen.nix-ide
           streetsidesoftware.code-spell-checker
