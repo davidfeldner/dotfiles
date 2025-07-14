@@ -11,6 +11,7 @@
     ./printing.nix
     ./audio.nix
     ./fish.nix
+    ./direnv.nix
   ];
 
   # Bootloader.
