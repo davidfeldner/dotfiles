@@ -22,4 +22,5 @@
     grub2
   ];
   zsh.dualboot = true;
+  fish.dualboot = true;
 }
