@@ -11,6 +11,7 @@
     ../../modules/grub.nix
     ../../modules/stylix.nix
     ../../modules/virtualization.nix
+    ../../modules/printing.nix
   ];
   networking.hostName = "laptop";
 
