@@ -12,6 +12,7 @@
     ../../modules/stylix.nix
     ../../modules/virtualization.nix
     ../../modules/printing.nix
+    ../../modules/direnv.nix
   ];
   networking.hostName = "laptop";
 
