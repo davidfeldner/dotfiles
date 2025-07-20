@@ -6,7 +6,6 @@
     ../../modules/vfio.nix
     ../../modules/steam.nix
     ../../modules/bluetooth.nix
-    ../../modules/waydroid.nix
     ../../modules/safe-eyes.nix
     ../../modules/kanata.nix
     ../../modules/grub.nix
