@@ -15,5 +15,6 @@
     jdk
     (pkgs.callPackage ../../overrides/fslexyacc.nix { })
     pnpm
+    fzf
   ];
 }
