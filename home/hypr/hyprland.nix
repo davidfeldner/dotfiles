@@ -47,7 +47,6 @@ in
       wl-clipboard
       brightnessctl
       kitty
-      swayosd
       moreutils
       # walker
       libqalculate
@@ -102,19 +101,13 @@ in
             # ██▄ █░█ ██▄ █▄▄
             exec-once = [
               "waybar"
-              # "hyprpaper"
-              # "swww-daemon"
               "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
               "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
               "/usr/lib/polkit-kde-authentication-agent-1"
-              #"hypridle"
               "libinput-gestures-setup start"
-              # "dunst"
               "/home/david/.config/hypr/battery.sh"
               "sway-audio-idle-inhibit"
               # "wl-paste --watch cliphist --max-items 25 store"
-              "swayosd-server"
-              # "ags"
               "safeeyes"
             ];
 
@@ -383,14 +376,12 @@ in
 
             # Function keys
             bindl = [
-              ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle;ags run-js 'indicator.popup(1)'"
+              ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
             ];
             bindle = [
-              ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+;ags run-js 'indicator.popup(1)'"
-              ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-;ags run-js 'indicator.popup(1)'"
+              ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+              ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
 
-              # ", XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;indicator.popup(1);'"
-              # ", XF86MonBrightnessDown, exec, ags run-js 'brightness.screen_value -= 0.05;indicator.popup(1);'"
               ", XF86MonBrightnessDown,   exec, brightnessctl set 5%-"
               ", XF86MonBrightnessUp,     exec, brightnessctl set 5%+"
             ];
