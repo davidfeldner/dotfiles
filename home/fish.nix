@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  osConfig,
+  ...
+}:
 let
   cfg = config.fish;
 in
@@ -24,7 +29,7 @@ in
         ll = "ls -l";
         nxupdate = "sudo nixos-rebuild switch --flake ~/nixos/";
         nxtest = "sudo nixos-rebuild test --flake ~/nixos/";
-        homelog = "journalctl -xe --unit home-manager-david";
+        homelog = "journalctl -xe --unit home-manager-${osConfig.user.defaultUser}";
         icat = "kitten icat";
         lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
         code = "codium";

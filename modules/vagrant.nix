@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "david" ];
+  users.extraGroups.vboxusers.members = [ config.user.defaultUser ];
   environment.systemPackages = with pkgs; [
     vagrant
   ];

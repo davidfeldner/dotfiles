@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  osConfig,
   ...
 }:
 
@@ -105,7 +106,7 @@ in
               "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
               "/usr/lib/polkit-kde-authentication-agent-1"
               "libinput-gestures-setup start"
-              "/home/david/.config/hypr/battery.sh"
+              "/home/${osConfig.user.defaultUser}/.config/hypr/battery.sh"
               "sway-audio-idle-inhibit"
               # "wl-paste --watch cliphist --max-items 25 store"
               "safeeyes"
@@ -273,8 +274,6 @@ in
               "$mainMod, C, exec, codium"
               "$mainMod, Y, exec, freetube"
               "$mainMod, D, exec, vesktop"
-              "$mainMod, A, exec, /home/david/.config/hypr/runVM.sh archlinux"
-              "$mainMod, K, exec, /home/david/.config/hypr/runVM.sh Kali"
               "$mainMod, V, togglefloating,"
               "$mainMod, P, pin"
               "$mainMod, F, fullscreen "

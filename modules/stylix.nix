@@ -3,6 +3,7 @@
 
 {
   pkgs,
+  config,
   ...
 }:
 {
@@ -14,7 +15,7 @@
     targets.grub.enable = false;
   };
 
-  home-manager.users.david.stylix.targets = {
+  home-manager.users.${config.user.defaultUser}.stylix.targets = {
     firefox.profileNames = [ "default" ];
   };
 }

@@ -52,6 +52,7 @@
             system = system.arch;
             specialArgs = {
               inherit inputs;
+              systemName = system.name;
             };
             modules = [
               inputs.nur.modules.nixos.default
@@ -69,14 +70,7 @@
               ./hosts/${system.name}/configuration.nix
 
               home-manager.nixosModules.home-manager
-              {
-                home-manager.extraSpecialArgs = {
-                  inherit inputs;
-                };
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.david = import ./hosts/${system.name}/home.nix;
-              }
+              ./hm.nix
             ];
           };
 

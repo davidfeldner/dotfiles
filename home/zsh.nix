@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  osConfig,
+  ...
+}:
 
 let
   cfg = config.zsh;
@@ -19,7 +24,7 @@ in
         ll = "ls -l";
         nxupdate = "sudo nixos-rebuild switch --flake ~/nixos/";
         nxtest = "sudo nixos-rebuild test --flake ~/nixos/";
-        homelog = "journalctl -xe --unit home-manager-david";
+        homelog = "journalctl -xe --unit home-manager-${osConfig.user.defaultUser}";
         icat = "kitten icat";
         lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
         tvOff = "hyprctl keyword monitor $(hyprctl monitors all | grep 'HDMI'| awk '{print $2}' | head -n 1), disable";
@@ -61,7 +66,7 @@ in
       shellAliases.windows = lib.mkIf cfg.dualboot "sudo grub-reboot 1 && reboot";
 
       sessionVariables = {
-        PATH = "$PATH:/home/david/.dotnet/tools";
+        PATH = "$PATH:/home/${osConfig.user.defaultUser}/.dotnet/tools";
         DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       };
       #history = {

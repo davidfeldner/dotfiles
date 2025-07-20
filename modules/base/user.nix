@@ -1,23 +1,29 @@
-{ ... }:
+{ config, lib, ... }:
 {
-  users.users.david = {
-    isNormalUser = true;
-    description = "david";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "libvirtd"
-      "KVM"
-      "docker"
-      "input"
-      "wireshark"
-      "usbusers"
-      "uinput"
+  options.user.defaultUser = lib.mkOption {
+    type = lib.types.str;
+    default = "david";
+    description = "The name of the default user.";
+  };
+  config = {
+    users.users.${config.user.defaultUser} = {
+      isNormalUser = true;
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "libvirtd"
+        "KVM"
+        "docker"
+        "input"
+        "wireshark"
+        "usbusers"
+        "uinput"
+      ];
+    };
+
+    nix.settings.trusted-users = [
+      "root"
+      config.user.defaultUser
     ];
   };
-
-  nix.settings.trusted-users = [
-    "root"
-    "david"
-  ];
 }
