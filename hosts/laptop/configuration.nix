@@ -13,6 +13,11 @@
     ../../modules/virtualization.nix
     ../../modules/printing.nix
     ../../modules/direnv.nix
+    ../../modules/docker.nix
+    ../../modules/fonts.nix
+    ../../modules/tailscale.nix
+    ../../modules/hyprland.nix
+    ../../modules/audio.nix
   ];
   networking.hostName = "laptop";
 

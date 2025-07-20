@@ -12,6 +12,11 @@
     ../../modules/stylix.nix
     ../../modules/virtualization.nix
     ../../modules/direnv.nix
+    ../../modules/docker.nix
+    ../../modules/fonts.nix
+    ../../modules/tailscale.nix
+    ../../modules/hyprland.nix
+    ../../modules/audio.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;

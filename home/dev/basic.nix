@@ -16,5 +16,6 @@
     (pkgs.callPackage ../../overrides/fslexyacc.nix { })
     pnpm
     fzf
+    python3
   ];
 }
