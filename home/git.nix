@@ -2,7 +2,7 @@
 {
   programs.git = {
     enable = true;
-    userName= "davidfeldner";
+    userName = "davidfeldner";
     userEmail = "davidfeldner12@gmail.com";
     aliases = {
       bigblame = "blame -w -C -C -C";
@@ -19,7 +19,7 @@
       pull.rebase = true;
       commit.gpgsign = true;
       rerere.enabled = true;
-      branch.sort = "-comitterdate";
+      branch.sort = "-committerdate";
       column.ui = "auto";
       gpg = {
         sign = true;
