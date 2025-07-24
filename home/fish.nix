@@ -24,6 +24,7 @@ in
       enable = true;
       shellInit = ''
         set -g fish_greeting ""
+        set -g fish_color_autosuggestion 918bb2  # Rose Pine muted color
       '';
       shellAliases = {
         ll = "ls -l";

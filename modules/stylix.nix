@@ -11,7 +11,7 @@
     enable = true;
     image = ../home/wall.jpg;
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
     targets.grub.enable = false;
   };
 
