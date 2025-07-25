@@ -5,7 +5,6 @@
     ../../modules/wifi.nix
     ../../modules/steam.nix
     ../../modules/bluetooth.nix
-    ../../modules/vagrant.nix
     ../../modules/safe-eyes.nix
     ../../modules/kanata.nix
     ../../modules/grub.nix
