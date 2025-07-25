@@ -9,8 +9,7 @@
       cleanup = true;
     };
     themes.stylix.themes.default = {
-      fg = lib.mkForce "#${config.lib.stylix.colors.base0B}";
-      green = lib.mkForce "#${config.lib.stylix.colors.base05}";
+      ribbon_unselected.background = lib.mkForce "#${config.lib.stylix.colors.base04}";
     };
   };
 }
