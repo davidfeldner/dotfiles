@@ -32,6 +32,7 @@
           ms-python.vscode-pylance
           # ms-python.pylint
           svelte.svelte-vscode
+          esbenp.prettier-vscode
         ])
         ++ (with pkgs.open-vsx; [
           llvm-vs-code-extensions.vscode-clangd
