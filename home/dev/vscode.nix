@@ -8,18 +8,18 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    userSettings = {
-      "[csharp]" = {
-        "editor.defaultFormatter" = "csharpier.csharpier-vscode";
-      };
-      "[xml]" = {
-        "editor.defaultFormatter" = "csharpier.csharpier-vscode";
-      };
-      "workbench.colorCustomizations" = {
-        "selection.background" = "#${config.lib.stylix.colors.base0B}";
-      };
-    };
     profiles.default = {
+      userSettings = {
+        "[csharp]" = {
+          "editor.defaultFormatter" = "csharpier.csharpier-vscode";
+        };
+        "[xml]" = {
+          "editor.defaultFormatter" = "csharpier.csharpier-vscode";
+        };
+        "workbench.colorCustomizations" = {
+          "selection.background" = "#${config.lib.stylix.colors.base0B}";
+        };
+      };
       extensions =
         (with pkgs.vscode-marketplace; [
           yzhang.markdown-all-in-one
