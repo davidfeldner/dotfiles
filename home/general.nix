@@ -7,6 +7,8 @@
     ./ssh.nix
     ./tmux.nix
     ./zellij.nix
+    ./zoxide.nix
+    ./yazi.nix
     ./dev/dotnet.nix
     ./dev/basic.nix
     ./dev/vscode.nix

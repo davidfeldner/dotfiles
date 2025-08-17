@@ -34,7 +34,25 @@
           { "jbyuki/instant.nvim", lazy = false },
           { "mason-org/mason.nvim", version = "^1.0.0" },
           { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
-          {   "echasnovski/mini.base16",   version = "*" }
+          {   "echasnovski/mini.base16",   version = "*" },
+          {
+            "christoomey/vim-tmux-navigator",
+            cmd = {
+              "TmuxNavigateLeft",
+              "TmuxNavigateDown",
+              "TmuxNavigateUp",
+              "TmuxNavigateRight",
+              "TmuxNavigatePrevious",
+              "TmuxNavigatorProcessList",
+            },
+            keys = {
+              { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+              { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+              { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+              { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+              { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+            }
+	  }
         },
         defaults = {
           -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

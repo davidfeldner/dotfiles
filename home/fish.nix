@@ -18,13 +18,17 @@ in
     };
 
     programs.kitty.shellIntegration.enableFishIntegration = true;
-    programs.zellij.enableFishIntegration = true;
+    # programs.zellij.enableFishIntegration = true;
 
     programs.fish = {
       enable = true;
       shellInit = ''
         set -g fish_greeting ""
         set -g fish_color_autosuggestion 918bb2  # Rose Pine muted color
+
+        if status is-interactive; and test -z "$TMUX"
+          tmux new-session -t 0
+        end
       '';
       shellAliases = {
         ll = "ls -l";

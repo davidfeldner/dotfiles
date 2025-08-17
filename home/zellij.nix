@@ -2,8 +2,8 @@
 {
   programs.zellij = {
     enable = true;
-    exitShellOnExit = true;
-    attachExistingSession = true;
+    exitShellOnExit = false;
+    # attachExistingSession = true;
     settings = {
       show_startup_tips = false;
       cleanup = true;

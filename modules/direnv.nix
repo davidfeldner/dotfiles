@@ -1,4 +1,7 @@
 { ... }:
 {
-  programs.direnv.enable = true;
+  programs.direnv = {
+    enableFishIntegration = true;
+    enable = true;
+  };
 }
