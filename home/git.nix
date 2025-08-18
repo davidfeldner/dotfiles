@@ -33,6 +33,7 @@
         renames = true;
       };
       commit.verbose = true;
+      init.defaultBranch = "main";
     };
   };
 }
