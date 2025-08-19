@@ -8,6 +8,7 @@
   home-manager = {
     extraSpecialArgs = {
       inherit inputs;
+      inherit systemName;
     };
     useGlobalPkgs = true;
     useUserPackages = true;

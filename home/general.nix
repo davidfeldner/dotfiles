@@ -20,6 +20,7 @@
     ./git.nix
     ./ituvpn.nix
     ./firefox.nix
+    ./freetube.nix
   ];
 
   hyprland.enable = true;
