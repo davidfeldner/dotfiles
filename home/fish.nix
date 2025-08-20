@@ -44,7 +44,11 @@ in
       shellAliases.windows = lib.mkIf cfg.dualboot "sudo grub-reboot 1 && reboot";
 
       functions = {
-        nxrun = ''nix run "nixpkgs#$argv"'';
+        nxrun = ''
+          set pkg $argv[1]
+          set args $argv[2..-1]
+          nix run nixpkgs#$pkg -- $args
+        '';
         shellpy = ''
           nix develop --impure --expr "
                 let
