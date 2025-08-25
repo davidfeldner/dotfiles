@@ -41,6 +41,7 @@ in
           # ms-python.pylint
           svelte.svelte-vscode
           esbenp.prettier-vscode
+          # ms-vsliveshare.vsliveshare
         ])
         ++ (with pkgs.open-vsx; [
           llvm-vs-code-extensions.vscode-clangd
