@@ -4,6 +4,14 @@
   config,
   ...
 }:
+let
+  myJupyter = pkgs.vscode-utils.extensionFromVscodeMarketplace {
+    name = "jupyter";
+    publisher = "ms-toolsai";
+    version = "2025.7.0"; # choose the version you need
+    sha256 = "sha256-wedMPo+mL3yvb9WqJComlyZWvSSaJXv/4LWcl0wwqdQ="; # from nix-prefetch-url
+  };
+in
 {
   programs.vscode = {
     enable = true;
@@ -49,7 +57,8 @@
           jnoortheen.nix-ide
           streetsidesoftware.code-spell-checker
           jnoortheen.nix-ide
-        ]);
+        ])
+        ++ [ myJupyter ];
     };
   };
 
@@ -83,7 +92,7 @@
     fi
 
     # Check and read previous settings file
-    if [ -f "$prev_settings_file" ]; then
+    if [ -s "$prev_settings_file" ]; then
       echo "Found previous content"
       prev_content=$(cat "$prev_settings_file" 2>/dev/null || echo '{}')
       echo "previous content: $prev_content"
