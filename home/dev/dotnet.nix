@@ -13,6 +13,7 @@ in
   home.packages = [ dotnetPkg ];
   home.sessionVariables = {
     DOTNET_ROOT = "${dotnetPkg}";
+    DOTNET_CLI_TELEMETRY_OPTOUT = "1";
   };
 
 }

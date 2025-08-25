@@ -13,7 +13,6 @@
     gcc
     clang-tools
     jdk
-    (pkgs.callPackage ../../overrides/fslexyacc.nix { })
     pnpm
     fzf
     python3

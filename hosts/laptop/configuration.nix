@@ -17,6 +17,7 @@
     ../../modules/tailscale.nix
     ../../modules/hyprland.nix
     ../../modules/audio.nix
+    ../../modules/fslexyacc.nix
   ];
   networking.hostName = "laptop";
 
