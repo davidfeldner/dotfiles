@@ -16,5 +16,7 @@
     pnpm
     fzf
     python3
+    erlang
+    beam28Packages.rebar3
   ];
 }
