@@ -1,5 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    git-credential-manager
+  ];
   programs.git = {
     enable = true;
     userName = "davidfeldner";
@@ -34,6 +37,8 @@
       };
       commit.verbose = true;
       init.defaultBranch = "main";
+      credential.helper = "manager";
+      credential.credentialStore = "secretservice";
     };
   };
 }
