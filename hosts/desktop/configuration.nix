@@ -17,6 +17,7 @@
     ../../modules/tailscale.nix
     ../../modules/hyprland.nix
     ../../modules/audio.nix
+    ../../modules/fslexyacc.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_6_6;
