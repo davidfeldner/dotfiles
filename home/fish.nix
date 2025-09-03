@@ -72,7 +72,17 @@ in
         tvmon.body = ''
           hyprctl monitors all | grep HDMI | awk '{print $2}' | head -n 1
         '';
+        direnvinit.body = ''
+          if test (count $argv) -eq 0
+            echo "Usage: direnvinit <dir>"
+            return 1
+          end
 
+          set arg $argv[1]
+
+          echo "use flake \"github:davidfeldner/dotfiles?dir=$arg\"" > .envrc
+          direnv allow
+        '';
         tvOn.body = ''
           hyprctl keyword monitor (tvmon),3840x2160@60,0x0,2
         '';
