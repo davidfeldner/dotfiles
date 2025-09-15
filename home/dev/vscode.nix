@@ -58,6 +58,7 @@ in
           jnoortheen.nix-ide
           streetsidesoftware.code-spell-checker
           jnoortheen.nix-ide
+          tomoki1207.pdf
         ])
         ++ [ myJupyter ];
     };
