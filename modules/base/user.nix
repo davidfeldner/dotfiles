@@ -18,6 +18,7 @@
         "wireshark"
         "usbusers"
         "uinput"
+        "video"
       ];
     };
 
