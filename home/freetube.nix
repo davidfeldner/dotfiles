@@ -20,5 +20,5 @@ let
   });
 in
 {
-  home.packages = [ freetube ];
+  home.packages = [ pkgs.freetube ];
 }
