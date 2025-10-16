@@ -7,7 +7,8 @@
   hyprland.extraMonitorSettings = [
     "DVI-D-1, 1440x900,      4480x0, 1"
     "DP-2,    2560x1440@144, 1920x0, 1, vrr, 1"
-    "DP-3,    2560x1440@144, 1920x0, 1"
+    "DP-3,    2560x1440@144, 1920x0, 1, vrr, 1"
+    "DP-4,    2560x1440@144, 1920x0, 1, vrr, 1"
     "HDMI-A-2, disable"
     "HDMI-A-4, disable"
     "HDMI-A-5, disable"
