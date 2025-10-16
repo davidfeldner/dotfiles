@@ -27,6 +27,11 @@
         hostname = "192.168.1.44";
         user = "pi";
       };
+      "server" = {
+        hostname = "192.168.1.211";
+        user = "david";
+        port = 5522;
+      };
     };
   };
 }
