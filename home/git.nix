@@ -5,20 +5,20 @@
   ];
   programs.git = {
     enable = true;
-    userName = "davidfeldner";
-    userEmail = "davidfeldner12@gmail.com";
-    aliases = {
-      bigblame = "blame -w -C -C -C";
-      staash = "stash --all";
-      undo = "reset --soft HEAD~1";
-      amend = "commit --amend";
-      safeForce = "push --force-with-lease";
-      graph = "log --all --decorate --oneline --graph";
-      st = "status";
-      aa = "!git add -A && git status";
-      cm = "commit -m";
-    };
-    extraConfig = {
+    settings = {
+      user.name = "davidfeldner";
+      user.email = "davidfeldner12@gmail.com";
+      alias = {
+        bigblame = "blame -w -C -C -C";
+        staash = "stash --all";
+        undo = "reset --soft HEAD~1";
+        amend = "commit --amend";
+        safeForce = "push --force-with-lease";
+        graph = "log --all --decorate --oneline --graph";
+        st = "status";
+        aa = "!git add -A && git status";
+        cm = "commit -m";
+      };
       pull.rebase = true;
       commit.gpgsign = true;
       rerere.enabled = true;
