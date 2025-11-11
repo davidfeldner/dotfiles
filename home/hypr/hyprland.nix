@@ -53,6 +53,7 @@ in
       libqalculate
       libnotify
       wofi
+      adwaita-icon-theme
     ];
     programs.kitty.enable = true;
     services.cliphist = {
