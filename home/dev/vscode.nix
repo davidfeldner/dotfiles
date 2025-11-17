@@ -59,6 +59,9 @@ in
           streetsidesoftware.code-spell-checker
           jnoortheen.nix-ide
           tomoki1207.pdf
+          # pgourlain.erlang
+          erlang-ls.erlang-ls
+          scala-lang.scala
         ])
         ++ [ myJupyter ];
     };
