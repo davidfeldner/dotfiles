@@ -41,6 +41,7 @@ in
           # ms-python.pylint
           svelte.svelte-vscode
           esbenp.prettier-vscode
+          erlang-language-platform.erlang-language-platform
           # ms-vsliveshare.vsliveshare
         ])
         ++ (with pkgs.open-vsx; [
@@ -59,9 +60,9 @@ in
           streetsidesoftware.code-spell-checker
           jnoortheen.nix-ide
           tomoki1207.pdf
-          # pgourlain.erlang
-          erlang-ls.erlang-ls
           scala-lang.scala
+          scalameta.metals
+          sleistner.vscode-fileutils
         ])
         ++ [ myJupyter ];
     };
