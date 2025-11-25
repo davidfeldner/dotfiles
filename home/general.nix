@@ -12,6 +12,7 @@
     ./dev/dotnet.nix
     ./dev/basic.nix
     ./dev/vscode.nix
+    ./dev/zed.nix
     ./dev/cli-tools.nix
     ./gui-tools.nix
     ./nvim.nix
