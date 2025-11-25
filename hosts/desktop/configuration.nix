@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./nfs-client.nix
     ../../modules/hacking.nix
     ../../modules/nvidia.nix
     ../../modules/vfio.nix
@@ -18,6 +19,7 @@
     ../../modules/hyprland.nix
     ../../modules/audio.nix
     ../../modules/fslexyacc.nix
+    ../../modules/cuda.nix
   ];
 
   #boot.kernelPackages = pkgs.linuxPackages_6_6;
