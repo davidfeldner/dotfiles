@@ -12,6 +12,7 @@
     "HDMI-A-2, disable"
     "HDMI-A-4, disable"
     "HDMI-A-5, disable"
+    "HDMI-A-1, disable"
     "Unknown-1, disable"
   ];
   hyprland.nvidia = true;

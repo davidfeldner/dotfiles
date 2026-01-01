@@ -39,5 +39,5 @@
     # MESA_VK_DEVICE_SELECT = "10de:1b80";
     GSK_RENDERER = "ngl";
   };
-  #   vfio.enable = false; # Isolates GPU for VFIO
+  vfio.enable = false; # Isolates GPU for VFIO
 }
