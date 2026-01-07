@@ -39,6 +39,7 @@ in
         lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
         code = "codium";
         dc = "docker compose";
+        setLenovoBatterySaver = "echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode";
       };
 
       shellAliases.windows = lib.mkIf cfg.dualboot "sudo grub-reboot 1 && reboot";
