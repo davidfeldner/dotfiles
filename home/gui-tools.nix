@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     obsidian
-    youtube-music
+    pear-desktop
     nextcloud-client
     vesktop
     protonvpn-gui

@@ -147,7 +147,7 @@ in
             # █░▀░█ █ ▄█ █▄▄
             misc = {
               background_color = lib.mkDefault "rgba(1D1011FF)";
-              new_window_takes_over_fullscreen = 2;
+              # new_window_takes_over_fullscreen = 2;
 
               disable_hyprland_logo = true;
               mouse_move_enables_dpms = true;
@@ -240,26 +240,24 @@ in
               #"noinitialfocus,class:^jetbrains-(?!toolbox),floating:1"
 
               # Window workpace position
-              "workspace 1, class:^firefox, floating: 0"
-              "workspace 4, class:^GitHub Desktop"
-              "workspace 5, class:^VencordDesktop"
-              "workspace 6, class:^virt-manager"
+              "match:class ^firefox,        workspace 1, float 0"
+              "match:class ^GitHub Desktop, workspace 4"
+              "match:class ^VencordDesktop, workspace 5"
+              "match:class ^virt-manager,   workspace 6"
 
-              "noshadow,floating:0"
-
-              "float, title:^Nextcloud$"
+              "match:title ^Nextcloud$, float 1"
             ];
 
-            layerrule = [
-              "xray 1, .*"
-              "noanim, walker"
-              "noanim, selection"
-              "noanim, overview"
-              "noanim, anyrun"
-              "noanim, indicator.*"
-              "noanim, osk"
-              "noanim, hyprpicker"
-            ];
+            # layerrule = [
+            # "xray 1, .*"
+            # "noanim, walker"
+            # "noanim, selection"
+            # "noanim, overview"
+            # "noanim, anyrun"
+            # "noanim, indicator.*"
+            # "noanim, osk"
+            # "noanim, hyprpicker"
+            # ];
 
             # See https://wiki.hyprland.org/Configuring/Keywords/ for more
             "$mainMod" = "SUPER";
