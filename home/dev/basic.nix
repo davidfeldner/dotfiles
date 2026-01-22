@@ -7,7 +7,6 @@
     rustfmt
     nodejs
     nixfmt-rfc-style
-    poetry
     # jetbrains.rider
     go
     gcc
