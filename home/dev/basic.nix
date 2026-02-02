@@ -6,7 +6,7 @@
     rustc
     rustfmt
     nodejs
-    nixfmt-rfc-style
+    nixfmt
     # jetbrains.rider
     go
     gcc
