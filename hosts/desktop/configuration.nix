@@ -19,7 +19,7 @@
     ../../modules/hyprland.nix
     ../../modules/audio.nix
     ../../modules/fslexyacc.nix
-    ../../modules/cuda.nix
+    ../../modules/graphics.nix
   ];
 
   #boot.kernelPackages = pkgs.linuxPackages_6_6;

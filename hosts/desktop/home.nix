@@ -15,7 +15,6 @@
     "HDMI-A-1, disable"
     "Unknown-1, disable"
   ];
-  hyprland.nvidia = true;
   hyprland.extraWorkspaceSettings = [
     "1,monitor:DP-2,default:true"
     "8,monitor:DVI-D-1,default:true"
