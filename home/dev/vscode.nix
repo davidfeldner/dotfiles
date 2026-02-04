@@ -63,6 +63,7 @@ in
           scala-lang.scala
           scalameta.metals
           sleistner.vscode-fileutils
+          lintangwisesa.arduino
         ])
         ++ [ myJupyter ];
     };

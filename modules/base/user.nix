@@ -19,6 +19,7 @@
         "usbusers"
         "uinput"
         "video"
+        "dialout"
       ];
     };
 
