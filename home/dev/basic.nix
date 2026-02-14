@@ -18,5 +18,6 @@
     erlang
     beam28Packages.rebar3
     arduino-ide
+    eclipses.eclipse-modeling
   ];
 }

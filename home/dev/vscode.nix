@@ -64,6 +64,8 @@ in
           scalameta.metals
           sleistner.vscode-fileutils
           lintangwisesa.arduino
+          langium.langium-vscode
+          vitest.explorer
         ])
         ++ [ myJupyter ];
     };
