@@ -111,6 +111,8 @@ in
               "sway-audio-idle-inhibit"
               # "wl-paste --watch cliphist --max-items 25 store"
               "safeeyes"
+              "elephant"
+              "walker --gapplication-service"
             ];
 
             # █ █▄░█ █▀█ █░█ ▀█▀
