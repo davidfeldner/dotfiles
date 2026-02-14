@@ -1,7 +1,11 @@
 { ... }:
 {
-  virtualisation.docker = {
-    enable = true;
-    logDriver = "json-file";
-  };
+  flake.nixosModules.docker =
+    { ... }:
+    {
+      virtualisation.docker = {
+        enable = true;
+        logDriver = "json-file";
+      };
+    };
 }

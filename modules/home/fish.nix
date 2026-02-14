@@ -1,0 +1,116 @@
+{ ... }:
+{
+  flake.modules.homeManager.fish =
+    {
+      lib,
+      config,
+      osConfig,
+      ...
+    }:
+    let
+      cfg = config.fish;
+    in
+    {
+      options = {
+        fish.dualboot = lib.mkEnableOption "Enables grub aliases";
+      };
+      config = {
+        programs.starship = {
+          enable = true;
+          enableFishIntegration = true;
+        };
+
+        programs.kitty.shellIntegration.enableFishIntegration = true;
+        # programs.zellij.enableFishIntegration = true;
+
+        programs.fish = {
+          enable = true;
+          shellInit = ''
+            set -g fish_greeting ""
+            set -g fish_color_autosuggestion 918bb2  # Rose Pine muted color
+
+            if status is-interactive; and test -z "$TMUX"
+              tmux new-session -t 0
+            end
+
+            export PATH="$PATH:/home/david/.npm-global/bin/"
+          '';
+          shellAliases = {
+            ll = "ls -l";
+            nxupdate = "sudo nixos-rebuild switch --flake ~/nixos/";
+            nxtest = "sudo nixos-rebuild test --flake ~/nixos/";
+            homelog = "journalctl -xe --unit home-manager-${osConfig.user.defaultUser}";
+            icat = "kitten icat";
+            lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
+            code = "codium";
+            dc = "docker compose";
+            setLenovoBatterySaver = "echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode";
+          };
+
+          shellAliases.windows = lib.mkIf cfg.dualboot "sudo grub-reboot 1 && reboot";
+
+          functions = {
+            nxrun = ''
+              set pkg $argv[1]
+              set args $argv[2..-1]
+              nix run nixpkgs#$pkg -- $args
+            '';
+            shellpy = ''
+              nix develop --impure --expr "
+                    let
+                      pkgs = import <nixpkgs> {};
+                    in pkgs.mkShell {
+                      packages = [
+                        (pkgs.python3.withPackages (ps: with ps; [
+                          $argv
+                        ]))
+                      ];
+                    }" -c $SHELL'';
+            pkgs = ''
+              nix develop --impure --expr "
+                let
+                  pkgs = import <nixpkgs> {};
+                in pkgs.mkShell {
+                  packages = with pkgs; [
+                    $argv
+                  ];
+                }" -c $SHELL'';
+            tvmon.body = ''
+              hyprctl monitors all | grep HDMI | awk '{print $2}' | head -n 1
+            '';
+            direnvinit.body = ''
+              if test (count $argv) -eq 0
+                echo "Usage: direnvinit <dir>"
+                return 1
+              end
+
+              set arg $argv[1]
+
+              echo "use flake \"github:davidfeldner/dotfiles?dir=$arg\"" > .envrc
+              direnv allow
+            '';
+            tvOn.body = ''
+              hyprctl keyword monitor (tvmon),3840x2160@60,0x0,2
+            '';
+
+            tvOff.body = ''
+              hyprctl keyword monitor (tvmon),disable
+            '';
+
+            tvOnly.body = ''
+              tvOn
+              for mon in (hyprctl monitors all | grep -i monitor | grep -Evi 'HDMI|Unknown' | awk '{print $2}')
+                hyprctl keyword monitor "$mon,disable"
+              end
+            '';
+
+            tvReset.body = ''
+              tvOff
+              hyprctl keyword monitor DP-2,2560x1440@144,1920x0,1,vrr,1
+              hyprctl keyword monitor DVI-D-1,1440x900,4480x0,1
+            '';
+          };
+        };
+      };
+    };
+}

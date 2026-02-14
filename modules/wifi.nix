@@ -1,16 +1,17 @@
 { ... }:
 {
+  flake.nixosModules.wifi = {
+    # Enable networking
+    networking.networkmanager = {
+      enable = true;
+      wifi.powersave = false;
+    };
 
-  # Enable networking
-  networking.networkmanager = {
-    enable = true;
-    wifi.powersave = false;
-  };
-
-  # https://kisonecat.com/blog/eduroam-openssl-wpa-supplicant/
-  nixpkgs.config.packageOverrides = pkgs: {
-    wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
-      patches = attrs.patches ++ [ ../overrides/eduroam.patch ];
-    });
+    # https://kisonecat.com/blog/eduroam-openssl-wpa-supplicant/
+    nixpkgs.config.packageOverrides = pkgs: {
+      wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
+        patches = attrs.patches ++ [ ../overrides/eduroam.patch ];
+      });
+    };
   };
 }

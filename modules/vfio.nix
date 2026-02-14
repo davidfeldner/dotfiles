@@ -1,55 +1,60 @@
-# Credit: https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
-let
-  gpuIDs = [
-    "10de:1b80" # Graphics
-    "10de:10f0" # Audio
-  ];
-in
+{ ... }:
 {
-  lib,
-  config,
-  pkgs,
-  ...
-}:
-{
-  options.vfio.enable = with lib; mkEnableOption "Configure the machine for VFIO";
+  flake.nixosModules.vfio =
+    # Credit: https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
 
-  config =
     let
-      cfg = config.vfio;
+      gpuIDs = [
+        "10de:1b80" # Graphics
+        "10de:10f0" # Audio
+      ];
     in
     {
-      systemd.tmpfiles.rules = [
-        "f /dev/shm/looking-glass 0660 user kvm -"
-      ];
+      lib,
+      config,
+      pkgs,
+      ...
+    }:
+    {
+      options.vfio.enable = with lib; mkEnableOption "Configure the machine for VFIO";
 
-      boot = {
-        initrd.kernelModules = [
-          "vfio_pci"
-          "vfio"
-          "vfio_iommu_type1"
+      config =
+        let
+          cfg = config.vfio;
+        in
+        {
+          systemd.tmpfiles.rules = [
+            "f /dev/shm/looking-glass 0660 user kvm -"
+          ];
 
-          #"nvidia"
-          #"nvidia_modeset"
-          #"nvidia_uvm"
-          #"nvidia_drm"
-        ];
+          boot = {
+            initrd.kernelModules = [
+              "vfio_pci"
+              "vfio"
+              "vfio_iommu_type1"
 
-        kernelParams = [
-          # enable IOMMU
-          "amd_iommu=on"
-        ]
-        ++
-          lib.optional cfg.enable
-            # isolate the GPU
-            ("vfio-pci.ids=" + lib.concatStringsSep "," gpuIDs);
-      };
+              #"nvidia"
+              #"nvidia_modeset"
+              #"nvidia_uvm"
+              #"nvidia_drm"
+            ];
 
-      hardware.graphics.enable = true;
-      environment.systemPackages = with pkgs; [
-        virtiofsd
-        looking-glass-client
-      ];
+            kernelParams = [
+              # enable IOMMU
+              "amd_iommu=on"
+            ]
+            ++
+              lib.optional cfg.enable
+                # isolate the GPU
+                ("vfio-pci.ids=" + lib.concatStringsSep "," gpuIDs);
+          };
 
+          hardware.graphics.enable = true;
+          environment.systemPackages = with pkgs; [
+            virtiofsd
+            looking-glass-client
+          ];
+
+        };
     };
 }

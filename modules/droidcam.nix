@@ -1,5 +1,7 @@
 { ... }:
 {
-  programs.droidcam.enable = true;
+  flake.nixosModules.droidcam = {
+    programs.droidcam.enable = true;
 
+  };
 }

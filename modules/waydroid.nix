@@ -1,4 +1,9 @@
 { ... }:
 {
-    virtualisation.waydroid.enable = true;
+  flake.nixosModules.waydroid =
+    { ... }:
+    {
+      virtualisation.waydroid.enable = true;
+    };
 }
+
