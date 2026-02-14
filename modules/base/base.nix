@@ -7,6 +7,7 @@
     }:
     {
       imports = with self.nixosModules; [
+        base-fixes
         base-fish
         base-grub
         base-locale

@@ -25,7 +25,7 @@
       hyprlock
       hyprpaper
       walker
-
+      yazi
     ];
 
     hyprland.enable = true;
