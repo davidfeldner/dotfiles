@@ -29,6 +29,8 @@ in
         if status is-interactive; and test -z "$TMUX"
           tmux new-session -t 0
         end
+
+        export PATH="$PATH:/home/david/.npm-global/bin/"
       '';
       shellAliases = {
         ll = "ls -l";
