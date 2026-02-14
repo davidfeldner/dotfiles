@@ -5,6 +5,7 @@
 {
   flake.nixosModules.stylix =
     {
+      inputs,
       pkgs,
       config,
       ...
@@ -12,7 +13,7 @@
     {
       stylix = {
         enable = true;
-        image = ./home/wall.jpg;
+        image = inputs.self + "/assets/wall.jpg";
         polarity = "dark";
         base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
         targets.grub.enable = false;
