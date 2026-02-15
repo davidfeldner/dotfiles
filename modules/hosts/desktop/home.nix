@@ -25,7 +25,7 @@
       home.packages = with pkgs; [
         grub2
       ];
-      #zsh.dualboot = true;
-      #fish.dualboot = true;
+      zsh.dualboot = true;
+      fish.dualboot = true;
     };
 }

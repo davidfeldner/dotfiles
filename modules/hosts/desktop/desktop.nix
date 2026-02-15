@@ -41,6 +41,7 @@
       ]);
 
       my.user = "david";
+
       networking.hostName = "desktop";
 
       boot.loader.grub.useOSProber = false;

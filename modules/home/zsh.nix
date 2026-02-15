@@ -13,10 +13,9 @@
     in
     {
       options = {
-        zsh.enable = lib.mkEnableOption "Enable zsh";
         zsh.dualboot = lib.mkEnableOption "Enables grub aliases";
       };
-      config = lib.mkIf cfg.enable {
+      config = {
         programs.zsh = {
           enable = true;
           enableCompletion = true;

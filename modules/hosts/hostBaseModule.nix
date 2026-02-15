@@ -5,7 +5,12 @@
   systems = [ "x86_64-linux" ];
 
   flake.nixosModules.hostBaseModule =
-    { inputs, lib, ... }:
+    {
+      inputs,
+      lib,
+      config,
+      ...
+    }:
     {
       imports = [
         inputs.nur.modules.nixos.default
@@ -13,10 +18,12 @@
         inputs.home-manager.nixosModules.home-manager
       ];
 
-      options.my.user = lib.mkOption {
-        type = lib.types.str;
-        default = "david";
-        description = "My username";
+      options = {
+        my.user = lib.mkOption {
+          type = lib.types.str;
+          default = "david";
+          description = "My username";
+        };
       };
       config = {
         nixpkgs.overlays = [
@@ -35,6 +42,7 @@
           useGlobalPkgs = true;
           useUserPackages = true;
         };
+
       };
     };
 }

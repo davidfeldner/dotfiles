@@ -1,4 +1,4 @@
-{ ... }:
+{ self, ... }:
 {
   flake.modules.homeManager.hyprland =
     {
@@ -13,15 +13,16 @@
       cfg = config.hyprland;
     in
     {
-      # imports = [
-      #   ./hypridle.nix
-      #   ./hyprlock.nix
-      #   ./hyprpaper.nix
-      #   ../walker.nix
-      # ];
+      imports = with self.modules.homeManager; [
+        hypridle
+        hyprlock
+        hyprpaper
+        walker
+        waybar
+        dunst
+      ];
 
       options = {
-        hyprland.enable = lib.mkEnableOption "Enable Hyprland";
         hyprland.extraMonitorSettings = lib.mkOption {
           type = lib.types.listOf lib.types.str;
           default = [ ];
@@ -37,7 +38,7 @@
 
       };
 
-      config = lib.mkIf cfg.enable {
+      config = {
         home.file.".config/hypr/battery.sh" = {
           enable = true;
           text = builtins.readFile ./battery.sh;

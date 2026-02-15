@@ -2,9 +2,7 @@
 {
   flake.modules.homeManager.general = {
     imports = with self.modules.homeManager; [
-      dunst
       hyprland
-      waybar
       ssh
       tmux
       zellij
@@ -21,15 +19,9 @@
       itu-vpn
       firefox
       freetube
-      hypridle
-      hyprlock
-      hyprpaper
-      walker
+      zsh
       yazi
     ];
-
-    hyprland.enable = true;
-    #zsh.enable = true;
 
     home.stateVersion = "24.05";
   };

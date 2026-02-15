@@ -3,7 +3,7 @@
   flake.nixosModules.safeeyes =
     { pkgs, lib, ... }:
     let
-      inherit (pkgs) alsa-utils wlrctl xorg;
+      inherit (pkgs) alsa-utils wlrctl xprop;
     in
     {
       nixpkgs.overlays = [
@@ -16,7 +16,7 @@
                   lib.makeBinPath [
                     alsa-utils
                     wlrctl
-                    xorg.xprop
+                    xprop
                   ]
                 }
               )
