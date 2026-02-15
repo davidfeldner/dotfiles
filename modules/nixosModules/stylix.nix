@@ -1,5 +1,5 @@
-# Wallpapers home/wall.jpg
-# Anders Jildén - https://unsplash.com/photos/grey-full-suspension-bridge-photography-during-daytime-AkUR27wtaxs
+# Wallpapers assets/wall.jpg
+# Michael Hacker - https://unsplash.com/photos/snow-covered-pine-tree-in-mountain-under-cloudy-sky-OoQKL4cLZuc
 
 { ... }:
 {
@@ -15,12 +15,16 @@
         enable = true;
         image = inputs.self + "/assets/wall.jpg";
         polarity = "dark";
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+        # https://github.com/tinted-theming/schemes/tree/spec-0.11/base16
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/nova.yaml";
         targets.grub.enable = false;
       };
 
-      home-manager.users.${config.user.defaultUser}.stylix.targets = {
-        firefox.profileNames = [ "default" ];
+      home-manager.users.${config.user.defaultUser}.stylix = {
+        targets.firefox.profileNames = [ "default" ];
+        # targets.starship.enable = false;
+        # targets.kitty.enable = false;
+        # targets.fish.enable = false;
       };
     };
 }
