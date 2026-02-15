@@ -16,6 +16,8 @@
         prusa-slicer
         protonvpn-gui
         rquickshare
+        arduino-ide
+        eclipses.eclipse-modeling
       ];
     };
 }

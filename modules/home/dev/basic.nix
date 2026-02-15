@@ -18,10 +18,8 @@
         pnpm
         fzf
         python3
-        erlang
-        beam28Packages.rebar3
-        arduino-ide
-        eclipses.eclipse-modeling
+        # erlang
+        # beam28Packages.rebar3
       ];
     };
 }
