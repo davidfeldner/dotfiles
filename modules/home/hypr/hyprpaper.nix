@@ -8,14 +8,14 @@
         settings = {
           ipc = "on";
           splash = false;
-          splash_offset = 2.0;
+          # splash_offset = 2.0;
 
           preload = [
-            "~/nixos/home/wall.jpg"
+            "~/nixos/assets/wall.jpg"
           ];
 
           wallpaper = [
-            ",~/nixos/home/wall.jpg"
+            ",~/nixos/assets/wall.jpg"
           ];
         };
       };
