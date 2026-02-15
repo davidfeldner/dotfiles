@@ -10,6 +10,7 @@
         rustfmt
         nodejs
         nixfmt
+        statix
         # jetbrains.rider
         go
         gcc

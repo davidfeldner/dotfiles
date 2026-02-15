@@ -1,9 +1,9 @@
 { ... }:
 {
   flake.modules.homeManager.nvim =
-    { ... }:
-
+    { pkgs, ... }:
     {
+      home.packages = with pkgs; [ lua54Packages.luarocks-nix ];
       programs.neovim = {
         enable = true;
         viAlias = true;
@@ -35,9 +35,8 @@
                     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
                     { "jbyuki/instant.nvim", lazy = false },
-                    { "mason-org/mason.nvim", version = "^1.0.0" },
-                    { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
-                    {   "echasnovski/mini.base16",   version = "*" },
+
+                    {   "nvim-mini/mini.base16",   version = "*" },
                     {
                       "christoomey/vim-tmux-navigator",
                       cmd = {

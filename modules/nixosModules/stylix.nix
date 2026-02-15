@@ -20,11 +20,8 @@
         targets.grub.enable = false;
       };
 
-      home-manager.users.${config.user.defaultUser}.stylix = {
+      home-manager.users.${config.my.user}.stylix = {
         targets.firefox.profileNames = [ "default" ];
-        # targets.starship.enable = false;
-        # targets.kitty.enable = false;
-        # targets.fish.enable = false;
       };
     };
 }
