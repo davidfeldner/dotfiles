@@ -17,6 +17,7 @@
         hypridle
         hyprlock
         hyprpaper
+        hyprcursor
         walker
         waybar
         dunst
