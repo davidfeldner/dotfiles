@@ -11,10 +11,12 @@
         "DP-2,    2560x1440@144, 1920x0, 1, vrr, 1"
         "DP-3,    2560x1440@144, 1920x0, 1, vrr, 1"
         "DP-4,    2560x1440@144, 1920x0, 1, vrr, 1"
+        "HDMI-A-1, disable"
         "HDMI-A-2, disable"
+        "HDMI-A-3, disable"
         "HDMI-A-4, disable"
         "HDMI-A-5, disable"
-        "HDMI-A-1, disable"
+        "HDMI-A-6, disable"
         "Unknown-1, disable"
       ];
       hyprland.extraWorkspaceSettings = [
