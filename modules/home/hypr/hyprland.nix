@@ -318,6 +318,9 @@
                   #submap=clean
                   #bind=$mainMod,minus,submap,reset
                   #submap=reset
+                  #
+                  "$mainMod, G, togglegroup"
+                  "$mainMod, TAB, changegroupactive"
 
                   # █▀ █▀▀ █▀█ █▀▀ █▀▀ █▄░█ █▀ █░█ █▀█ ▀█▀
                   # ▄█ █▄▄ █▀▄ ██▄ ██▄ █░▀█ ▄█ █▀█ █▄█ ░█░
