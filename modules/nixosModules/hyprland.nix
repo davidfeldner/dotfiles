@@ -28,5 +28,9 @@
       environment.systemPackages = with pkgs; [
         firefox
       ];
+
+      environment.sessionVariables = {
+        XDG_DOWNLOAD_DIR = "$HOME/downloads";
+      };
     };
 }
