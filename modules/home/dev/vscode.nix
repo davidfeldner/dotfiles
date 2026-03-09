@@ -46,6 +46,8 @@
               esbenp.prettier-vscode
               erlang-language-platform.erlang-language-platform
               # ms-vsliveshare.vsliveshare
+              platformio.platformio-ide
+              ms-vscode.cpptools
             ])
             ++ (with pkgs.open-vsx; [
               llvm-vs-code-extensions.vscode-clangd
