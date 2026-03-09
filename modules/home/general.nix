@@ -21,6 +21,7 @@
       freetube
       zsh
       yazi
+      labwc
     ];
 
     home.stateVersion = "24.05";
