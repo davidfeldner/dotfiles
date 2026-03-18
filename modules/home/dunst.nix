@@ -1,7 +1,7 @@
 { ... }:
 {
   flake.modules.homeManager.dunst =
-    { lib, ... }:
+    { config, lib, ... }:
     {
       services.dunst.enable = true;
       services.dunst.settings = {
@@ -20,7 +20,7 @@
           text_icon_padding = 0;
           frame_width = 2;
 
-          frame_color = lib.mkDefault "#22aaaa";
+          frame_color = lib.mkDefault "#${config.lib.stylix.colors.base05}";
           separator_color = lib.mkDefault "frame";
 
           sort = "yes";

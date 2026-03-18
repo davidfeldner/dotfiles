@@ -27,7 +27,7 @@
           enable = true;
           shellInit = ''
             set -g fish_greeting ""
-            set -g fish_color_autosuggestion 918bb2  # Rose Pine muted color
+            set -g fish_color_autosuggestion ${config.lib.stylix.colors.base0B}
 
             if status is-interactive; and test -z "$TMUX"
               tmux new-session -t 0
