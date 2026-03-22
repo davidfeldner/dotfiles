@@ -27,7 +27,10 @@
           enable = true;
           shellInit = ''
             set -g fish_greeting ""
-            set -g fish_color_autosuggestion ${config.lib.stylix.colors.base0B}
+
+            set -g fish_color_autosuggestion ${
+              if (builtins.hasAttr "stylix" config) then config.lib.stylix.colors.base0B else "555555"
+            };
 
             if status is-interactive; and test -z "$TMUX"
               tmux new-session -t 0
