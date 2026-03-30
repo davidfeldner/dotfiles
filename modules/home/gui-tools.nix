@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   flake.modules.homeManager.gui-tools =
     { pkgs, ... }:
     {
@@ -8,13 +7,12 @@
         pear-desktop
         nextcloud-client
         vesktop
-        protonvpn-gui
+        proton-vpn
         pavucontrol
         scrcpy
         ungoogled-chromium
         mpv
         prusa-slicer
-        protonvpn-gui
         rquickshare
         arduino-ide
         eclipses.eclipse-modeling

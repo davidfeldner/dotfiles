@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   flake.modules.homeManager.git =
     { pkgs, ... }:
     {
@@ -8,9 +7,13 @@
       ];
       programs.git = {
         enable = true;
+        signing.format = "openpgp";
         settings = {
-          user.name = "davidfeldner";
-          user.email = "davidfeldner12@gmail.com";
+          user = {
+            name = "davidfeldner";
+            email = "davidfeldner12@gmail.com";
+            signingkey = "~/.ssh/id_ed25519.pub";
+          };
           alias = {
             bigblame = "blame -w -C -C -C";
             staash = "stash --all";
@@ -31,7 +34,6 @@
             sign = true;
             format = "ssh";
           };
-          user.signingkey = "~/.ssh/id_ed25519.pub";
           diff = {
             algorithm = "histogram";
             colorMoved = "plain";
