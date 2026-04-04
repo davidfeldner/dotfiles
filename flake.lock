@@ -391,16 +391,16 @@
     },
     "pin": {
       "locked": {
-        "lastModified": 1728978069,
-        "narHash": "sha256-fL/ehCd6QwQTl165WsOJXTGlUta+S5VDStgEPs8lfrw=",
+        "lastModified": 1775345275,
+        "narHash": "sha256-5G9onPpWqCA1pKLBlMugdQd7+9BJGiae/4OeWjIvsAg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "940d545355d5e79859502334f2fe269c3996046b",
+        "rev": "4c65d1a039d5358996820838c3d16355ecc46a40",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "940d545355d5e79859502334f2fe269c3996046b",
+        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }

@@ -9,7 +9,7 @@
     };
     nur.url = "github:nix-community/NUR";
 
-    pin.url = "github:nixos/nixpkgs?ref=940d545355d5e79859502334f2fe269c3996046b";
+    pin.url = "github:nixos/nixpkgs?ref=master";
 
     stylix = {
       url = "github:danth/stylix";
