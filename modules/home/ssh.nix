@@ -35,6 +35,10 @@
             user = "david";
             port = 5522;
           };
+          "iot" = {
+            hostname = "100.78.83.123";
+            user = "pi";
+          };
         };
       };
     };
