@@ -10,6 +10,8 @@
         vimAlias = true;
         vimdiffAlias = true;
         defaultEditor = true;
+        withPython3 = false;
+        withRuby = false;
         initLua = ''
                 -- bootstrap lazy.nvim, LazyVim and your plugins
 
