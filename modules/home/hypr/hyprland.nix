@@ -118,6 +118,7 @@
                 "safeeyes"
                 "elephant"
                 "walker --gapplication-service"
+                "kdeconnectd"
               ];
 
               # █ █▄░█ █▀█ █░█ ▀█▀
