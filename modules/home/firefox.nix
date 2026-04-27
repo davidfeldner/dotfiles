@@ -1,9 +1,9 @@
-{ ... }:
-{
+_: {
   flake.modules.homeManager.firefox =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       programs.firefox = {
+        configPath = "${config.xdg.configHome}/mozilla/firefox";
         enable = true;
         profiles = {
           default = {
