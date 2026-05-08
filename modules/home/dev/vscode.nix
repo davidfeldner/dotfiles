@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   flake.modules.homeManager.vscode =
     {
       lib,
@@ -14,11 +13,18 @@
         version = "2025.7.0"; # choose the version you need
         sha256 = "sha256-wedMPo+mL3yvb9WqJComlyZWvSSaJXv/4LWcl0wwqdQ="; # from nix-prefetch-url
       };
+      useVSCodium = false;
+
+      settingsPath =
+        if useVSCodium then
+          "${config.home.homeDirectory}/.config/VSCodium/User/settings.json"
+        else
+          "${config.home.homeDirectory}/.config/Code/User/settings.json";
     in
     {
       programs.vscode = {
         enable = true;
-        package = pkgs.vscodium;
+        package = if useVSCodium then pkgs.vscodium else pkgs.vscode;
         profiles.default = {
           userSettings = {
             "[csharp]" = {
@@ -45,9 +51,11 @@
               svelte.svelte-vscode
               esbenp.prettier-vscode
               erlang-language-platform.erlang-language-platform
-              # ms-vsliveshare.vsliveshare
               platformio.platformio-ide
               ms-vscode.cpptools
+            ])
+            ++ (lib.optionals (!useVSCodium) [
+              pkgs.vscode-marketplace.ms-vsliveshare.vsliveshare
             ])
             ++ (with pkgs.open-vsx; [
               llvm-vs-code-extensions.vscode-clangd
@@ -78,7 +86,7 @@
 
       # p1 moves the previous settings file, p2 then combines previous and nix generated to a new file
       home.activation.fix-vscode-settings_p1 = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
-        settings_file="$HOME/.config/VSCodium/User/settings.json"
+        settings_file="${settingsPath}"
         if [ -f "$settings_file" ]; then
           echo "Moving vscode settings file: $settings_file"
           mv $settings_file "$settings_file.tmp"
@@ -87,7 +95,7 @@
       '';
 
       home.activation.fix-vscode-settings_p2 = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-        settings_file="$HOME/.config/VSCodium/User/settings.json"
+        settings_file="${settingsPath}"
         generated_symlink="$settings_file"
         prev_settings_file="$settings_file.tmp"
 
