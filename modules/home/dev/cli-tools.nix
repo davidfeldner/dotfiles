@@ -11,6 +11,7 @@
         p7zip
         ripgrep
         nixos-generators
+        arduino-cli
       ];
     };
 }
