@@ -1,10 +1,7 @@
 _: {
   flake.nixosModules.virtualization = {
     virtualisation.libvirtd = {
-      enable = false;
-      qemu = {
-        swtpm.enable = false;
-      };
+      enable = true;
     };
     programs.virt-manager.enable = true;
   };
