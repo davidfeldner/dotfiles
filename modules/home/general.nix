@@ -22,6 +22,8 @@
       zsh
       yazi
       labwc
+      opencode
+      codex
     ];
 
     home.stateVersion = "24.05";
