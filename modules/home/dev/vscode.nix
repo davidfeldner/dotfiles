@@ -57,7 +57,7 @@ _: {
             ++ (lib.optionals (!useVSCodium) [
               pkgs.vscode-marketplace.ms-vsliveshare.vsliveshare
             ])
-            ++ (with pkgs.open-vsx; [
+            ++ (with pkgs.vscode-marketplace; [
               llvm-vs-code-extensions.vscode-clangd
               rust-lang.rust-analyzer
               vue.volar
