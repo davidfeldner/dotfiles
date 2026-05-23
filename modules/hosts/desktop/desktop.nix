@@ -38,6 +38,7 @@
         fslexyacc
         graphics
         nfs-desktop
+        waydroid
       ]);
 
       my.user = "david";
