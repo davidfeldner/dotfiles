@@ -159,7 +159,7 @@
 
                 disable_hyprland_logo = true;
                 mouse_move_enables_dpms = true;
-                vfr = true;
+                # vfr = true;
                 focus_on_activate = true;
               };
 
@@ -229,7 +229,7 @@
               };
 
               dwindle = {
-                pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+                # pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
                 preserve_split = true; # you probably want this
               };
 
@@ -248,10 +248,10 @@
                 #"noinitialfocus,class:^jetbrains-(?!toolbox),floating:1"
 
                 # Window workpace position
-                "match:class ^firefox,        workspace 1, float 0"
                 "match:class ^GitHub Desktop, workspace 4"
                 "match:class ^VencordDesktop, workspace 5"
                 "match:class ^virt-manager,   workspace 6"
+                "match:class ^firefox,        workspace 1, float 0"
 
                 "match:title ^Nextcloud$, float 1"
               ];
@@ -289,7 +289,7 @@
                 "$mainMod, R, exec, walker"
                 "$mainMod, period, exec, walker -m emojis"
                 "$mainMod, S, pseudo, # dwindle"
-                "$mainMod, J, togglesplit, # dwindle"
+                # "$mainMod, J, togglesplit, # dwindle"
                 "$mainMod, L, exec, hyprlock"
                 "$mainMod, H, exec, cliphist list | wofi -d | cliphist decode | ifne wl-copy"
                 "$mainMod SHIFT, H, exec, cliphist list | wofi -d | cliphist delete"

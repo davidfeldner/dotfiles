@@ -1,13 +1,12 @@
-{ ... }:
-{
+_: {
   flake.modules.homeManager.ssh =
-    { ... }:
+    _:
 
     {
       programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
-        matchBlocks = {
+        settings = {
           "*" = {
             forwardAgent = false;
             serverAliveInterval = 0;

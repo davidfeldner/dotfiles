@@ -23,7 +23,6 @@
         tailscale
         safeeyes
         hacking
-        nvidia
         vfio
         bluetooth
         kanata
