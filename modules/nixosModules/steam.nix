@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   flake.nixosModules.steam = {
     programs.steam = {
       enable = true;
@@ -10,7 +9,7 @@
     };
     programs.gamescope = {
       enable = true;
-      capSysNice = true;
+      capSysNice = false;
     };
   };
 }
