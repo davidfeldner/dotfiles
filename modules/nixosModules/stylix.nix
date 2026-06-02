@@ -1,8 +1,7 @@
 # Wallpapers assets/wall.jpg
 # Digital Buggu - https://www.pexels.com/photo/close-up-photo-of-orange-and-yellow-gazania-flowers-165925/
 
-{ ... }:
-{
+_: {
   flake.nixosModules.stylix =
     {
       inputs,
@@ -21,6 +20,7 @@
         # https://github.com/tinted-theming/schemes/tree/spec-0.11/base16
         base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
         targets.grub.enable = false;
+        targets.kmscon.enable = false;
       };
 
       home-manager.users.${config.my.user}.stylix = {
