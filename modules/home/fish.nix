@@ -1,8 +1,8 @@
-{ ... }:
-{
+_: {
   flake.modules.homeManager.fish =
     {
       lib,
+      pkgs,
       config,
       osConfig,
       ...
@@ -14,16 +14,16 @@
       options = {
         fish.dualboot = lib.mkEnableOption "Enables grub aliases";
       };
-      config = {
-        programs.starship = {
+      config.programs = {
+        starship = {
           enable = true;
           enableFishIntegration = true;
         };
 
-        programs.kitty.shellIntegration.enableFishIntegration = true;
+        kitty.shellIntegration.enableFishIntegration = true;
         # programs.zellij.enableFishIntegration = true;
 
-        programs.fish = {
+        fish = {
           enable = true;
           shellInit = ''
             set -g fish_greeting ""
@@ -41,7 +41,9 @@
           shellAliases = {
             ll = "ls -l";
             nxupdate = "sudo nixos-rebuild switch --flake ~/nixos/";
+            nomupdate = "sudo -v && sudo nixos-rebuild switch --flake ~/nixos/ --log-format internal-json -v |& ${lib.getExe pkgs.nix-output-monitor} --json";
             nxtest = "sudo nixos-rebuild test --flake ~/nixos/";
+            nomtest = "sudo -v && sudo nixos-rebuild test --flake ~/nixos/ --log-format internal-json -v |& ${lib.getExe pkgs.nix-output-monitor} --json";
             homelog = "journalctl -xe --unit home-manager-${osConfig.user.defaultUser}";
             icat = "kitten icat";
             lofi = "mpv --no-video 'https://www.youtube.com/watch?v=jfKfPfyJRdk'";
