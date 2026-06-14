@@ -16,6 +16,7 @@ _: {
               "browser.startup.page" = 3; # Restore session on restart
               "privacy.trackingprotection.enabled" = true; # Strict / custom tracking protection
               "signon.rememberSignons" = false; # Don't ask to remember logins
+              "widget.wayland.fractional-scale.enabled" = false; # Fix extensions scaled incorrectly, currently broken in version: 151.0.4
 
               # Mozilla Telemetry disable https://github.com/K3V1991/Disable-Firefox-Telemetry-and-Data-Collection
               "browser.newtabpage.activity-stream.feeds.telemetry" = false;
