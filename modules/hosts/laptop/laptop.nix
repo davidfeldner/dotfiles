@@ -35,6 +35,7 @@
         hyprland
         audio
         fslexyacc
+        sops
       ]);
 
       networking.hostName = "laptop";

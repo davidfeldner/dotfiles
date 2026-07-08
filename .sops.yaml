@@ -1,0 +1,8 @@
+keys:
+  - &laptop age1nhz3tftfacanqcthzungjzvjgfu0xq64uv0yjlgy2wfckrjvlupq2txghr
+
+creation_rules:
+  - path_regex: secrets/shared.yaml$
+    key_groups:
+      - age:
+          - *laptop

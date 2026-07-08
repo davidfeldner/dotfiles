@@ -13,6 +13,7 @@
     }:
     {
       imports = [
+        inputs.sops-nix.nixosModules.sops
         inputs.nur.modules.nixos.default
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager
