@@ -13,18 +13,14 @@ _: {
         version = "2025.7.0"; # choose the version you need
         sha256 = "sha256-wedMPo+mL3yvb9WqJComlyZWvSSaJXv/4LWcl0wwqdQ="; # from nix-prefetch-url
       };
-      useVSCodium = true;
 
-      settingsPath =
-        if useVSCodium then
-          "${config.home.homeDirectory}/.config/VSCodium/User/settings.json"
-        else
-          "${config.home.homeDirectory}/.config/Code/User/settings.json";
-    in
-    {
-      programs.vscode = {
+      settingsPaths = [
+        "${config.home.homeDirectory}/.config/VSCodium/User/settings.json"
+        "${config.home.homeDirectory}/.config/Code/User/settings.json"
+      ];
+
+      codeSettings = {
         enable = true;
-        package = if useVSCodium then pkgs.vscodium else pkgs.vscode;
         profiles.default = {
           userSettings = {
             "[csharp]" = {
@@ -54,9 +50,6 @@ _: {
               platformio.platformio-ide
               ms-vscode.cpptools
             ])
-            ++ (lib.optionals (!useVSCodium) [
-              pkgs.vscode-marketplace.ms-vsliveshare.vsliveshare
-            ])
             ++ (with pkgs.vscode-marketplace; [
               llvm-vs-code-extensions.vscode-clangd
               rust-lang.rust-analyzer
@@ -84,50 +77,72 @@ _: {
         };
       };
 
-      # p1 moves the previous settings file, p2 then combines previous and nix generated to a new file
-      home.activation.fix-vscode-settings_p1 = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
-        settings_file="${settingsPath}"
-        if [ -f "$settings_file" ]; then
-          echo "Moving vscode settings file: $settings_file"
-          mv $settings_file "$settings_file.tmp"
-        fi
+      # phase1 moves the previous settings file,
+      # phase2 then combines previous and nix generated to a new file
+      phase1 =
+        settingsPath:
+        lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
+          settings_file="${settingsPath}"
+          if [ -f "$settings_file" ]; then
+            echo "Moving vscode settings file: $settings_file"
+            mv $settings_file "$settings_file.tmp"
+          fi
+        '';
+      phase2 =
+        settingsPath:
+        lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+          settings_file="${settingsPath}"
+          generated_symlink="$settings_file"
+          prev_settings_file="$settings_file.tmp"
 
-      '';
+          echo "Checking settings file: $settings_file"
 
-      home.activation.fix-vscode-settings_p2 = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-        settings_file="${settingsPath}"
-        generated_symlink="$settings_file"
-        prev_settings_file="$settings_file.tmp"
+          # Initialize with empty JSON objects
+          generated_content='{}'
+          prev_content='{}'
 
-        echo "Checking settings file: $settings_file"
+          # Check and read generated symlink
+          if [ -L "$generated_symlink" ]; then
+            echo "Found generated_symlink"
+            generated_content=$(cat "$generated_symlink" 2>/dev/null || echo '{}')
+            echo "generated content: $generated_content"
+            $DRY_RUN_CMD rm "$generated_symlink"
+          fi
 
-        # Initialize with empty JSON objects
-        generated_content='{}'
-        prev_content='{}'
+          # Check and read previous settings file
+          if [ -s "$prev_settings_file" ]; then
+            echo "Found previous content"
+            prev_content=$(cat "$prev_settings_file" 2>/dev/null || echo '{}')
+            echo "previous content: $prev_content"
+            $DRY_RUN_CMD rm "$prev_settings_file"
+          fi
 
-        # Check and read generated symlink
-        if [ -L "$generated_symlink" ]; then
-          echo "Found generated_symlink"
-          generated_content=$(cat "$generated_symlink" 2>/dev/null || echo '{}')
-          echo "generated content: $generated_content"
-          $DRY_RUN_CMD rm "$generated_symlink"
-        fi
+          # Merge and create new settings file
+          $DRY_RUN_CMD ${pkgs.jq}/bin/jq -n \
+            --argjson a "$generated_content" \
+            --argjson b "$prev_content" \
+            '$a + $b' > "$settings_file"
 
-        # Check and read previous settings file
-        if [ -s "$prev_settings_file" ]; then
-          echo "Found previous content"
-          prev_content=$(cat "$prev_settings_file" 2>/dev/null || echo '{}')
-          echo "previous content: $prev_content"
-          $DRY_RUN_CMD rm "$prev_settings_file"
-        fi
+          echo "Settings.json for vscode file created"
+        '';
+    in
+    {
+      programs.vscodium = codeSettings;
+      programs.vscode = codeSettings // {
+        profiles.default.extensions = codeSettings.profiles.default.extensions ++ [
+          pkgs.vscode-marketplace.ms-vsliveshare.vsliveshare
+        ];
+        package = lib.lowPrio pkgs.vscode;
+      };
 
-        # Merge and create new settings file
-        $DRY_RUN_CMD ${pkgs.jq}/bin/jq -n \
-          --argjson a "$generated_content" \
-          --argjson b "$prev_content" \
-          '$a + $b' > "$settings_file"
-
-        echo "Settings.json for vscode file created"
-      '';
+      home.activation =
+        settingsPaths
+        |> lib.imap0 (
+          index: settingsPath: {
+            "fix-vscode-settings_phase1_${toString index}" = phase1 settingsPath;
+            "fix-vscode-settings_phase2_${toString index}" = phase2 settingsPath;
+          }
+        )
+        |> lib.mergeAttrsList;
     };
 }
