@@ -13,7 +13,7 @@ _: {
         version = "2025.7.0"; # choose the version you need
         sha256 = "sha256-wedMPo+mL3yvb9WqJComlyZWvSSaJXv/4LWcl0wwqdQ="; # from nix-prefetch-url
       };
-      useVSCodium = false;
+      useVSCodium = true;
 
       settingsPath =
         if useVSCodium then
