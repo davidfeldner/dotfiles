@@ -135,14 +135,11 @@ _: {
         package = lib.lowPrio pkgs.vscode;
       };
 
-      home.activation =
-        settingsPaths
-        |> lib.imap0 (
-          index: settingsPath: {
-            "fix-vscode-settings_phase1_${toString index}" = phase1 settingsPath;
-            "fix-vscode-settings_phase2_${toString index}" = phase2 settingsPath;
-          }
-        )
-        |> lib.mergeAttrsList;
+      home.activation = lib.mergeAttrsList (
+        lib.imap0 (index: settingsPath: {
+          "fix-vscode-settings_phase1_${toString index}" = phase1 settingsPath;
+          "fix-vscode-settings_phase2_${toString index}" = phase2 settingsPath;
+        }) settingsPaths
+      );
     };
 }
