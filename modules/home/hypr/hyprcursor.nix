@@ -45,6 +45,7 @@
     { pkgs, ... }:
     {
       home.pointerCursor = {
+        enable = true;
         name = "Nordzy-hyprcursors"; # must match the directory name in $out/share/icons/
         package = self.packages.${pkgs.stdenv.hostPlatform.system}.nordzy-cursors;
         hyprcursor.enable = true;
