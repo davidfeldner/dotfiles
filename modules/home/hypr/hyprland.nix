@@ -52,7 +52,6 @@
           grimblast
           wl-clipboard
           brightnessctl
-          kitty
           moreutils
           # walker
           libqalculate
@@ -60,7 +59,12 @@
           wofi
           adwaita-icon-theme
         ];
-        programs.kitty.enable = true;
+        programs.kitty = {
+          enable = true;
+          settings = {
+            auto_reload_config = -1;
+          };
+        };
         services.cliphist = {
           enable = true;
           allowImages = true;
