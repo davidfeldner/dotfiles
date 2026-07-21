@@ -1,10 +1,22 @@
-{ ... }:
-{
+_: {
   flake.modules.homeManager.waybar =
-    { ... }:
+    { pkgs, ... }:
 
     {
       config = {
+        stylix.targets.waybar = {
+          font = "monospace";
+
+          fonts.override = {
+            monospace = {
+              package = pkgs.nerd-fonts.droid-sans-mono;
+              name = "DroidSans Nerd Font Propo";
+            };
+
+            sizes.desktop = 10;
+          };
+        };
+
         programs.waybar = {
           enable = true;
           style = builtins.readFile ./waybar.css;
@@ -61,9 +73,9 @@
               "network" = {
                 #// "interface": "wlp2*", // (Optional) To force the use of this interface
                 "format-wifi" = "   {essid}";
-                "format-ethernet" = "{ipaddr}/{cidr} ";
-                "tooltip-format" = "{ifname} via {gwaddr} ";
-                "format-linked" = "{ifname} (No IP) ";
+                "format-ethernet" = "{ipaddr}/{cidr}";
+                "tooltip-format" = "{ifname} via {gwaddr}";
+                "format-linked" = "{ifname} (No IP)";
                 "format-disconnected" = "⚠ Disconnected";
                 "format-alt" = "{ifname}: {ipaddr}/{cidr}";
               };
@@ -123,7 +135,7 @@
                 "spacing" = 10;
               };
               "clock" = {
-                "format" = "  {:%R    %d/%m}";
+                "format" = "  {:%R     %d/%m}";
                 "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
               };
               "pulseaudio" = {
@@ -164,7 +176,6 @@
                 "format" = "{}";
                 "format-en" = "US";
                 "format-da" = "DK";
-                "keyboard-name" = "at-translated-set-2-keyboard";
               };
               "idle_inhibitor" = {
                 "format" = "{icon}";
