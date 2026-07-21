@@ -5,6 +5,7 @@
     {
       imports = [
         self.modules.homeManager.general
+        self.modules.homeManager.mangohud
       ];
       hyprland.extraMonitorSettings = [
         "DP-1, 1440x900,      4480x0, 1"
