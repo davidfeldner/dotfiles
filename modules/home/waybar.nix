@@ -39,7 +39,7 @@ _: {
                 "idle_inhibitor"
                 "hyprland/language"
               ];
-              "modules-center" = [ "hyprland/workspaces" ];
+              "modules-center" = [ "ext/workspaces" ];
               "modules-right" = [
                 "tray"
                 "network"
@@ -53,22 +53,10 @@ _: {
                 "separate-outputs" = true;
                 "format" = "{}";
               };
-              "hyprland/workspaces" = {
-                "on-scroll-up" = "hyprctl dispatch workspace e+1";
-                "on-scroll-down" = "hyprctl dispatch workspace e-1";
+              "ext/workspaces" = {
                 "all-outputs" = true;
                 "on-click" = "activate";
-                "format" = "{icon}";
-                "format-icons" = {
-                  "1" = "";
-                  "2" = "";
-                  "3" = "";
-                  "4" = "";
-                  "5" = "";
-                  "urgent" = "";
-                  "active" = "";
-                  "default" = "";
-                };
+                "format" = "{name}";
               };
               "network" = {
                 #// "interface": "wlp2*", // (Optional) To force the use of this interface
