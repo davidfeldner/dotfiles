@@ -40,6 +40,12 @@
         };
         hidpi = lib.mkEnableOption "Enable high dpi 2x scaling";
 
+        vol_change_percentage = lib.mkOption {
+          type = lib.types.number;
+          default = 5;
+          description = "Percentage volume change per input sent";
+        };
+
       };
 
       config = {
@@ -484,15 +490,23 @@
                   # Media keys
                   (bindExecWith { locked = true; } "XF86AudioMute" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
 
-                  (bindExecWith {
-                    locked = true;
-                    repeating = true;
-                  } "XF86AudioRaiseVolume" "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+")
+                  (bindExecWith
+                    {
+                      locked = true;
+                      repeating = true;
+                    }
+                    "XF86AudioRaiseVolume"
+                    "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ ${toString cfg.vol_change_percentage}%+"
+                  )
 
-                  (bindExecWith {
-                    locked = true;
-                    repeating = true;
-                  } "XF86AudioLowerVolume" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
+                  (bindExecWith
+                    {
+                      locked = true;
+                      repeating = true;
+                    }
+                    "XF86AudioLowerVolume"
+                    "wpctl set-volume @DEFAULT_AUDIO_SINK@ ${toString cfg.vol_change_percentage}%-"
+                  )
 
                   (bindExecWith {
                     locked = true;
