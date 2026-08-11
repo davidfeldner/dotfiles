@@ -81,7 +81,7 @@
                   ];
                 }" -c $SHELL'';
             tvmon.body = ''
-              hyprctl monitors all | grep HDMI | awk '{print $2}' | head -n 1
+              hyprctl monitors all | grep -A20 '^Monitor HDMI' | grep description | cut -d: -f2-
             '';
             direnvinit.body = ''
               if test (count $argv) -eq 0
@@ -95,24 +95,40 @@
               direnv allow
             '';
             tvOn.body = ''
-              hyprctl keyword monitor (tvmon),3840x2160@60,0x0,2
+              hyprctl eval "hl.monitor({
+                  output = \"desc:$(hdmidesc)\",
+                  disabled = false,
+                  mode = "3840x2160@60",
+                  position = "0x0",
+                  scale = 2
+              })"
             '';
 
             tvOff.body = ''
-              hyprctl keyword monitor (tvmon),disable
+              hyprctl eval "hl.monitor({
+                  output = \"desc:$(hdmidesc)\",
+                  disabled = true
+              })"
             '';
 
             tvOnly.body = ''
               tvOn
               for mon in (hyprctl monitors all | grep -i monitor | grep -Evi 'HDMI|Unknown' | awk '{print $2}')
-                hyprctl keyword monitor "$mon,disable"
+                hyprctl eval "hl.monitor({
+                  output = \"$mon\",
+                  disabled = true
+                })"
               end
             '';
 
             tvReset.body = ''
               tvOff
-              hyprctl keyword monitor DP-2,2560x1440@144,1920x0,1,vrr,1
-              hyprctl keyword monitor DVI-D-1,1440x900,4480x0,1
+              for mon in (hyprctl monitors all | grep -i monitor | grep -Evi 'HDMI|Unknown' | awk '{print $2}')
+                hyprctl eval "hl.monitor({
+                  output = \"$mon\",
+                  disabled = false
+                })"
+              end
             '';
           };
         };
