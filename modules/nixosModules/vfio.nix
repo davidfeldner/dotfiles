@@ -1,4 +1,3 @@
-{ ... }:
 {
   flake.nixosModules.vfio =
     # Credit: https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/

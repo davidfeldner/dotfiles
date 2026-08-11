@@ -1,7 +1,7 @@
 # Wallpapers assets/wall.jpg
 # Digital Buggu - https://www.pexels.com/photo/close-up-photo-of-orange-and-yellow-gazania-flowers-165925/
 
-_: {
+{
   flake.nixosModules.stylix =
     {
       inputs,

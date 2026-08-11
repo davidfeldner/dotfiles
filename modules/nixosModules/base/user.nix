@@ -1,4 +1,3 @@
-{ ... }:
 {
   flake.nixosModules.base-user =
     { config, lib, ... }:

@@ -1,6 +1,5 @@
 { self, ... }:
 {
-
   perSystem =
     {
       lib,
@@ -8,7 +7,6 @@
       ...
     }:
     {
-
       packages.nordzy-cursors = pkgs.stdenvNoCC.mkDerivation {
         pname = "nordzy-cursors";
         version = "2.4.0";

@@ -1,4 +1,3 @@
-{ ... }:
 {
   flake.nixosModules.base-fixes =
     # General nice to have nix options/fixes for stuff

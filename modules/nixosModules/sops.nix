@@ -1,4 +1,4 @@
-_: {
+{
   flake.nixosModules.sops = { config, ... }: {
     sops = {
       defaultSopsFile = ../../secrets/shared.yaml;

@@ -1,4 +1,3 @@
-{ ... }:
 {
   flake.nixosModules.nfs-desktop = {
     fileSystems."/mnt/storage" = {

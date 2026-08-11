@@ -1,4 +1,3 @@
-{ ... }:
 {
   flake.modules.homeManager.itu-vpn =
     { pkgs, ... }:

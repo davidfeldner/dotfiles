@@ -1,13 +1,10 @@
-{ ... }:
 {
-  flake.nixosModules.base-locale =
-    { ... }:
-    {
-      time.timeZone = "Europe/Copenhagen";
+  flake.nixosModules.base-locale = {
+    time.timeZone = "Europe/Copenhagen";
 
-      services.xserver.xkb = {
-        layout = "us";
-        variant = "";
-      };
+    services.xserver.xkb = {
+      layout = "us";
+      variant = "";
     };
+  };
 }

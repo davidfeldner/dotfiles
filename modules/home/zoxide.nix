@@ -1,11 +1,8 @@
-{ ... }:
 {
-  flake.modules.homeManager.zoxide =
-    { ... }:
-    {
-      programs.zoxide = {
-        enable = true;
-        enableFishIntegration = true;
-      };
+  flake.modules.homeManager.zoxide = {
+    programs.zoxide = {
+      enable = true;
+      enableFishIntegration = true;
     };
+  };
 }
