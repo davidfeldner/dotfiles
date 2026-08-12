@@ -21,6 +21,7 @@
         walker
         waybar
         dunst
+        kdeconnect
       ];
       options.my.autostart = lib.mkOption {
         type = lib.types.listOf lib.types.str;
@@ -100,7 +101,6 @@
           "sway-audio-idle-inhibit"
           "elephant"
           "walker --gapplication-service"
-          "kdeconnectd"
         ];
 
         wayland.windowManager.hyprland = {

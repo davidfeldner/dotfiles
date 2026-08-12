@@ -11,8 +11,6 @@
 
       services.gnome.gnome-keyring.enable = true;
 
-      programs.kdeconnect.enable = true;
-
       services.greetd = {
         enable = true;
         settings = rec {
