@@ -99,8 +99,6 @@
           "libinput-gestures-setup start"
           "/home/${osConfig.user.defaultUser}/.config/hypr/battery.sh"
           "sway-audio-idle-inhibit"
-          "elephant"
-          "walker --gapplication-service"
         ];
 
         wayland.windowManager.hyprland = {
