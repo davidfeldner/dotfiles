@@ -98,7 +98,6 @@
           "libinput-gestures-setup start"
           "/home/${osConfig.user.defaultUser}/.config/hypr/battery.sh"
           "sway-audio-idle-inhibit"
-          "safeeyes"
           "elephant"
           "walker --gapplication-service"
           "kdeconnectd"

@@ -24,6 +24,7 @@
       labwc
       opencode
       codex
+      safeeyes
     ];
 
     home.stateVersion = "24.05";

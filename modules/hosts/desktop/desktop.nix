@@ -21,7 +21,6 @@
         base
         steam
         tailscale
-        safeeyes
         hacking
         vfio
         bluetooth
