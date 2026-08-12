@@ -38,6 +38,9 @@
 
             export PATH="$PATH:/home/david/.npm-global/bin/"
           '';
+          binds = {
+            "alt-backspace".command = "backward-kill-bigword";
+          };
           shellAliases = {
             ll = "ls -l";
             nxupdate = "sudo nixos-rebuild switch --flake ~/nixos/";
@@ -96,17 +99,17 @@
             '';
             tvOn.body = ''
               hyprctl eval "hl.monitor({
-                  output = \"desc:$(hdmidesc)\",
+                  output = \"desc:$(tvmon)\",
                   disabled = false,
-                  mode = "3840x2160@60",
-                  position = "0x0",
+                  mode = \"3840x2160@60\",
+                  position = \"0x0\",
                   scale = 2
               })"
             '';
 
             tvOff.body = ''
               hyprctl eval "hl.monitor({
-                  output = \"desc:$(hdmidesc)\",
+                  output = \"desc:$(tvmon)\",
                   disabled = true
               })"
             '';
