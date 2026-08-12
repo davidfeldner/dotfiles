@@ -53,11 +53,15 @@
             code = "codium";
             dc = "docker compose";
             setLenovoBatterySaver = "echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode";
+            get = "${lib.getExe pkgs.yt-dlp}";
           };
 
           shellAliases.windows = lib.mkIf cfg.dualboot "sudo grub-reboot 1 && reboot";
 
           functions = {
+            stream = ''
+              ${lib.getExe pkgs.yt-dlp} --force-overwrites -o /tmp/yt-dlp-stream $argv && mpv /tmp/yt-dlp-stream*
+            '';
             nxrun = ''
               set pkg $argv[1]
               set args $argv[2..-1]
