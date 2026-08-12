@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.fslexyacc =
+  flake.modules.nixos.fslexyacc =
     {
       lib,
       pkgs,

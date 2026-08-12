@@ -1,6 +1,6 @@
 {
 
-  flake.nixosModules.hacking =
+  flake.modules.nixos.hacking =
     { pkgs, ... }:
     {
 

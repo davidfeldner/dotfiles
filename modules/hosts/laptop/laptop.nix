@@ -5,19 +5,19 @@
       inherit inputs;
     };
     modules = [
-      self.nixosModules.hostBaseModule
-      self.nixosModules.laptopModule
+      self.modules.nixos.hostBaseModule
+      self.modules.nixos.laptopModule
     ];
 
   };
 
-  flake.nixosModules.laptopModule =
+  flake.modules.nixos.laptopModule =
     { config, pkgs, ... }:
     {
       imports = [
         ./_hardware-configuration.nix
       ]
-      ++ (with self.nixosModules; [
+      ++ (with self.modules.nixos; [
         base
         hacking
         wifi

@@ -4,7 +4,7 @@
 
   systems = [ "x86_64-linux" ];
 
-  flake.nixosModules.hostBaseModule =
+  flake.modules.nixos.hostBaseModule =
     {
       inputs,
       lib,

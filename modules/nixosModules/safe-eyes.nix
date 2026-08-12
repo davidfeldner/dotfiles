@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.safeeyes =
+  flake.modules.nixos.safeeyes =
     { pkgs, lib, ... }:
     let
       inherit (pkgs) alsa-utils wlrctl xprop;
@@ -23,6 +23,5 @@
           });
         })
       ];
-      environment.systemPackages = [ pkgs.safeeyes ];
     };
 }

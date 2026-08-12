@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.base-fish =
+  flake.modules.nixos.base-fish =
     { pkgs, ... }:
     {
       users.defaultUserShell = pkgs.fish;

@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.vfio =
+  flake.modules.nixos.vfio =
     # Credit: https://astrid.tech/2022/09/22/0/nixos-gpu-vfio/
 
     let

@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.base-user =
+  flake.modules.nixos.base-user =
     { config, lib, ... }:
     {
       options.user.defaultUser = lib.mkOption {

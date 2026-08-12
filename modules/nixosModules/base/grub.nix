@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.base-grub = {
+  flake.modules.nixos.base-grub = {
     boot.loader = {
       efi.canTouchEfiVariables = true;
       grub = {

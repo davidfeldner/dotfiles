@@ -2,7 +2,7 @@
 # Digital Buggu - https://www.pexels.com/photo/close-up-photo-of-orange-and-yellow-gazania-flowers-165925/
 
 {
-  flake.nixosModules.stylix =
+  flake.modules.nixos.stylix =
     {
       inputs,
       pkgs,

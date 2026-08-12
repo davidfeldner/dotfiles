@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.cuda =
+  flake.modules.nixos.cuda =
     { pkgs, ... }:
     {
       environment.systemPackages = [ pkgs.cudatoolkit ];

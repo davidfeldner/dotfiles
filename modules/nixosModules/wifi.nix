@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.wifi =
+  flake.modules.nixos.wifi =
     { inputs, ... }:
     {
       # Enable networking

@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.hyprland =
+  flake.modules.nixos.hyprland =
     { pkgs, config, ... }:
     {
       programs = {

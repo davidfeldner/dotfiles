@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.bluetooth =
+  flake.modules.nixos.bluetooth =
     { pkgs, ... }:
     {
       hardware.bluetooth.enable = true;

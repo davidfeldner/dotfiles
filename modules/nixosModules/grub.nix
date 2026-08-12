@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.grub =
+  flake.modules.nixos.grub =
     { config, pkgs, ... }:
 
     let

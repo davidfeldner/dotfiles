@@ -5,19 +5,19 @@
       inherit inputs;
     };
     modules = [
-      self.nixosModules.hostBaseModule
-      self.nixosModules.desktopModule
+      self.modules.nixos.hostBaseModule
+      self.modules.nixos.desktopModule
     ];
 
   };
 
-  flake.nixosModules.desktopModule =
+  flake.modules.nixos.desktopModule =
     { config, ... }:
     {
       imports = [
         ./_hardware-configuration.nix
       ]
-      ++ (with self.nixosModules; [
+      ++ (with self.modules.nixos; [
         base
         steam
         tailscale

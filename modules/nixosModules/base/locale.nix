@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.base-locale = {
+  flake.modules.nixos.base-locale = {
     time.timeZone = "Europe/Copenhagen";
 
     services.xserver.xkb = {

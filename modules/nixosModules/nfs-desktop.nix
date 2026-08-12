@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.nfs-desktop = {
+  flake.modules.nixos.nfs-desktop = {
     fileSystems."/mnt/storage" = {
       device = "192.168.1.211:/storage";
       fsType = "nfs";

@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.virtualization = {
+  flake.modules.nixos.virtualization = {
     virtualisation.libvirtd = {
       enable = true;
     };
