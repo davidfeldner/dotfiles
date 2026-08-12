@@ -398,7 +398,7 @@
                   ''))
 
                   (bindExec (modKey "R") "walker")
-                  (bindExec (modKey "period") "walker -m emojis")
+                  (bindExec (modKey "period") "walker -m symbols")
                   (bind (modKey "S") togglePseudo)
                   (bindExec (modKey "L") "hyprlock")
 
