@@ -1,8 +1,9 @@
 { self, ... }:
 {
   flake.modules.homeManager.laptopHome = {
-    imports = [
-      self.modules.homeManager.general
+    imports = with self.modules.homeManager; [
+      general
+      battery
     ];
     hyprland.extraMonitorSettings = [
       {

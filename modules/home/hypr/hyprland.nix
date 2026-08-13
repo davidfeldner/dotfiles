@@ -23,11 +23,13 @@
         dunst
         kdeconnect
       ];
+
       options.my.autostart = lib.mkOption {
         type = lib.types.listOf lib.types.str;
         default = [ ];
         description = "list of exec's to autostart";
       };
+
       options.hyprland = {
         extraMonitorSettings = lib.mkOption {
           type = lib.types.listOf lib.types.attrs;
@@ -50,11 +52,6 @@
       };
 
       config = {
-        home.file.".config/hypr/battery.sh" = {
-          enable = true;
-          text = builtins.readFile ./battery.sh;
-          executable = true;
-        };
         home.packages = with pkgs; [
           hyprpicker
           xdg-utils
@@ -77,17 +74,12 @@
 
         gtk = {
           enable = true;
-          # gtk4.theme = config.gtk.theme;
           gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
         };
 
         my.autostart = [
-          "waybar"
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
           "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-          "/usr/lib/polkit-kde-authentication-agent-1"
-          "libinput-gestures-setup start"
-          "/home/${osConfig.user.defaultUser}/.config/hypr/battery.sh"
           "sway-audio-idle-inhibit"
         ];
 

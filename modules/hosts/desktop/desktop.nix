@@ -4,9 +4,9 @@
     specialArgs = {
       inherit inputs;
     };
-    modules = [
-      self.modules.nixos.hostBaseModule
-      self.modules.nixos.desktopModule
+    modules = with self.modules.nixos; [
+      hostBaseModule
+      desktopModule
     ];
 
   };

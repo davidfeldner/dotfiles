@@ -3,9 +3,9 @@
   flake.modules.homeManager.desktopHome =
     { pkgs, ... }:
     {
-      imports = [
-        self.modules.homeManager.general
-        self.modules.homeManager.mangohud
+      imports = with self.modules.homeManager; [
+        general
+        mangohud
       ];
       hyprland = {
         extraMonitorSettings =
