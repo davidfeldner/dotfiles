@@ -352,13 +352,6 @@
 
                   # Using hyprshutdown is preferred over hl.dsp.exit().
                   (bindExec (modKey "M") "hyprshutdown")
-                  (bindExec (modKey "E") "dolphin")
-                  (bind (modKey "ALT + E") (lua ''
-                    hl.dsp.exec_cmd("dolphin", {
-                      float = true,
-                      size = { "50%", "50%" }
-                    })
-                  ''))
 
                   (bindExec (modKey "B") "firefox")
                   (bindExec (modKey "C") "codium")
@@ -394,12 +387,46 @@
                   (bind (modKey "down") (focusDirection "d"))
 
                   # Monitor configuration
-                  (bindExec (modKey "SHIFT + E") "hyprctl keyword monitor ,preferred,auto,1")
-                  (bindExec (modKey "SHIFT + D") "hyprctl keyword monitor ,preferred,auto,1,mirror,eDP-1")
+                  (bind (modKey "SHIFT + E") lua ''
+                    hl.monitor({
+                        output = "",
+                        disabled = false,
+                        mode = "preferred",
+                        position = "auto",
+                        scale = 1
+                    })
+
+                  '')
+                  (bind (modKey "SHIFT + D") lua ''
+                    hl.monitor({
+                        output = "",
+                        disabled = false,
+                        mode = "preferred",
+                        position = "auto",
+                        scale = 1,
+                        mirror = "eDP-1"
+                    })'')
 
                   # Screen rotation
-                  (bindExec (modKey "SHIFT + R") "hyprctl keyword monitor eDP-1,3072x1920@120,auto,2,transform,0")
-                  (bindExec (modKey "SHIFT + T") "hyprctl keyword monitor eDP-1,3072x1920@120,auto,2,transform,1")
+                  (bind (modKey "SHIFT + R") lua ''
+                    hl.monitor({
+                        output = "eDP-1",
+                        disabled = false,
+                        mode = "3072x1920@120",
+                        position = "auto",
+                        scale = 2,
+                        transform = 0
+                    })
+                  '')
+                  (bind (modKey "SHIFT + T") lua ''
+                    hl.monitor({
+                        output = "eDP-1",
+                        disabled = false,
+                        mode = "3072x1920@120",
+                        position = "auto",
+                        scale = 2,
+                        transform = 1
+                    })'')
 
                   # Groups
                   (bind (modKey "G") toggleGroup)
