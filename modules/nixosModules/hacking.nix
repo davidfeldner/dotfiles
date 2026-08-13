@@ -7,8 +7,6 @@
         "wireshark"
       ];
 
-      nixpkgs.config.allowUnfree = true;
-
       environment.systemPackages = with pkgs; [
         burpsuite
         exiftool

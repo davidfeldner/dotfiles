@@ -30,11 +30,6 @@
         nur.flake = inputs.nur;
       };
 
-      # Allow non root access to usb device
-      services.udev.extraRules = ''
-        SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="0660", GROUP="usbusers"
-      '';
-
       # Allow unfree packages
       nixpkgs.config.allowUnfree = true;
 
@@ -44,14 +39,5 @@
       programs.nix-ld.enable = true;
 
       programs.nix-ld.libraries = with pkgs; [ glibc ];
-
-      nixpkgs.config.permittedInsecurePackages = [
-        "dotnet-sdk-6.0.428"
-        "dotnet-runtime-6.0.36"
-      ];
-
-      environment.systemPackages = [
-        pkgs.android-tools
-      ];
     };
 }
