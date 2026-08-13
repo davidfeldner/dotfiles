@@ -2,6 +2,7 @@
   flake.modules.nixos.hacking =
     { config, pkgs, ... }:
     {
+      networking.firewall.enable = false;
 
       users.users.${config.user.defaultUser}.extraGroups = [
         "wireshark"

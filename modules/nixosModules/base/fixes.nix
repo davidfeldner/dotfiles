@@ -8,7 +8,6 @@
       ...
     }:
     {
-
       nix.settings = {
         substituters = [
           "https://cache.nixos.org"
@@ -18,8 +17,6 @@
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         ];
       };
-
-      networking.firewall.enable = false;
 
       # Dont error waiting for NetworkManager online
       systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
