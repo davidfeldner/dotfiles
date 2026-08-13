@@ -45,6 +45,12 @@
             default = true;
           }
           {
+            workspace = "5";
+            monitor = "DP-1";
+            default = true;
+          }
+
+          {
             workspace = "8";
             monitor = "DP-1";
             default = true;

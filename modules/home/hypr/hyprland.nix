@@ -269,7 +269,7 @@
               window_rule = [
                 {
                   match = {
-                    class = "^VencordDesktop";
+                    class = "^vesktop";
                   };
                   workspace = 5;
                 }
@@ -384,46 +384,51 @@
                   (bind (modKey "down") (focusDirection "d"))
 
                   # Monitor configuration
-                  (bind (modKey "SHIFT + E") lua ''
-                    hl.monitor({
-                        output = "",
-                        disabled = false,
-                        mode = "preferred",
-                        position = "auto",
-                        scale = 1
-                    })
-
-                  '')
-                  (bind (modKey "SHIFT + D") lua ''
-                    hl.monitor({
-                        output = "",
-                        disabled = false,
-                        mode = "preferred",
-                        position = "auto",
-                        scale = 1,
-                        mirror = "eDP-1"
-                    })'')
+                  (bind (modKey "SHIFT + E") (lua ''
+                     function()
+                                        hl.monitor({
+                                            output = "",
+                                            disabled = false,
+                                            mode = "preferred",
+                                            position = "auto",
+                                            scale = 1
+                                        })
+                    end
+                  ''))
+                  (bind (modKey "SHIFT + D") (lua ''
+                    function()
+                                        hl.monitor({
+                                            output = "",
+                                            disabled = false,
+                                            mode = "preferred",
+                                            position = "auto",
+                                            scale = 1,
+                                            mirror = "eDP-1"
+                                        })
+                                      end''))
 
                   # Screen rotation
-                  (bind (modKey "SHIFT + R") lua ''
-                    hl.monitor({
-                        output = "eDP-1",
-                        disabled = false,
-                        mode = "3072x1920@120",
-                        position = "auto",
-                        scale = 2,
-                        transform = 0
-                    })
-                  '')
-                  (bind (modKey "SHIFT + T") lua ''
-                    hl.monitor({
-                        output = "eDP-1",
-                        disabled = false,
-                        mode = "3072x1920@120",
-                        position = "auto",
-                        scale = 2,
-                        transform = 1
-                    })'')
+                  (bind (modKey "SHIFT + R") (lua ''
+                    function()
+                                       hl.monitor({
+                                           output = "eDP-1",
+                                           disabled = false,
+                                           mode = "3072x1920@120",
+                                           position = "auto",
+                                           scale = 2,
+                                           transform = 0
+                                       }) end
+                  ''))
+                  (bind (modKey "SHIFT + T") (lua ''
+                    function()
+                                       hl.monitor({
+                                           output = "eDP-1",
+                                           disabled = false,
+                                           mode = "3072x1920@120",
+                                           position = "auto",
+                                           scale = 2,
+                                           transform = 1
+                                       }) end''))
 
                   # Groups
                   (bind (modKey "G") toggleGroup)
