@@ -1,5 +1,9 @@
 {
-  flake.modules.nixos.virtualization = {
+  flake.modules.nixos.virtualization = { config, ... }: {
+    users.users.${config.user.defaultUser}.extraGroups = [
+      "libvirtd"
+      "KVM"
+    ];
     virtualisation.libvirtd = {
       enable = true;
     };

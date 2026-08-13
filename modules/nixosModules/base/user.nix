@@ -13,15 +13,9 @@
           extraGroups = [
             "networkmanager"
             "wheel"
-            "libvirtd"
-            "KVM"
-            "docker"
             "input"
-            "wireshark"
-            "usbusers"
-            "uinput"
-            "video"
-            "dialout"
+            # "uinput"
+            # "video"
           ];
         };
 

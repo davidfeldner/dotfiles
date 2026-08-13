@@ -36,15 +36,11 @@
         audio
         fslexyacc
         sops
+        arduino
+        rocm
       ]);
 
       networking.hostName = "laptop";
-
-      nixpkgs.config.rocmSupport = true;
-      hardware.graphics.extraPackages = with pkgs.rocmPackages; [
-        clr
-        clr.icd
-      ];
 
       home-manager.users."${config.my.user}".imports = [ self.modules.homeManager.laptopHome ];
     };

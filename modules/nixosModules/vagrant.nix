@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.wifi =
+  flake.modules.nixos.vagrant =
     { pkgs, config, ... }:
     {
       virtualisation.virtualbox.host.enable = true;
