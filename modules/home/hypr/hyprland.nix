@@ -59,10 +59,7 @@
           grimblast
           wl-clipboard
           brightnessctl
-          moreutils
-          libqalculate
           libnotify
-          wofi
           adwaita-icon-theme
         ];
         programs.kitty = {

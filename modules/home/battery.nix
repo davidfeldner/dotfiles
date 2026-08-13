@@ -7,9 +7,7 @@
       ...
     }:
     {
-      options.battery.enable = lib.mkEnableOption "Enable battery script";
-
-      config = lib.mkIf config.battery.enable {
+      config = {
         home.file.".config/hypr/battery.sh" = {
           enable = true;
           text = builtins.readFile ./battery.sh;

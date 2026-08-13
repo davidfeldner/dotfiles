@@ -13,6 +13,7 @@
         home.packages = with pkgs; [
           sqlite
           fd
+          libqalculate
           imagemagick
         ];
         programs.elephant = {
