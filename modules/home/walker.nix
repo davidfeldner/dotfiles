@@ -13,6 +13,7 @@
         home.packages = with pkgs; [
           sqlite
           fd
+          imagemagick
         ];
         programs.elephant = {
           provider = {
@@ -20,6 +21,9 @@
               search_dirs = [
                 "/home/${osConfig.my.user}/Downloads"
               ];
+            };
+            clipboard.settings = {
+              text_editor_cmd = "kitty -- vim %FILE%";
             };
             websearch.settings = {
               entries = [
@@ -44,24 +48,22 @@
             };
 
           };
-          # settings = {
-          #   providers = {
-          #     default = [
-          #       "desktopapplications"
-          #       "calc"
-          #       "websearch"
-          #     ];
-          #   };
-          # };
         };
 
         programs.walker = {
           enable = true;
+          runAsService = true;
+          config = {
+            providers.prefixes = [
+              {
+                prefix = "+";
+                provider = "bluetooth";
+              }
+            ];
+
+          };
         };
 
-        my.autostart = [
-          "walker --gapplication-service"
-        ];
       };
     };
 }

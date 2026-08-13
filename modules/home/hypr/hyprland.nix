@@ -74,16 +74,6 @@
             auto_reload_config = -1;
           };
         };
-        services.cliphist = {
-          enable = true;
-          allowImages = true;
-          extraOptions = [
-            "-max-dedupe-search"
-            "10"
-            "-max-items"
-            "30"
-          ];
-        };
 
         gtk = {
           enable = true;
@@ -396,14 +386,13 @@
                   ''))
 
                   (bindExec (modKey "R") "walker")
+                  (bindExec (modKey "SPACE") "walker")
                   (bindExec (modKey "period") "walker -m symbols")
                   (bind (modKey "S") togglePseudo)
                   (bindExec (modKey "L") "hyprlock")
 
                   # Clipboard
-                  (bindExec (modKey "H") "cliphist list | wofi -d | cliphist decode | ifne wl-copy")
-                  (bindExec (modKey "SHIFT + H") "cliphist list | wofi -d | cliphist delete")
-                  (bindExec (modKey "SHIFT + CTRL + H") "cliphist wipe")
+                  (bindExec (modKey "H") "walker -m clipboard")
                   (bindExec (modKey "SHIFT + Z") "systemctl suspend")
 
                   # Focus
