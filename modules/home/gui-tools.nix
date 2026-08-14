@@ -9,12 +9,12 @@
         vesktop
         proton-vpn
         pavucontrol
-        scrcpy
+        # scrcpy
         ungoogled-chromium
         mpv
         prusa-slicer
-        rquickshare
-        eclipses.eclipse-modeling
+        # rquickshare
+        # eclipses.eclipse-modeling
       ];
     };
 }

@@ -34,7 +34,6 @@
         tailscale
         hyprland
         audio
-        fslexyacc
         sops
         arduino
         rocm

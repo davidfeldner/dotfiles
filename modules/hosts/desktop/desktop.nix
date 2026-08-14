@@ -33,7 +33,6 @@
         fonts
         hyprland
         audio
-        fslexyacc
         graphics
         nfs-desktop
         waydroid

@@ -4,7 +4,26 @@
     { pkgs, ... }:
     {
       imports = with self.modules.homeManager; [
-        general
+        hyprland
+        ssh
+        tmux
+        zoxide
+        dotnet
+        dev-basic
+        vscode
+        dev-cli
+        gui-tools
+        nvim
+        fish
+        git
+        firefox
+        freetube
+        zsh
+        yazi
+        labwc
+        opencode
+        codex
+        safeeyes
         mangohud
       ];
       hyprland = {
@@ -67,5 +86,7 @@
       ];
       zsh.dualboot = true;
       fish.dualboot = true;
+
+      home.stateVersion = "24.05";
     };
 }
