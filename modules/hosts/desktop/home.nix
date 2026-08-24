@@ -25,6 +25,7 @@
         codex
         safeeyes
         mangohud
+        distrobox
       ];
       hyprland = {
         extraMonitorSettings =

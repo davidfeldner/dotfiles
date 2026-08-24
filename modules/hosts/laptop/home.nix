@@ -23,6 +23,7 @@
       codex
       safeeyes
       battery
+      distrobox
     ];
     hyprland.extraMonitorSettings = [
       {
