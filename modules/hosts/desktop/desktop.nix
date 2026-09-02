@@ -36,6 +36,8 @@
         graphics
         nfs-desktop
         waydroid
+        arduino
+        rocm
       ]);
 
       my.user = "david";
