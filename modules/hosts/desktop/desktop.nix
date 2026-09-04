@@ -54,6 +54,13 @@
                 chainloader /efi/Microsoft/Boot/bootmgfw.efi
         }
       '';
+
+      fileSystems."/mnt/ssd" = {
+        device = "/dev/disk/by-uuid/89172eaf-f1f0-471f-aef4-bece6c9a1b26";
+        fsType = "ext4";
+        options = [ "nofail" ];
+      };
+
       environment.variables = {
         # MESA_VK_DEVICE_SELECT = "10de:1b80";
         GSK_RENDERER = "ngl";
