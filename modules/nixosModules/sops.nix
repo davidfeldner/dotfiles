@@ -1,5 +1,6 @@
 {
-  flake.modules.nixos.sops = { config, ... }: {
+  flake.modules.nixos.sops = { config, pkgs, ... }: {
+    environment.systemPackages = [ pkgs.sops ];
     sops = {
       defaultSopsFile = ../../secrets/shared.yaml;
 
