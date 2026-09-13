@@ -38,6 +38,7 @@
         waydroid
         arduino
         rocm
+        sops
       ]);
 
       my.user = "david";

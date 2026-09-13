@@ -1,8 +1,10 @@
 keys:
   - &laptop age1nhz3tftfacanqcthzungjzvjgfu0xq64uv0yjlgy2wfckrjvlupq2txghr
+  - &desktop age16tfte4sqn6d9jsu0m3tqlkt5xkmttegp33e65zdptq4vpv6hwuwq3qrj5p
 
 creation_rules:
   - path_regex: secrets/shared.yaml$
     key_groups:
       - age:
           - *laptop
+          - *desktop
