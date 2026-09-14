@@ -39,6 +39,7 @@
         arduino
         rocm
         sops
+        openssh
       ]);
 
       my.user = "david";

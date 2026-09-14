@@ -31,6 +31,11 @@
           user = "david";
           port = 5522;
         };
+        "desktop" = {
+          hostname = "192.168.1.176";
+          user = "david";
+          port = 5522;
+        };
         "iot" = {
           hostname = "100.78.83.123";
           user = "pi";
