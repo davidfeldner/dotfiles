@@ -63,6 +63,11 @@
         options = [ "nofail" ];
       };
 
+      networking = {
+        interfaces."enp12s0".wakeOnLan.enable = true;
+        firewall.allowedUDPPorts = [ 9 ];
+      };
+
       #environment.variables = {
       # MESA_VK_DEVICE_SELECT = "10de:1b80";
       #  GSK_RENDERER = "ngl";
