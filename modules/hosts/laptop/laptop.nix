@@ -37,6 +37,7 @@
         sops
         arduino
         rocm
+        fslexyacc
       ]);
 
       networking.hostName = "laptop";

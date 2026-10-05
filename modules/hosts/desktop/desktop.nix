@@ -40,6 +40,7 @@
         rocm
         sops
         openssh
+        fslexyacc
       ]);
 
       my.user = "david";
