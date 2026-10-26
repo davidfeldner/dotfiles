@@ -49,6 +49,8 @@
               erlang-language-platform.erlang-language-platform
               platformio.platformio-ide
               ms-vscode.cpptools
+              vscjava.vscode-java-debug
+              vscjava.vscode-java-test
             ])
             ++ (with pkgs.vscode-marketplace; [
               llvm-vs-code-extensions.vscode-clangd
