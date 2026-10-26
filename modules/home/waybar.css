@@ -1,9 +1,8 @@
-
 * {
-    border: none;
-    border-radius: 0;
-    font-weight: bold;
-    font-size: 14px;
+  border: none;
+  border-radius: 0;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 #clock,
@@ -16,63 +15,58 @@
 #backlight,
 #pulseaudio,
 #battery {
-    margin: 0 5px;
+  margin: 0 5px;
 }
 
 tooltip {
-    border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
 }
 
 #workspaces button {
-    font-size: 20px;
-    opacity: 0.4;
-    padding: 8px; 
-    padding-right: 8px;
-    margin-right: 5px;
-
+  font-size: 20px;
+  opacity: 0.4;
+  padding: 8px;
+  padding-right: 8px;
+  margin-right: 5px;
 }
 
 #workspaces button.active {
-     opacity: 0.8;
+  opacity: 0.8;
 }
 
 #workspaces button:hover {
-   text-shadow: inherit;
-   box-shadow: inherit;
-   opacity: 1;
+  text-shadow: inherit;
+  box-shadow: inherit;
+  opacity: 1;
 }
 
-
 #idle_inhibitor {
-    margin-left: 2px;
-    margin-right: 10px;
+  margin-left: 2px;
+  margin-right: 10px;
 }
 
 #clock {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 #battery {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
-
-
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+  to {
+    color: #ffffff;
+    color: #000000;
+  }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: #b52f2f;
+  animation-name: blink;
+  animation-duration: 1.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
