@@ -66,6 +66,7 @@
           enable = true;
           settings = {
             auto_reload_config = -1;
+            font_family = "Maple Mono NF";
           };
         };
 
