@@ -21,8 +21,6 @@
         zsh
         yazi
         labwc
-        opencode
-        codex
         safeeyes
         mangohud
         distrobox

@@ -19,8 +19,6 @@
       zsh
       yazi
       labwc
-      opencode
-      codex
       safeeyes
       battery
       distrobox
