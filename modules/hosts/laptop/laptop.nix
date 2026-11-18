@@ -16,6 +16,7 @@
     {
       imports = [
         ./_hardware-configuration.nix
+        ./_lenovo-battery-saver.nix
       ]
       ++ (with self.modules.nixos; [
         base
