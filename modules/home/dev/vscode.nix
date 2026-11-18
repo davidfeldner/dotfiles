@@ -42,7 +42,7 @@
               ionide.ionide-fsharp
               ms-python.python
               ms-python.debugpy
-              ms-python.vscode-pylance
+              detachhead.basedpyright
               # ms-python.pylint
               svelte.svelte-vscode
               esbenp.prettier-vscode
