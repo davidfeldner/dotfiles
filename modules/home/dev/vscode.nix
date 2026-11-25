@@ -74,6 +74,8 @@
               lintangwisesa.arduino
               langium.langium-vscode
               vitest.explorer
+              myriad-dreamin.tinymist
+              wayou.vscode-todo-highlight
             ])
             ++ [ myJupyter ];
         };
